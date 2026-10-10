@@ -35,7 +35,7 @@
                             <defs>
                                 <path id="textCircle" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
                             </defs>
-                            <text font-size="9" font-family="'Manrope', sans-serif" font-weight="800" letter-spacing="2.5" fill="#0B1F1A">
+                            <text font-size="9" font-family="'Manrope', sans-serif" font-weight="800" letter-spacing="2.5" fill="#071922">
                                 <textPath href="#textCircle">
                                     CLARITY &bull; TRUST &bull; GROWTH &bull;
                                 </textPath>
