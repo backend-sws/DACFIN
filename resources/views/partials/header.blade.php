@@ -55,42 +55,50 @@
                         >
                             <button 
                                 type="button" 
-                                class="px-3.5 py-2 text-xs xl:text-sm font-medium tracking-wide text-cream/90 hover:text-saffron transition-colors rounded-full flex items-center gap-1 focus:outline-none"
-                                :class="{ 'text-saffron bg-white/5': openDropdown === '{{ $item['label'] }}' }"
+                                class="px-3.5 py-2 text-xs xl:text-sm font-medium tracking-wide text-cream/90 hover:text-saffron transition-all duration-200 rounded-full flex items-center gap-1.5 focus:outline-none"
+                                :class="{ 'text-saffron bg-white/10 ring-1 ring-emerald/30 shadow-sm': openDropdown === '{{ $item['label'] }}' }"
                                 @click="openDropdown = openDropdown === '{{ $item['label'] }}' ? null : '{{ $item['label'] }}'"
                                 aria-haspopup="true"
                                 :aria-expanded="openDropdown === '{{ $item['label'] }}'"
                             >
                                 <span>{{ $item['label'] }}</span>
-                                <svg class="w-3.5 h-3.5 transition-transform duration-200" :class="{ 'rotate-180': openDropdown === '{{ $item['label'] }}' }" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                <svg class="w-3.5 h-3.5 transition-transform duration-300 ease-out" :class="{ 'rotate-180 text-saffron': openDropdown === '{{ $item['label'] }}' }" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 9l-7 7-7-7"/>
                                 </svg>
                             </button>
 
                             @if($item['label'] === 'Services')
                                 @include('partials.mega-menu', ['item' => $item])
+                            @elseif($item['label'] === 'Company')
+                                @include('partials.dropdown-company', ['item' => $item])
+                            @elseif($item['label'] === 'Who We Serve')
+                                @include('partials.dropdown-audiences', ['item' => $item])
+                            @elseif($item['label'] === 'Our Approach')
+                                @include('partials.dropdown-approach', ['item' => $item])
                             @else
-                                <!-- Standard Dropdown -->
+                                <!-- Generic Fallback Dropdown -->
                                 <div 
                                     x-show="openDropdown === '{{ $item['label'] }}'"
-                                    x-transition:enter="transition ease-out duration-200"
-                                    x-transition:enter-start="opacity-0 translate-y-2 scale-95"
+                                    x-transition:enter="transition-all duration-300 ease-out"
+                                    x-transition:enter-start="opacity-0 -translate-y-2 scale-95"
                                     x-transition:enter-end="opacity-100 translate-y-0 scale-100"
-                                    x-transition:leave="transition ease-in duration-150"
+                                    x-transition:leave="transition-all duration-150 ease-in"
                                     x-transition:leave-start="opacity-100 translate-y-0 scale-100"
-                                    x-transition:leave-end="opacity-0 translate-y-2 scale-95"
+                                    x-transition:leave-end="opacity-0 -translate-y-2 scale-95"
                                     @click.away="openDropdown = null"
-                                    class="absolute top-full left-0 mt-3 w-64 bg-ink/95 backdrop-blur-xl border border-emerald/30 rounded-2xl p-2 shadow-2xl text-cream z-50 space-y-1"
+                                    class="absolute top-full left-0 pt-3 w-64 z-50"
                                     style="display: none;"
                                 >
-                                    @foreach($item['children'] as $child)
-                                        <a 
-                                            href="{{ $child['url'] }}" 
-                                            class="block px-3.5 py-2 rounded-xl text-xs sm:text-sm text-sand/80 hover:text-saffron hover:bg-forest/60 transition-all font-medium"
-                                        >
-                                            {{ $child['label'] }}
-                                        </a>
-                                    @endforeach
+                                    <div class="bg-ink/95 backdrop-blur-2xl border border-emerald/30 rounded-2xl p-2.5 shadow-2xl text-cream space-y-1">
+                                        @foreach($item['children'] as $child)
+                                            <a 
+                                                href="{{ $child['url'] }}" 
+                                                class="block px-3.5 py-2 rounded-xl text-xs sm:text-sm text-sand/80 hover:text-saffron hover:bg-forest/60 transition-all font-medium"
+                                            >
+                                                {{ $child['label'] }}
+                                            </a>
+                                        @endforeach
+                                    </div>
                                 </div>
                             @endif
                         </div>

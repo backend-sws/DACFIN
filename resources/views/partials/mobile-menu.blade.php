@@ -38,14 +38,22 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                         </svg>
                     </button>
-                    <div x-show="open" x-collapse class="pl-4 pt-2 space-y-2.5">
+                    <div x-show="open" x-collapse class="pl-2 pt-2 space-y-2">
                         @foreach($item['children'] as $child)
                             <a 
                                 href="{{ $child['url'] }}" 
                                 @click="mobileMenuOpen = false"
-                                class="block text-sm sm:text-base text-sand/80 hover:text-saffron transition-colors py-1"
+                                class="flex items-center gap-3 p-2 rounded-xl text-sm text-sand/85 hover:text-saffron hover:bg-forest/50 transition-colors"
                             >
-                                {{ $child['label'] }}
+                                <div class="w-7 h-7 rounded-lg bg-forest/80 border border-emerald/25 flex items-center justify-center shrink-0 text-mint">
+                                    <x-ui.icon :name="$child['icon'] ?? 'sparkles'" class="w-3.5 h-3.5" />
+                                </div>
+                                <div class="min-w-0">
+                                    <div class="font-medium text-cream">{{ $child['label'] }}</div>
+                                    @if(!empty($child['desc']))
+                                        <div class="text-[11px] text-sand/60 truncate">{{ $child['desc'] }}</div>
+                                    @endif
+                                </div>
                             </a>
                         @endforeach
                     </div>
