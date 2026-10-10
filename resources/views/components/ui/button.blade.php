@@ -9,8 +9,8 @@
     $baseClass = "group inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 focus:outline-none";
 
     $variants = [
-        'primary' => 'bg-saffron text-ink hover:bg-[#e59b2d] shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]',
-        'ghost' => 'border border-sand text-ink hover:border-emerald hover:text-emerald bg-transparent hover:bg-white/40',
+        'primary' => 'bg-saffron text-ink hover:bg-saffron/90 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]',
+        'ghost' => 'border border-sand text-ink hover:border-emerald hover:text-emerald bg-transparent hover:bg-sand/20',
         'dark' => 'bg-ink text-cream hover:bg-forest border border-emerald/30 hover:border-emerald hover:scale-[1.02]',
         'glass' => 'bg-white/10 backdrop-blur-md text-cream hover:bg-white/20 border border-white/15',
     ];

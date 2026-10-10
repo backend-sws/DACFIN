@@ -6,7 +6,7 @@
 - **Blade Templating:** Clean component architecture where every string originates from `config('fincun.*')`, keeping Blade purely presentational.
 
 ### 2. Design System & Aesthetics
-- **Theme:** Dark green editorial advisory aesthetic (`#0B1F1A` ink, `#123D33` forest, `#1F8A70` emerald, `#F2A93B` saffron, `#F7F3EA` cream, `#E8E0CF` sand).
+- **Theme:** Ice Blue / Cyan / Pure White luxury wealth aesthetic (`#FFFFFF` pure white, `#E0FFFF` light cyan, `#AFEEEE` pale turquoise, `#B0E0E6` powder blue, `#ADD8E6` light blue, paired with `#071922` midnight ocean ink, `#0D2834` deep marine forest, `#0A7F96` ocean turquoise, `#00B4D8` vibrant cerulean cyan).
 - **Typography:** Fraunces for display headings and serif numbers; Manrope for body text and navigation.
 - **Header:** Sticky floating glass pill with blur (`backdrop-blur-xl`), shrinking on scroll, full mega menu for services, and a dedicated mobile slide-over drawer with accordion dropdowns.
 - **Components:** Bento grids with 3D tilt effects, magnetic buttons, count-up numeric stats, infinite marquee ticker, and smooth page curtain transition.

@@ -83,7 +83,7 @@
         <a 
             href="{{ config('fincun.navigation.header_cta.url') }}" 
             @click="mobileMenuOpen = false"
-            class="block w-full text-center py-3.5 px-6 rounded-full bg-saffron text-ink font-semibold text-sm hover:bg-[#e59b2d] transition-colors"
+            class="block w-full text-center py-3.5 px-6 rounded-full bg-saffron text-ink font-semibold text-sm hover:bg-saffron/90 transition-colors"
         >
             {{ config('fincun.navigation.header_cta.label') }} &rarr;
         </a>
