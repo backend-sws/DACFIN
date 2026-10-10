@@ -4,36 +4,27 @@
 @section('title', 'Financial Planning, Wealth Management & Investment Advice')
 
 @section('content')
-    <!-- 1. Hero -->
+    <!-- 1. Hero Asymmetric Split Banner (Wireframe Section 1) -->
     @include('sections.hero')
 
-    <!-- 2. Stats Strip -->
-    @include('sections.stats')
+    <!-- 2. Three-Pillar Trust Strip (Wireframe Section 2) -->
+    @include('sections.trust-bar')
 
-    <!-- 3. About Us -->
-    @include('sections.about')
+    <!-- 3. Offerings Catalog with Filter Tabs (Wireframe Section 3) -->
+    @include('sections.offerings-catalog')
 
-    <!-- 4. Services Tabs -->
-    @include('sections.services-tabs')
+    <!-- 4. User Guide for First Timer (4-Step Methodology) (Wireframe Section 4) -->
+    @include('sections.guide-steps')
 
-    <!-- 5. Core Strengths Bento -->
-    @include('sections.strengths')
+    <!-- 5. Satisfied Clients Speak (Testimonials & Layered Cards) (Wireframe Section 5) -->
+    @include('sections.testimonials')
 
-    <!-- 6. Who We Serve (Horizontal Track) -->
-    @include('sections.audiences')
+    <!-- 6. Impact Stats & Regional Transformation Story (Wireframe Section 6) -->
+    @include('sections.impact-spotlight')
 
-    <!-- 7. Infinite Marquee -->
-    @include('sections.marquee')
-
-    <!-- 8. Why Fincun -->
-    @include('sections.why')
-
-    <!-- 9. Team -->
-    @include('sections.team')
-
-    <!-- 10. Wealth Journal -->
+    <!-- 7. Blog Section / Wealth Journal (Wireframe Section 7) -->
     @include('sections.journal')
 
-    <!-- 11. Our Promise -->
-    @include('sections.promise')
+    <!-- 8. Services (3 Feature Cards: 01 Dark, 02 Light, 03 Light) (Wireframe Section 8) -->
+    @include('sections.bottom-services')
 @endsection

@@ -1,68 +1,111 @@
 @php
-    $journalMeta = config('fincun.home.journal');
-    $allIssues = config('fincun.journal.issues');
+    $journalMeta = config('fincun.home.journal') ?? [
+        'eyebrow' => 'Wealth Journal',
+        'title' => 'Blog Section',
+        'all_link' => ['View all issues →', '/wealth-journal'],
+        'show' => 4,
+    ];
+    $allIssues = config('fincun.journal.issues') ?? [];
     $issues = array_slice($allIssues, 0, $journalMeta['show'] ?? 4, true);
 @endphp
 
-<section class="section-y bg-ink text-cream relative overflow-hidden">
-    <!-- Glow -->
-    <div class="absolute bottom-0 left-1/3 w-96 h-96 rounded-full bg-forest/50 blur-[130px] pointer-events-none"></div>
-
-    <div class="container-x relative z-10 space-y-12 sm:space-y-16">
+<section class="section-y bg-cream overflow-hidden">
+    <div class="container-x space-y-8 sm:space-y-12">
         
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <x-ui.section-title 
-                :eyebrow="$journalMeta['eyebrow']" 
-                :title="$journalMeta['title']" 
-                :light="true" 
-            />
-
+        <!-- Header with Title on Left and Carousel Controls on Right -->
+        <div class="flex items-center justify-between pb-2 border-b border-sand/40">
             <div>
-                <x-ui.button :href="$journalMeta['all_link'][1]" variant="ghost" class="text-mint border-emerald/30 hover:bg-forest text-xs">
-                    {{ $journalMeta['all_link'][0] }}
-                </x-ui.button>
+                <span class="text-xs uppercase font-bold tracking-widest text-emerald">FINCUN Insights</span>
+                <h2 class="h-display text-2xl sm:text-3xl lg:text-4xl font-bold text-ink">
+                    Blog Section
+                </h2>
+            </div>
+
+            <!-- Controls on Right from Wireframe -->
+            <div class="flex items-center gap-2">
+                <a 
+                    href="/wealth-journal"
+                    class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-sand hover:border-emerald text-xs font-semibold text-slate hover:text-ink transition-colors mr-2"
+                >
+                    <span>See All</span>
+                    <span>&rarr;</span>
+                </a>
+
+                <div class="hidden sm:flex items-center gap-1.5">
+                    <button 
+                        type="button" 
+                        class="w-9 h-9 rounded-full border border-sand hover:border-emerald flex items-center justify-center text-ink hover:text-emerald transition-colors"
+                        aria-label="Previous"
+                    >
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M15 19l-7-7 7-7"/>
+                        </svg>
+                    </button>
+                    <button 
+                        type="button" 
+                        class="w-9 h-9 rounded-full border border-sand hover:border-emerald flex items-center justify-center text-ink hover:text-emerald transition-colors"
+                        aria-label="Next"
+                    >
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
 
-        <!-- Issue Cards Grid -->
+        <!-- 4 Cards Grid from Wireframe -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" data-stagger>
             @foreach($issues as $slug => $issue)
                 <a 
                     href="{{ route('journal.show', $slug) }}" 
-                    class="group rounded-[2rem] p-6 bg-forest/50 border border-emerald/25 hover:border-saffron hover:bg-forest/80 transition-all duration-300 flex flex-col justify-between space-y-8"
+                    class="group rounded-3xl p-4 sm:p-5 bg-white border border-sand/60 hover:border-emerald/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-4"
                     data-tilt
                 >
-                    <!-- Header -->
-                    <div class="flex items-center justify-between">
-                        <span class="font-mono text-xs font-bold text-saffron px-3 py-1 rounded-full bg-ink/70 border border-emerald/20">
-                            Issue {{ $issue['no'] }}
-                        </span>
-                        <span class="text-xs text-sand/60 font-medium">
-                            {{ $issue['date'] }}
-                        </span>
-                    </div>
-
-                    <!-- Magazine Cover Mockup Artwork -->
-                    <div class="aspect-[3/4] rounded-2xl bg-ink/60 border border-emerald/20 p-5 flex flex-col justify-between relative overflow-hidden group-hover:border-saffron/40 transition-colors">
-                        <div class="space-y-1">
-                            <span class="text-[9px] uppercase tracking-widest text-mint font-bold block">FINCUN JOURNAL</span>
-                            <h4 class="font-display font-bold text-base text-cream line-clamp-3 leading-snug group-hover:text-saffron transition-colors">
-                                {{ $issue['title'] ?? 'Strategic Financial Insights' }}
-                            </h4>
+                    <!-- Visual Thumbnail Container -->
+                    <div class="aspect-[4/3] rounded-2xl bg-forest/10 border border-sand/40 p-4 flex flex-col justify-between relative overflow-hidden group-hover:bg-forest/15 transition-colors">
+                        <div class="flex items-center justify-between text-[10px] font-mono">
+                            <span class="px-2 py-0.5 rounded-full bg-ink text-mint font-bold">
+                                Issue {{ $issue['no'] }}
+                            </span>
+                            <span class="text-slate font-sans">
+                                {{ $issue['date'] }}
+                            </span>
                         </div>
 
-                        <div class="pt-4 border-t border-emerald/15 flex items-center justify-between text-[11px] text-sand/60">
-                            <span>Read Article</span>
-                            <span class="text-saffron group-hover:translate-x-1 transition-transform">&rarr;</span>
+                        <div class="w-10 h-10 rounded-xl bg-forest/80 text-mint flex items-center justify-center text-xs font-bold font-display self-end">
+                            PDF
                         </div>
                     </div>
 
-                    <div class="text-xs font-semibold text-mint group-hover:text-saffron flex items-center gap-1">
+                    <!-- Title & Excerpt -->
+                    <div class="space-y-1.5 flex-1">
+                        <h3 class="font-display font-bold text-sm sm:text-base text-ink line-clamp-2 group-hover:text-emerald transition-colors leading-snug">
+                            {{ $issue['title'] ?? 'Strategic Financial Insights' }}
+                        </h3>
+                        <p class="text-xs text-slate line-clamp-2 leading-relaxed">
+                            {{ $issue['theme'] ?? 'Essential principles for wealth accumulation and risk stewardship.' }}
+                        </p>
+                    </div>
+
+                    <!-- Bottom Link from Wireframe -->
+                    <div class="pt-2 border-t border-sand/40 flex items-center justify-between text-xs font-semibold text-emerald group-hover:text-ink transition-colors">
                         <span>Read Issue {{ $issue['no'] }}</span>
-                        <span>&rarr;</span>
+                        <span class="text-saffron group-hover:translate-x-1 transition-transform">&rarr;</span>
                     </div>
                 </a>
             @endforeach
+        </div>
+
+        <!-- Mobile See All Button -->
+        <div class="sm:hidden pt-2 text-center">
+            <a 
+                href="/wealth-journal"
+                class="inline-flex items-center justify-center gap-2 w-full py-3 px-6 rounded-full bg-ink text-cream text-xs font-semibold"
+            >
+                <span>View All Journal Issues</span>
+                <span>&rarr;</span>
+            </a>
         </div>
 
     </div>

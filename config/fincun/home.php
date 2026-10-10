@@ -1,6 +1,176 @@
 <?php
 
 return [
+    'hero_wireframe' => [
+        'tag' => 'Welcome to FINCUN',
+        'title' => 'Find Your Dream Wealth Future With Ease.',
+        'text' => 'Discover tailored portfolios, explore structured roadmaps, and connect with trusted AMFI registered advisors in minutes.',
+        'primary_cta' => ['Explore Services', '/services/financial-planing'],
+        'secondary_cta' => ['Learn More', '/about-us'],
+        'badge' => 'AMFI Registered MFD (ARN-149176)',
+    ],
+
+    'trust_bar' => [
+        [
+            'icon' => 'shield',
+            'title' => 'AMFI Registered MFD',
+            'desc' => 'ARN-149176 & ARN-82228 Distributor with fiduciary care.',
+        ],
+        [
+            'icon' => 'target',
+            'title' => 'Zero Product Bias',
+            'desc' => '100% client alignment without institutional sales quotas.',
+        ],
+        [
+            'icon' => 'building',
+            'title' => 'Dual Regional Hubs',
+            'desc' => 'High-touch advisory centers in Exhibition Rd, Patna & Argora Chowk, Ranchi.',
+        ],
+    ],
+
+    'catalog' => [
+        'eyebrow' => 'Offerings Catalog',
+        'title' => 'Explore Tailored Financial Solutions',
+        'tabs' => [
+            'All Services',
+            'Financial Planning',
+            'Investment Advise',
+            'Wealth Management',
+            'Loans & NPS',
+        ],
+        'items' => [
+            [
+                'category' => 'Financial Planning',
+                'title' => 'Goal-Based Financial Planning',
+                'tag' => 'Comprehensive Roadmap',
+                'desc' => 'Retirement, Tax Savings, Children Education and Estate Structuring.',
+                'metric' => 'Customized Roadmap',
+                'metric_label' => 'Starting Assessment',
+                'url' => '/services/financial-planing',
+                'image' => '/images/service-section-1.svg',
+            ],
+            [
+                'category' => 'Investment Advise',
+                'title' => 'Mutual Funds & Systematic SIPs',
+                'tag' => 'Goal-Based SIPs',
+                'desc' => 'Active fund baskets, benchmark comparison, and risk-adjusted growth.',
+                'metric' => 'From ₹500/mo',
+                'metric_label' => 'SIP Allocation',
+                'url' => '/services/investment-advise',
+                'image' => '/images/service-section-2.svg',
+            ],
+            [
+                'category' => 'Wealth Management',
+                'title' => 'Discretionary PMS & AIF Advisory',
+                'tag' => 'HNI Stewardship',
+                'desc' => 'Adaptive portfolio management, direct equity PMS, and alternative funds.',
+                'metric' => '₹500Cr+ AUM',
+                'metric_label' => 'Total Advised Scope',
+                'url' => '/services/wealth-management',
+                'image' => '/images/service-section-3.svg',
+            ],
+            [
+                'category' => 'Loans & NPS',
+                'title' => 'Loan Against Mutual Funds & NPS',
+                'tag' => 'Quick Liquidity',
+                'desc' => 'Instant liquidity without liquidating your compounded equity units.',
+                'metric' => 'Instant Approval',
+                'metric_label' => 'Zero Equity Exit',
+                'url' => '/loan-against-mf',
+                'image' => '/images/service-section-4.svg',
+            ],
+        ],
+    ],
+
+    'guide' => [
+        'eyebrow' => 'How It Works',
+        'title' => 'User guide for first timer',
+        'subtitle' => 'A structured 4-step roadmap engineered to turn complex financial choices into clear, compounding wealth.',
+        'steps' => [
+            [
+                'step' => 'Step 1',
+                'title' => 'Discover: Define Goals & Life Milestones',
+                'desc' => 'We uncover your family milestones, cashflow requirements, and investment horizon without rushing into product pitches.',
+            ],
+            [
+                'step' => 'Step 2',
+                'title' => 'Diagnose: Risk Profiling & Health Check',
+                'desc' => 'A rigorous diagnostic of your existing investments, spotting asset concentration, hidden expense ratios, and volatility risks.',
+            ],
+            [
+                'step' => 'Step 3',
+                'title' => 'Construct: Bespoke Asset Allocation',
+                'desc' => 'We design an unbiased, tax-efficient portfolio across top mutual funds, debt instruments, and pension architectures.',
+            ],
+            [
+                'step' => 'Step 4',
+                'title' => 'Steward: Proactive Reviews & Rebalancing',
+                'desc' => 'Quarterly performance audits, tax harvesting, and timely rebalancing so your wealth keeps pace with market transitions.',
+            ],
+        ],
+    ],
+
+    'testimonials' => [
+        'eyebrow' => 'Verified Experiences',
+        'title' => 'Satisfied Clients Speak',
+        'items' => [
+            [
+                'name' => 'Bikesh Ojha',
+                'role' => 'Business Owner, Patna',
+                'rating' => 5,
+                'text' => 'Experienced leadership with round the clock advisory. Within a few days, I found my family portfolio streamlined and aligned with our 10-year enterprise vision. Truly fiduciary care.',
+                'avatar' => '/images/team/bikesh.svg',
+            ],
+            [
+                'name' => 'Dr. Rajesh Sharma',
+                'role' => 'Chief Consultant, Ranchi',
+                'rating' => 5,
+                'text' => 'FINCUN brought complete institutional clarity to my mutual funds. No jargon, transparent execution, and proactive review meetings every quarter.',
+                'avatar' => '/images/team/avinash.svg',
+            ],
+        ],
+        'cta' => ['See More Stories', '/wealth-journal'],
+    ],
+
+    'spotlight' => [
+        'stats' => [
+            ['val' => '₹500Cr+', 'label' => 'Total AUM advised with disciplined fiduciary oversight.'],
+            ['val' => '15+ Years', 'label' => 'Proven leadership navigating bull and bear market cycles.'],
+            ['val' => '100%', 'label' => 'Unbiased advisory standard with zero product quotas.'],
+        ],
+        'title' => 'Patna & Ranchi: The Transformation of Wealth Advisory.',
+        'text' => 'For decades, tier-2 cities in eastern India were underserved by transactional product pushers. FINCUN was established in 2016 to introduce institutional-grade, goal-based wealth planning right to your doorstep in Patna and Ranchi. Combining high-touch certified planners with smart fintech tools, we make sure your capital works as hard as you do.',
+        'cta' => ['Explore Regional Presence', '/about-us'],
+        'image' => '/images/about-section.svg',
+    ],
+
+    'bottom_services' => [
+        'title' => 'Services',
+        'cards' => [
+            [
+                'step' => '01',
+                'title' => 'Financial Planning',
+                'desc' => 'Holistic roadmaps integrating retirement, tax savings, children education funds, and estate planning.',
+                'dark' => true,
+                'url' => '/services/financial-planing',
+            ],
+            [
+                'step' => '02',
+                'title' => 'Investment Advise',
+                'desc' => 'Goal-based SIPs, mutual fund baskets, and smart rebalancing tailored to your target returns.',
+                'dark' => false,
+                'url' => '/services/investment-advise',
+            ],
+            [
+                'step' => '03',
+                'title' => 'Wealth Management',
+                'desc' => 'Discretionary portfolio management services (PMS), alternative investments, and private wealth stewardship.',
+                'dark' => false,
+                'url' => '/services/wealth-management',
+            ],
+        ],
+    ],
+
     'hero_slides' => [
         [
             'eyebrow' => 'Fincun Private Limited',
