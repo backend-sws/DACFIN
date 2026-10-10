@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 380" fill="none">
+  <defs>
+    <linearGradient id="grad_ap" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#123D33" />
+      <stop offset="60%" stop-color="#0B1F1A" />
+      <stop offset="100%" stop-color="#1F8A70" />
+    </linearGradient>
+  </defs>
+  <rect width="320" height="380" rx="24" fill="url(#grad_ap)"/>
+  <circle cx="160" cy="150" r="70" fill="#1F8A70" fill-opacity="0.25" stroke="#F2A93B" stroke-width="2"/>
+  <text x="160" y="168" font-family="'Fraunces', serif" font-size="52" font-weight="700" fill="#F7F3EA" text-anchor="middle">AP</text>
+  <rect x="30" y="270" width="260" height="70" rx="16" fill="#0B1F1A" fill-opacity="0.8" stroke="#E8E0CF" stroke-opacity="0.2"/>
+  <text x="160" y="300" font-family="'Fraunces', serif" font-size="18" font-weight="600" fill="#F7F3EA" text-anchor="middle">Avinash Pathak</text>
+  <text x="160" y="322" font-family="'Manrope', sans-serif" font-size="12" fill="#F2A93B" text-anchor="middle" letter-spacing="1">VICE PRESIDENT</text>
+</svg>

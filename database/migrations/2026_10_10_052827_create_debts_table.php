@@ -11,16 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('debts', function (Blueprint $table): void {
+        Schema::create('debts', function (Blueprint $table) {
             $table->id();
-            $table->string('person_name');
-            $table->string('phone', 20)->nullable();
-            $table->string('type'); // lent, borrowed
-            $table->decimal('amount', 15, 2);
-            $table->decimal('paid_amount', 15, 2)->default(0.00);
-            $table->date('due_date')->nullable();
-            $table->string('status')->default('pending'); // pending, partial, settled
-            $table->text('notes')->nullable();
             $table->timestamps();
         });
     }

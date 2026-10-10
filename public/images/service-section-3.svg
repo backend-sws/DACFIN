@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 420" fill="none">
+  <rect width="540" height="420" rx="28" fill="#123D33"/>
+  <!-- Rebalancing circles -->
+  <circle cx="270" cy="210" r="110" stroke="#1F8A70" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <circle cx="270" cy="210" r="70" fill="#0B1F1A" stroke="#F2A93B" stroke-width="2"/>
+  <path d="M270 170 A40 40 0 0 1 310 210" stroke="#CFF5E7" stroke-width="4" stroke-linecap="round"/>
+  <path d="M310 210 L305 200 M310 210 L320 205" stroke="#CFF5E7" stroke-width="2" stroke-linecap="round"/>
+  <path d="M270 250 A40 40 0 0 1 230 210" stroke="#F2A93B" stroke-width="4" stroke-linecap="round"/>
+  <path d="M230 210 L235 220 M230 210 L220 215" stroke="#F2A93B" stroke-width="2" stroke-linecap="round"/>
+  <text x="270" y="215" font-family="'Manrope', sans-serif" font-size="12" fill="#F7F3EA" text-anchor="middle" font-weight="700">AUTOPILOT</text>
+  <rect x="70" y="290" width="150" height="60" rx="12" fill="#0B1F1A" stroke="#1F8A70" stroke-width="1"/>
+  <text x="85" y="316" font-family="'Manrope', sans-serif" font-size="10" fill="#CFF5E7">REBALANCING</text>
+  <text x="85" y="336" font-family="'Fraunces', serif" font-size="16" fill="#F7F3EA" font-weight="700">Quarterly</text>
+</svg>

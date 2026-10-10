@@ -11,14 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('budgets', function (Blueprint $table): void {
+        Schema::create('budgets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
-            $table->decimal('amount', 15, 2);
-            $table->string('month_year', 7); // e.g. 2026-10
             $table->timestamps();
-
-            $table->unique(['category_id', 'month_year']);
         });
     }
 

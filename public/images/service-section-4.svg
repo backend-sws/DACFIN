@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 420" fill="none">
+  <rect width="540" height="420" rx="28" fill="#123D33"/>
+  <!-- Multi-asset rings -->
+  <rect x="100" y="90" width="150" height="90" rx="16" fill="#0B1F1A" stroke="#1F8A70" stroke-width="1.5"/>
+  <text x="120" y="125" font-family="'Manrope', sans-serif" font-size="12" fill="#F2A93B" font-weight="700">MUTUAL FUNDS</text>
+  <text x="120" y="152" font-family="'Fraunces', serif" font-size="18" fill="#F7F3EA">SIP &amp; Lumpsum</text>
+  <rect x="290" y="90" width="150" height="90" rx="16" fill="#0B1F1A" stroke="#1F8A70" stroke-width="1.5"/>
+  <text x="310" y="125" font-family="'Manrope', sans-serif" font-size="12" fill="#CFF5E7" font-weight="700">NPS SCHEME</text>
+  <text x="310" y="152" font-family="'Fraunces', serif" font-size="18" fill="#F7F3EA">Retirement Pillar</text>
+  <rect x="100" y="220" width="150" height="90" rx="16" fill="#0B1F1A" stroke="#1F8A70" stroke-width="1.5"/>
+  <text x="120" y="255" font-family="'Manrope', sans-serif" font-size="12" fill="#CFF5E7" font-weight="700">PMS &amp; AIF</text>
+  <text x="120" y="282" font-family="'Fraunces', serif" font-size="18" fill="#F7F3EA">HNIs &amp; Trusts</text>
+  <rect x="290" y="220" width="150" height="90" rx="16" fill="#0B1F1A" stroke="#1F8A70" stroke-width="1.5"/>
+  <text x="310" y="255" font-family="'Manrope', sans-serif" font-size="12" fill="#F2A93B" font-weight="700">LOAN AGAINST MF</text>
+  <text x="310" y="282" font-family="'Fraunces', serif" font-size="18" fill="#F7F3EA">Instant Liquidity</text>
+</svg>

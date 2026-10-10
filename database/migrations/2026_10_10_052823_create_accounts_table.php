@@ -11,17 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('accounts', function (Blueprint $table): void {
+        Schema::create('accounts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('type')->default('bank');
-            $table->string('account_number')->nullable();
-            $table->decimal('initial_balance', 15, 2)->default(0.00);
-            $table->decimal('current_balance', 15, 2)->default(0.00);
-            $table->string('currency', 10)->default('₹');
-            $table->string('color', 20)->default('#2563eb');
-            $table->boolean('is_active')->default(true);
-            $table->text('notes')->nullable();
             $table->timestamps();
         });
     }

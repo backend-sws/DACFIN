@@ -11,13 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table): void {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('type')->default('expense');
-            $table->string('icon', 50)->default('tag');
-            $table->string('color', 20)->default('#10b981');
-            $table->boolean('is_system')->default(false);
             $table->timestamps();
         });
     }

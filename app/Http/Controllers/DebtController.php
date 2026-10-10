@@ -2,95 +2,63 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\DebtStatus;
-use App\Enums\DebtType;
-use App\Http\Requests\RecordDebtPaymentRequest;
-use App\Http\Requests\StoreDebtRequest;
-use App\Models\Debt;
-use Illuminate\Contracts\View\View;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class DebtController extends Controller
 {
     /**
-     * Display a listing of debts and borrowings.
+     * Display a listing of the resource.
      */
-    public function index(Request $request): View
+    public function index()
     {
-        $query = Debt::query()->orderByDesc('created_at');
-
-        if ($request->filled('type')) {
-            $query->where('type', $request->input('type'));
-        }
-
-        if ($request->filled('status')) {
-            $query->where('status', $request->input('status'));
-        }
-
-        $debts = $query->get();
-
-        $totalLent = (float) Debt::where('type', DebtType::Lent->value)->sum('amount');
-        $recoveredLent = (float) Debt::where('type', DebtType::Lent->value)->sum('paid_amount');
-        $remainingLent = max(0.0, $totalLent - $recoveredLent);
-
-        $totalBorrowed = (float) Debt::where('type', DebtType::Borrowed->value)->sum('amount');
-        $repaidBorrowed = (float) Debt::where('type', DebtType::Borrowed->value)->sum('paid_amount');
-        $remainingBorrowed = max(0.0, $totalBorrowed - $repaidBorrowed);
-
-        $debtTypes = DebtType::cases();
-        $debtStatuses = DebtStatus::cases();
-
-        return view('finance.debts.index', compact(
-            'debts',
-            'totalLent',
-            'recoveredLent',
-            'remainingLent',
-            'totalBorrowed',
-            'repaidBorrowed',
-            'remainingBorrowed',
-            'debtTypes',
-            'debtStatuses'
-        ));
+        //
     }
 
     /**
-     * Store a newly created debt record.
+     * Show the form for creating a new resource.
      */
-    public function store(StoreDebtRequest $request): RedirectResponse
+    public function create()
     {
-        Debt::create($request->validated());
-
-        return redirect()->route('debts.index')->with('success', 'Debt record added successfully!');
+        //
     }
 
     /**
-     * Update the specified debt.
+     * Store a newly created resource in storage.
      */
-    public function update(StoreDebtRequest $request, Debt $debt): RedirectResponse
+    public function store(Request $request)
     {
-        $debt->update($request->validated());
-
-        return redirect()->route('debts.index')->with('success', 'Debt record updated successfully!');
+        //
     }
 
     /**
-     * Record a payment against the debt.
+     * Display the specified resource.
      */
-    public function recordPayment(RecordDebtPaymentRequest $request, Debt $debt): RedirectResponse
+    public function show(string $id)
     {
-        $debt->recordPayment((float) $request->validated('amount'));
-
-        return redirect()->route('debts.index')->with('success', 'Payment recorded successfully!');
+        //
     }
 
     /**
-     * Remove the specified debt.
+     * Show the form for editing the specified resource.
      */
-    public function destroy(Debt $debt): RedirectResponse
+    public function edit(string $id)
     {
-        $debt->delete();
+        //
+    }
 
-        return redirect()->route('debts.index')->with('success', 'Debt record deleted.');
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
     }
 }

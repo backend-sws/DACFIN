@@ -2,10 +2,8 @@
 
 namespace App\Http\Requests;
 
-use App\Enums\DebtType;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class StoreDebtRequest extends FormRequest
 {
@@ -14,7 +12,7 @@ class StoreDebtRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -25,12 +23,7 @@ class StoreDebtRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'person_name' => ['required', 'string', 'max:255'],
-            'phone' => ['nullable', 'string', 'max:20'],
-            'type' => ['required', Rule::enum(DebtType::class)],
-            'amount' => ['required', 'numeric', 'min:1'],
-            'due_date' => ['nullable', 'date'],
-            'notes' => ['nullable', 'string', 'max:1000'],
+            //
         ];
     }
 }

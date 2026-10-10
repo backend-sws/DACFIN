@@ -12,7 +12,7 @@ class StoreBudgetRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -23,9 +23,7 @@ class StoreBudgetRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'category_id' => ['required', 'exists:categories,id'],
-            'amount' => ['required', 'numeric', 'min:1'],
-            'month_year' => ['required', 'date_format:Y-m'],
+            //
         ];
     }
 }

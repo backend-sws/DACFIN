@@ -1,58 +1,113 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# FINCUN Website — Laravel & Tailwind CSS
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A modern, high-performance financial advisory website built for **FINCUN Private Limited** (Financial Planning, Wealth Management and Investment Advice).
 
-## About Laravel
+Designed with a dark-green editorial studio aesthetic, bento grids, interactive charts, floating glass header, Lenis smooth scrolling, and GSAP scroll animations.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Quick Start
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 1. Requirements
+- PHP 8.2 or 8.3 with extensions (`pdo_sqlite` or `pdo_mysql`, `gd`, `mbstring`)
+- Composer 2+
+- Node.js 18+ and npm
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
-
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
-
+### 2. Installation
 ```bash
-composer require laravel/boost --dev
+# Clone or navigate to project directory
+cd d:/finance
 
-php artisan boost:install
+# Install PHP dependencies
+composer install
+
+# Install Frontend dependencies
+npm install
+
+# Run database migrations
+php artisan migrate
+
+# Build frontend production bundle
+npm run build
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### 3. Running Locally
+Run the Laravel development server:
+```bash
+php artisan serve
+```
+The site will be available at `http://127.0.0.1:8000`.
 
-## Contributing
+To run Vite with Hot Module Replacement (HMR) for frontend development:
+```bash
+npm run dev
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 4. Running Tests
+Run the comprehensive PHPUnit test suite:
+```bash
+php artisan test
+```
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Content Architecture
 
-## Security Vulnerabilities
+**No content is hardcoded in Blade views.** All text content, numbers, office details, and navigation links live in configuration files under `config/fincun/`:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+| Config File | Contents |
+|---|---|
+| `config/fincun/site.php` | Company name, phones, emails, offices, hours, CIN, ARNs, disclaimer |
+| `config/fincun/navigation.php` | Mega menu, header links, footer columns, external portals |
+| `config/fincun/home.php` | Homepage hero slides, stats, services tabs, strengths, promise |
+| `config/fincun/company.php` | About us story, why fincun, why planning, advisor bios |
+| `config/fincun/services.php` | All 6 services (timeline, pillars, processes, why matters) |
+| `config/fincun/audiences.php` | All 7 client segments (Individual, Businesses, NRIs, etc.) |
+| `config/fincun/approach.php` | 3 advisory approach pillars (Alignment, Customised, Informed) |
+| `config/fincun/journal.php` | Wealth Journal newsletter editions |
 
-## License
+### Adding a New Service, Segment, or Approach
+Because the views use dynamic generic templates (`pages/services/show`, `pages/audiences/show`, `pages/approach/show`):
+1. Simply add a new slug and array to `config/fincun/services.php` (or `audiences.php`, `approach.php`).
+2. Add the slug to `routes/web.php` in the `whereIn` constraint.
+3. The page will immediately render with the full design system.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## Route Overview (31 Routes)
+
+- **Homepage:** `/`
+- **Company:** `/about-us`, `/our-team`, `/why-fincun`, `/why-financial-planning`
+- **Services (6):** `/services/{financial-planing, investment-advise, wealth-management, loan, insurance, training}`
+- **Who We Serve (7):** `/who-we-serve/{individual-families, businesses, nris, professionals, charity-trust, urban-women, special-situations}`
+- **Our Approach (3):** `/our-approach/{alignment, customised-solutions, keep-you-informed}`
+- **Wealth Journal (6):** `/wealth-journal`, `/wealth-journal/{newsletter-issue-1..5}`
+- **Misc:** `/blogs`, `/mobile-apps`, `/loan-against-mf`
+- **Contact:** `/contact-us` (GET + POST)
+- **Sitemap:** `/sitemap.xml`
+- **Robots:** `/robots.txt`
+
+---
+
+## Animation & Frontend System
+
+Driven by declarative `data-*` attributes with full `prefers-reduced-motion` fallbacks:
+- `data-reveal="up|left|right|fade"`: Scroll-triggered element reveals
+- `data-stagger`: Staggered sequential child reveals
+- `data-split="words"`: Character/word split typography animation
+- `data-count="120"`: Numeric count-up animations for statistics
+- `data-tilt`: 3D interactive card perspective tilting on desktop
+- `data-magnetic`: Magnetic button tracking on mouse hover
+- `data-marquee`: Infinite horizontal ticker with scroll-velocity acceleration
+- `data-pin-x`: Pinned horizontal scrolling for desktop
+- `#curtain`: Page load curtain transition
+- `#cursor`: Custom interactive cursor follower for desktop
+
+---
+
+## Code Style & Standards
+
+Run Laravel Pint to format code:
+```bash
+vendor/bin/pint --format agent
+```

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 420" fill="none">
+  <rect width="540" height="420" rx="28" fill="#123D33"/>
+  <!-- Roadmap path -->
+  <path d="M 80 320 C 140 280, 180 340, 260 220 C 320 120, 420 180, 460 100" stroke="#1F8A70" stroke-width="4" stroke-dasharray="8 8"/>
+  <circle cx="80" cy="320" r="14" fill="#0B1F1A" stroke="#F2A93B" stroke-width="3"/>
+  <circle cx="260" cy="220" r="16" fill="#0B1F1A" stroke="#CFF5E7" stroke-width="3"/>
+  <circle cx="460" cy="100" r="18" fill="#F2A93B" stroke="#F7F3EA" stroke-width="3"/>
+  <text x="70" y="360" font-family="'Manrope', sans-serif" font-size="12" fill="#F7F3EA" font-weight="600">Start</text>
+  <text x="240" y="260" font-family="'Manrope', sans-serif" font-size="12" fill="#F7F3EA" font-weight="600">Milestone</text>
+  <text x="440" y="140" font-family="'Manrope', sans-serif" font-size="12" fill="#F2A93B" font-weight="700">Freedom</text>
+</svg>

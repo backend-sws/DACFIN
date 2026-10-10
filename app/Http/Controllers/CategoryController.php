@@ -2,62 +2,63 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\CategoryType;
-use App\Http\Requests\StoreCategoryRequest;
-use App\Models\Category;
-use Illuminate\Contracts\View\View;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
     /**
-     * Display a listing of categories.
+     * Display a listing of the resource.
      */
-    public function index(): View
+    public function index()
     {
-        $categories = Category::withCount('transactions')->orderBy('name')->get();
-        $incomeCategories = $categories->where('type', CategoryType::Income);
-        $expenseCategories = $categories->where('type', CategoryType::Expense);
-        $categoryTypes = CategoryType::cases();
-
-        return view('finance.categories.index', compact('incomeCategories', 'expenseCategories', 'categoryTypes'));
+        //
     }
 
     /**
-     * Store a newly created category.
+     * Show the form for creating a new resource.
      */
-    public function store(StoreCategoryRequest $request): RedirectResponse
+    public function create()
     {
-        Category::create($request->validated());
-
-        return redirect()->route('categories.index')->with('success', 'Category created successfully!');
+        //
     }
 
     /**
-     * Update the specified category.
+     * Store a newly created resource in storage.
      */
-    public function update(StoreCategoryRequest $request, Category $category): RedirectResponse
+    public function store(Request $request)
     {
-        $category->update($request->validated());
-
-        return redirect()->route('categories.index')->with('success', 'Category updated successfully!');
+        //
     }
 
     /**
-     * Remove the specified category.
+     * Display the specified resource.
      */
-    public function destroy(Category $category): RedirectResponse
+    public function show(string $id)
     {
-        if ($category->is_system) {
-            return redirect()->route('categories.index')->with('error', 'Default system categories cannot be deleted.');
-        }
+        //
+    }
 
-        if ($category->transactions()->exists()) {
-            return redirect()->route('categories.index')->with('error', 'Cannot delete category that is attached to transactions.');
-        }
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
 
-        $category->delete();
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
 
-        return redirect()->route('categories.index')->with('success', 'Category deleted successfully.');
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
     }
 }
