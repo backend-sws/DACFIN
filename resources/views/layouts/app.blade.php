@@ -8,7 +8,7 @@
     <div class="grain-overlay" aria-hidden="true"></div>
 
     <!-- Page Transition Curtain -->
-    <div id="curtain" class="fixed inset-0 z-[100] bg-ink pointer-events-none translate-y-full" aria-hidden="true"></div>
+    <div id="curtain" class="fixed inset-0 z-[100] bg-ink pointer-events-none hidden" aria-hidden="true"></div>
 
     <!-- Custom Cursor -->
     <div id="cursor" class="hidden lg:block" aria-hidden="true"></div>

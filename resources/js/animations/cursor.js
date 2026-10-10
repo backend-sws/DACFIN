@@ -10,18 +10,25 @@ export function initCursor() {
         return;
     }
 
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
+    let isVisible = false;
 
     window.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
+        if (!isVisible) {
+            cursor.classList.add('cursor-visible');
+            isVisible = true;
+        }
         gsap.to(cursor, {
-            x: mouseX,
-            y: mouseY,
-            duration: 0.15,
+            x: e.clientX,
+            y: e.clientY,
+            duration: 0.12,
             ease: 'power2.out',
+            overwrite: 'auto',
         });
+    });
+
+    document.addEventListener('mouseleave', () => {
+        cursor.classList.remove('cursor-visible');
+        isVisible = false;
     });
 
     // Hover state on interactive elements
