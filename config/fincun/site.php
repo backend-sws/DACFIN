@@ -6,7 +6,6 @@ return [
     'contact_person' => 'Dharmendra Kumar',
     'directors' => [
         'Dharmendra Kumar',
-        'Asha Kumari',
     ],
     'tagline' => 'Invest Today, Prosper Tomorrow.',
     'meta' => [

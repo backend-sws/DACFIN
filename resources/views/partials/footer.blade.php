@@ -131,7 +131,7 @@
         <div class="pt-6 border-t border-emerald/15 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/70">
             <div class="space-y-1 text-center md:text-left">
                 <p>&copy; {{ date('Y') }} {{ config('fincun.site.name') }}. All rights reserved.</p>
-                <p class="text-white/85">Directors: <span class="text-white font-medium">{{ implode(', ', config('fincun.site.directors')) }}</span></p>
+                <p class="text-white/85">{{ count(config('fincun.site.directors', [])) > 1 ? 'Directors' : 'Director' }}: <span class="text-white font-medium">{{ implode(', ', config('fincun.site.directors', [])) }}</span></p>
                 <div class="flex flex-wrap items-center gap-x-3 gap-y-1 pt-0.5 text-white/75">
                     @foreach(config('fincun.site.amfi') as $reg)
                         <span>{{ $reg }}</span>
