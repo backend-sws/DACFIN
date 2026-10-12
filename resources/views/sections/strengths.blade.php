@@ -11,10 +11,10 @@
         />
 
         <!-- Bento Grid: 1 large intro card + 4 strength tiles -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-stagger>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" data-stagger>
             
             <!-- Large Tile (Intro Text & Mission Summary) -->
-            <div class="lg:col-span-2 rounded-[2.5rem] bg-forest text-cream p-8 sm:p-12 border border-emerald/30 shadow-xl flex flex-col justify-between space-y-8 relative overflow-hidden" data-tilt>
+            <div class="lg:col-span-2 rounded-3xl sm:rounded-[2.5rem] bg-forest text-cream p-6 sm:p-10 lg:p-12 border border-emerald/30 shadow-xl flex flex-col justify-between space-y-6 sm:space-y-8 relative overflow-hidden" data-tilt>
                 <div class="absolute -right-20 -bottom-20 w-72 h-72 rounded-full bg-saffron/10 blur-[80px] pointer-events-none"></div>
 
                 <div class="space-y-4 max-w-xl">
@@ -27,7 +27,7 @@
                     </p>
                 </div>
 
-                <div class="pt-4 flex items-center gap-6 border-t border-emerald/20 text-xs text-sand/60">
+                <div class="pt-4 flex flex-wrap sm:flex-nowrap items-center gap-3.5 sm:gap-6 border-t border-emerald/20 text-xs text-sand/60">
                     <div><span class="text-saffron font-bold text-sm block">100%</span> Client Alignment</div>
                     <div><span class="text-saffron font-bold text-sm block">2 Offices</span> Patna &amp; Ranchi</div>
                     <div><span class="text-saffron font-bold text-sm block">6 Days</span> Dedicated Advisory</div>

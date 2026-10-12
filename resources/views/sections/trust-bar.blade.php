@@ -37,10 +37,10 @@
 
     <div class="container-x relative">
         <!-- 4-Pillar High-Trust Credential Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-6 lg:gap-8">
             @foreach($trustItems as $index => $item)
                 <div 
-                    class="p-5 rounded-2xl bg-cream/60 hover:bg-white border border-sand/50 hover:border-emerald/40 transition-all duration-300 shadow-sm hover:shadow-md flex flex-col justify-between group will-change-transform"
+                    class="p-4 sm:p-5 rounded-2xl bg-cream/60 hover:bg-white border border-sand/50 hover:border-emerald/40 transition-all duration-300 shadow-sm hover:shadow-md flex flex-col justify-between group will-change-transform"
                     @if($index < 2)
                         data-trust-side="left"
                     @else

@@ -17,11 +17,11 @@
         </div>
     </div>
 
-    <!-- Pinned Horizontal Scroll Wrapper for Desktop, Clean Grid for Mobile -->
-    <div class="horizontal-scroll-container overflow-x-auto lg:overflow-visible pb-8 lg:pb-0 px-4 sm:px-8">
-        <div class="horizontal-scroll-track flex lg:inline-flex gap-6 min-w-max lg:min-w-0 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:flex-nowrap">
+    <!-- Pinned Horizontal Scroll Wrapper for Desktop, Snap Swipe for Mobile -->
+    <div class="horizontal-scroll-container overflow-x-auto lg:overflow-visible pb-6 sm:pb-8 lg:pb-0 px-4 sm:px-8 scrollbar-none snap-x snap-mandatory">
+        <div class="horizontal-scroll-track flex lg:inline-flex gap-4 sm:gap-6 min-w-max lg:min-w-0 lg:flex-nowrap">
             @foreach($aud['items'] as $idx => $item)
-                <div class="w-72 sm:w-80 shrink-0 rounded-[2.5rem] bg-forest/60 border border-emerald/25 p-8 flex flex-col justify-between space-y-12 hover:border-saffron/60 hover:bg-forest/90 transition-all duration-300 group" data-tilt>
+                <div class="w-[82vw] max-w-[320px] sm:w-80 shrink-0 snap-center rounded-3xl sm:rounded-[2.5rem] bg-forest/60 border border-emerald/25 p-6 sm:p-8 flex flex-col justify-between space-y-8 sm:space-y-12 hover:border-saffron/60 hover:bg-forest/90 transition-all duration-300 group" data-tilt>
                     
                     <div class="flex items-center justify-between">
                         <span class="font-mono text-xs font-bold text-saffron px-3 py-1 rounded-full bg-ink/60 border border-emerald/20">

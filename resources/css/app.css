@@ -224,3 +224,13 @@ html.lenis, html.lenis body {
 .animate-pulse-subtle {
   animation: pulse-subtle 4s ease-in-out infinite;
 }
+
+/* Mobile Smooth Scrolling & Scrollbar Utilities */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}

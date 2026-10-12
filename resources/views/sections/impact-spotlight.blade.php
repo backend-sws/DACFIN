@@ -32,7 +32,7 @@
             <!-- Left Column: 3 Big Stacked Stats -->
             <div class="lg:col-span-4 flex flex-col justify-between space-y-4 sm:space-y-6" data-reveal="right">
                 @foreach($stats as $st)
-                    <div class="p-6 rounded-3xl bg-white border border-sand/60 shadow-sm hover:shadow-md transition-all space-y-2 group">
+                    <div class="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-sand/60 shadow-sm hover:shadow-md transition-all space-y-2 group">
                         <div class="flex items-center justify-between">
                             <span class="font-display font-bold text-3xl sm:text-4xl text-ink group-hover:text-emerald transition-colors">
                                 {{ $st['val'] }}
@@ -47,7 +47,7 @@
             </div>
 
             <!-- Center Column: Patna Headquarters Glass Card -->
-            <div class="lg:col-span-4 rounded-3xl bg-gradient-to-br from-forest via-ink to-forest text-cream border border-emerald/30 p-6 sm:p-7 flex flex-col justify-between shadow-xl relative overflow-hidden" data-reveal="up">
+            <div class="lg:col-span-4 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-forest via-ink to-forest text-cream border border-emerald/30 p-5 sm:p-7 flex flex-col justify-between shadow-xl relative overflow-hidden" data-reveal="up">
                 <div class="absolute -right-16 -top-16 w-56 h-56 bg-saffron/15 rounded-full blur-3xl pointer-events-none"></div>
 
                 <div class="space-y-2 relative z-10">
@@ -77,13 +77,13 @@
 
                     <div class="p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-emerald/40 transition-colors">
                         <div class="flex items-center justify-between text-xs font-bold text-mint pb-1">
-                            <span>DIRECTORS</span>
+                            <span>DIRECTOR</span>
                             <span class="text-[10px] font-mono text-sand/80">EXECUTIVE DESK</span>
                         </div>
-                        <p class="text-xs text-white/95 leading-relaxed">
-                            Dharmendra Kumar &amp; Asha Kumari
+                        <p class="text-xs text-white/95 leading-relaxed font-semibold">
+                            Dharmendra Kumar
                         </p>
-                        <span class="text-[11px] text-white/80 font-mono mt-1 block">Contact Person: Dharmendra Kumar</span>
+                        <span class="text-[11px] text-white/80 font-mono mt-1 block">Founder &amp; Principal Advisor</span>
                     </div>
                 </div>
 
@@ -94,7 +94,7 @@
             </div>
 
             <!-- Right Column: Editorial Transformation Story -->
-            <div class="lg:col-span-4 rounded-3xl bg-white border border-sand/60 p-6 sm:p-8 flex flex-col justify-between shadow-sm space-y-6" data-reveal="left">
+            <div class="lg:col-span-4 rounded-2xl sm:rounded-3xl bg-white border border-sand/60 p-5 sm:p-8 flex flex-col justify-between shadow-sm space-y-5 sm:space-y-6" data-reveal="left">
                 <div class="space-y-4">
                     <span class="text-xs uppercase font-bold tracking-widest text-emerald">Regional Leadership</span>
                     <h3 class="h-display font-bold text-xl sm:text-2xl text-ink leading-snug">

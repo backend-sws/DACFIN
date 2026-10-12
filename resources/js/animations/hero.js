@@ -19,13 +19,18 @@ export function initHero() {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
   const desktop = matchMedia('(min-width: 1024px)').matches;
+  const isMobile = matchMedia('(max-width: 640px)').matches;
 
   root.classList.add('is-ready');
   if (reduce) return;                       // final state stays visible, no motion
 
-  /* 3D tilt of the main card (same values as the CSS fallback) */
-  const base = { rotateY: desktop ? -10 : -4, rotateX: desktop ? 4 : 2, rotateZ: desktop ? -1 : 0 };
-  gsap.set(card, { ...base, transformPerspective: 1400 });
+  /* 3D tilt of the main card (disabled on mobile to prevent overflow) */
+  const base = { rotateY: desktop ? -10 : (isMobile ? 0 : -4), rotateX: desktop ? 4 : (isMobile ? 0 : 2), rotateZ: desktop ? -1 : 0 };
+  if (!isMobile) {
+    gsap.set(card, { ...base, transformPerspective: 1400 });
+  } else {
+    gsap.set(card, { rotateY: 0, rotateX: 0, rotateZ: 0 });
+  }
 
   /* count-up */
   const target = Number(value.dataset.count);

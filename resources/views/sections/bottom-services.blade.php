@@ -65,12 +65,12 @@
         </div>
 
         <!-- 3 Cards (Card 1: Dark, Cards 2 & 3: Light) -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch" data-stagger>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8 items-stretch" data-stagger>
             @foreach($cards as $c)
                 @if(!empty($c['dark']))
                     <!-- Dark Inverted Card (01) from Wireframe -->
                     <div 
-                        class="rounded-[2.5rem] bg-ink text-cream p-7 sm:p-9 lg:p-10 border border-emerald/30 shadow-2xl flex flex-col justify-between space-y-8 relative overflow-hidden group hover:scale-[1.02] transition-all duration-300"
+                        class="rounded-3xl sm:rounded-[2.5rem] bg-ink text-cream p-5 sm:p-8 lg:p-10 border border-emerald/30 shadow-2xl flex flex-col justify-between space-y-6 sm:space-y-8 relative overflow-hidden group hover:scale-[1.02] transition-all duration-300"
                         data-tilt
                     >
                         <div class="absolute -right-16 -top-16 w-48 h-48 bg-emerald/20 rounded-full blur-3xl pointer-events-none"></div>
@@ -117,7 +117,7 @@
                 @else
                     <!-- Light Cards (02 & 03) from Wireframe -->
                     <div 
-                        class="rounded-[2.5rem] bg-white text-ink p-7 sm:p-9 lg:p-10 border border-sand/60 hover:border-emerald/40 shadow-sm hover:shadow-xl flex flex-col justify-between space-y-8 relative overflow-hidden group hover:scale-[1.02] transition-all duration-300"
+                        class="rounded-3xl sm:rounded-[2.5rem] bg-white text-ink p-5 sm:p-8 lg:p-10 border border-sand/60 hover:border-emerald/40 shadow-sm hover:shadow-xl flex flex-col justify-between space-y-6 sm:space-y-8 relative overflow-hidden group hover:scale-[1.02] transition-all duration-300"
                         data-tilt
                     >
                         <!-- Top Step Badge -->

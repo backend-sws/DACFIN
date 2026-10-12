@@ -91,7 +91,7 @@
                     <span class="text-xs font-bold uppercase tracking-wider text-slate/70">Filter By Track:</span>
                 </div>
 
-                <div class="flex flex-wrap items-center gap-2">
+                <div class="flex flex-nowrap overflow-x-auto gap-2 pb-2 scrollbar-none sm:flex-wrap sm:pb-0">
                     @foreach($tabs as $tab)
                         @php
                             $cnt = ($tab === 'All Services') ? count($items) : count(array_filter($items, fn($i) => ($i['category'] ?? '') === $tab));
@@ -99,7 +99,7 @@
                         <button
                             type="button"
                             @click="activeTab = '{{ $tab }}'"
-                            class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold tracking-wide transition-all duration-200 focus:outline-none flex items-center gap-1.5"
+                            class="shrink-0 whitespace-nowrap px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold tracking-wide transition-all duration-200 focus:outline-none flex items-center gap-1.5"
                             :class="activeTab === '{{ $tab }}' 
                                 ? 'bg-emerald text-white shadow-md ring-2 ring-turquoise/40 scale-[1.02]' 
                                 : 'bg-white/90 hover:bg-ice-cyan/60 border border-powder-blue/50 text-slate hover:text-ink'"
@@ -115,11 +115,13 @@
                     @endforeach
                 </div>
             </div>
-        </div>        <!-- 6 Bento Offering Cards Grid (Compact & Perfectly Proportioned) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        </div>
+
+        <!-- 6 Bento Offering Cards Grid (Compact & Perfectly Proportioned) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             @foreach($items as $item)
                 <div 
-                    class="group rounded-2xl sm:rounded-3xl bg-white border border-powder-blue/60 hover:border-emerald p-5 sm:p-5.5 flex flex-col justify-between shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
+                    class="group rounded-2xl sm:rounded-3xl bg-white border border-powder-blue/60 hover:border-emerald p-4 sm:p-5.5 flex flex-col justify-between shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
                     x-show="activeTab === 'All Services' || activeTab === '{{ $item['category'] }}'"
                     x-transition:enter="transition ease-out duration-300"
                     x-transition:enter-start="opacity-0 scale-95"

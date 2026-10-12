@@ -1,4 +1,4 @@
-<footer class="relative bg-ink text-sand/80 pt-20 pb-12 overflow-hidden border-t border-emerald/20">
+<footer class="relative bg-ink text-sand/80 pt-14 sm:pt-20 pb-10 sm:pb-12 overflow-hidden border-t border-emerald/20">
     <!-- Giant Faded Outlined Wordmark Behind in Parallax -->
     <div class="absolute bottom-10 left-1/2 -translate-x-1/2 select-none pointer-events-none opacity-[0.03] whitespace-nowrap overflow-hidden" data-parallax="0.1">
         <span class="font-display text-[16vw] font-black tracking-widest text-cream uppercase">
@@ -6,33 +6,33 @@
         </span>
     </div>
 
-    <div class="container-x relative z-10 space-y-16">
+    <div class="container-x relative z-10 space-y-10 sm:space-y-16">
         <!-- Top Row: Brand & Columns -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8">
             <!-- Brand Column (2 cols) -->
-            <div class="lg:col-span-2 space-y-6">
+            <div class="sm:col-span-2 lg:col-span-2 space-y-5 sm:space-y-6">
                 <a href="{{ route('home') }}" class="inline-block" aria-label="{{ config('fincun.site.brand') }} Home">
-                    <img src="{{ asset('images/dacfin-logo-light.svg') }}" alt="{{ config('fincun.site.brand') }}" width="160" height="40" class="h-10 w-auto">
+                    <img src="{{ asset('images/dacfin-logo-light.svg') }}" alt="{{ config('fincun.site.brand') }}" width="160" height="40" class="h-9 sm:h-10 w-auto">
                 </a>
-                <p class="text-sm text-sand/70 max-w-sm leading-relaxed">
+                <p class="text-xs sm:text-sm text-sand/70 max-w-sm leading-relaxed">
                     {{ config('fincun.site.tagline') }}
                 </p>
 
                 <!-- Badges: QR & Google Play -->
-                <div class="flex items-center gap-4 pt-2">
+                <div class="flex flex-wrap items-center gap-3 sm:gap-4 pt-1 sm:pt-2">
                     <div class="p-2 bg-cream rounded-xl shadow-sm inline-block">
-                        <img src="{{ asset('images/qr-code.svg') }}" alt="QR Code" width="56" height="56" class="w-14 h-14" loading="lazy">
+                        <img src="{{ asset('images/qr-code.svg') }}" alt="QR Code" width="56" height="56" class="w-12 h-12 sm:w-14 sm:h-14" loading="lazy">
                     </div>
                     <div class="space-y-1">
-                        <span class="text-xs text-mint font-semibold uppercase tracking-wider block">Get Our Client App</span>
+                        <span class="text-[11px] sm:text-xs text-mint font-semibold uppercase tracking-wider block">Get Our Client App</span>
                         <a href="{{ config('fincun.site.play_store') }}" target="_blank" rel="noopener noreferrer" class="inline-block transition-transform hover:scale-105">
-                            <img src="{{ asset('images/google-play-badge.svg') }}" alt="Google Play" width="130" height="40" class="h-10 w-auto" loading="lazy">
+                            <img src="{{ asset('images/google-play-badge.svg') }}" alt="Google Play" width="130" height="40" class="h-9 sm:h-10 w-auto" loading="lazy">
                         </a>
                     </div>
                 </div>
 
                 <!-- Social Links -->
-                <div class="flex items-center gap-3 pt-2">
+                <div class="flex items-center gap-3 pt-1 sm:pt-2">
                     @foreach(config('fincun.site.social') as $soc)
                         <a 
                             href="{{ $soc['url'] }}" 
@@ -122,13 +122,13 @@
         </div>
 
         <!-- Legal Disclaimer -->
-        <div class="p-6 rounded-2xl bg-forest/40 border border-emerald/20 text-xs text-white/75 leading-relaxed text-justify space-y-2">
+        <div class="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-forest/40 border border-emerald/20 text-[11px] sm:text-xs text-white/75 leading-relaxed text-justify space-y-2">
             <span class="font-bold text-mint uppercase tracking-wider block text-[10px]">Statutory Disclaimer</span>
             <p>{{ config('fincun.site.disclaimer') }}</p>
         </div>
 
         <!-- Bottom Line: Copyright, Directors, Back-to-top -->
-        <div class="pt-6 border-t border-emerald/15 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/70">
+        <div class="pt-6 border-t border-emerald/15 flex flex-col md:flex-row items-center justify-between gap-5 text-xs text-white/70">
             <div class="space-y-1 text-center md:text-left">
                 <p>&copy; {{ date('Y') }} {{ config('fincun.site.name') }}. All rights reserved.</p>
                 <p class="text-white/85">{{ count(config('fincun.site.directors', [])) > 1 ? 'Directors' : 'Director' }}: <span class="text-white font-medium">{{ implode(', ', config('fincun.site.directors', [])) }}</span></p>

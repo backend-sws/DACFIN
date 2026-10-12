@@ -67,7 +67,7 @@
 
                 <!-- Back Card (Dynamic Case Study Data) -->
                 <div class="absolute" data-deck-back>
-                    <div class="w-56 sm:w-72 aspect-[4/5] rounded-3xl bg-sand/40 backdrop-blur-md border border-sand shadow-lg p-5 flex flex-col justify-between overflow-hidden transition-all duration-500 ease-out -rotate-6 -translate-x-6 sm:-translate-x-10 group-hover/deck:-rotate-12 group-hover/deck:-translate-x-12 sm:group-hover/deck:-translate-x-16 group-hover/deck:scale-102">
+                    <div class="w-52 max-w-[72vw] sm:w-72 aspect-[4/5] rounded-3xl bg-sand/40 backdrop-blur-md border border-sand shadow-lg p-4 sm:p-5 flex flex-col justify-between overflow-hidden transition-all duration-500 ease-out -rotate-6 -translate-x-3 sm:-translate-x-10 group-hover/deck:-rotate-12 group-hover/deck:-translate-x-6 sm:group-hover/deck:-translate-x-16 group-hover/deck:scale-102">
                         <div class="flex items-center justify-between pb-2 border-b border-sand/40">
                             <span class="text-[11px] font-mono text-slate font-semibold truncate max-w-[180px]" x-text="items[activeIdx]?.case_title || 'Case Study: Enterprise SIP'"></span>
                             <span class="w-2 h-2 rounded-full bg-emerald shrink-0"></span>
@@ -94,7 +94,7 @@
                             x-transition:leave="transition ease-in duration-200 pointer-events-none"
                             x-transition:leave-start="opacity-100 scale-100 rotate-2 translate-x-0"
                             x-transition:leave-end="opacity-0 scale-90 rotate-4 translate-x-4"
-                            class="col-start-1 row-start-1 w-64 sm:w-80 aspect-[4/5] rounded-3xl bg-white/95 backdrop-blur-xl border border-emerald/30 shadow-2xl rotate-2 p-6 flex flex-col justify-between overflow-hidden transition-all duration-500 ease-out group-hover/deck:rotate-4 group-hover/deck:translate-x-4 group-hover/deck:scale-103 hover:shadow-[0_25px_50px_-12px_rgba(10,127,150,0.25)]" 
+                            class="col-start-1 row-start-1 w-60 max-w-[80vw] sm:w-80 aspect-[4/5] rounded-3xl bg-white/95 backdrop-blur-xl border border-emerald/30 shadow-2xl rotate-2 p-5 sm:p-6 flex flex-col justify-between overflow-hidden transition-all duration-500 ease-out group-hover/deck:rotate-4 group-hover/deck:translate-x-3 sm:group-hover/deck:translate-x-4 group-hover/deck:scale-103 hover:shadow-[0_25px_50px_-12px_rgba(10,127,150,0.25)]" 
                             data-tilt
                         >
                             <!-- Top Shimmer Line -->
@@ -140,9 +140,9 @@
             <!-- Right: Interactive Testimonial Cards & Controls -->
             <div class="lg:col-span-7 space-y-6" data-testimonial-content>
                 <!-- Top Bar: Pills Selector + Arrows Navigation -->
-                <div class="flex items-center justify-between gap-4 flex-wrap">
+                <div class="flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap">
                     <!-- Client Selector Pills (Native scrollbar 100% hidden) -->
-                    <div class="flex items-center gap-2 overflow-x-auto py-1.5 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden flex-wrap sm:flex-nowrap">
+                    <div class="flex items-center gap-2 overflow-x-auto py-1.5 scrollbar-none flex-nowrap shrink-0 max-w-[calc(100%-80px)]">
                         @foreach($items as $idx => $t)
                             <button 
                                 type="button" 
@@ -189,7 +189,7 @@
                             x-transition:leave="transition ease-in duration-200 pointer-events-none"
                             x-transition:leave-start="opacity-100 translate-x-0 scale-100"
                             x-transition:leave-end="opacity-0 -translate-x-6 scale-98"
-                            class="col-start-1 row-start-1 rounded-3xl bg-white/95 backdrop-blur-xl border border-sand/70 p-7 sm:p-9 shadow-xl shadow-emerald/5 space-y-6 relative overflow-hidden group/card flex flex-col justify-between"
+                            class="col-start-1 row-start-1 rounded-2xl sm:rounded-3xl bg-white/95 backdrop-blur-xl border border-sand/70 p-5 sm:p-9 shadow-xl shadow-emerald/5 space-y-4 sm:space-y-6 relative overflow-hidden group/card flex flex-col justify-between"
                         >
                             <!-- Large Decorative Watermark Quotation Mark in Background -->
                             <div class="absolute -top-6 right-6 font-serif text-8xl sm:text-9xl text-sand/20 select-none pointer-events-none font-bold leading-none">

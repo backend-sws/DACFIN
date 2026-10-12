@@ -36,7 +36,7 @@
                     <div class="pt-1">
                         <a 
                             href="{{ route('contact') }}" 
-                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-ink hover:bg-forest text-cream text-xs sm:text-sm font-semibold transition-all hover:scale-[1.02]"
+                            class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-ink hover:bg-forest text-cream text-xs sm:text-sm font-semibold transition-all hover:scale-[1.02] w-full sm:w-auto text-center"
                         >
                             <span>Schedule Step 1 Call</span>
                             <svg class="w-3.5 h-3.5 text-saffron" fill="none" viewBox="0 0 24 24" stroke="currentColor">

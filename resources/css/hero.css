@@ -213,9 +213,19 @@
   .hero__note { margin-inline: auto; text-align: center; }
 }
 @media (max-width: 640px) {
-  .hero__title { font-size: 38px; }
-  .hero__text  { font-size: 16px; }
-  .hero__features { gap: 18px; }
+  .hero__inner { width: calc(100% - 32px); padding: 110px 0 44px; gap: 28px; }
+  .hero__title { font-size: clamp(30px, 8.5vw, 40px); line-height: 1.12; }
+  .hero__text  { font-size: 15px; margin: 16px 0 0; line-height: 1.55; }
+  .hero__cta   { flex-direction: column; align-items: stretch; gap: 12px; margin-top: 24px; }
+  .hero__btn   { width: 100%; text-align: center; justify-content: center; padding: 14px 20px; font-size: 14px; }
+  .hero__link  { width: 100%; justify-content: center; padding: 6px 0; font-size: 14px; }
+  .hero__features { gap: 12px; margin: 26px 0 0; }
+  .hcard       { transform: none !important; width: 100%; padding: 18px 16px 20px; border-radius: 18px; }
+  .hcard__value { font-size: clamp(28px, 7vw, 36px); }
+  .hcard__actions { gap: 8px; margin: 20px 0 0; }
+  .hcard__btn  { width: 44px; height: 44px; border-radius: 12px; }
+  .hcard__btn svg { width: 19px; height: 19px; }
+  .hfloat      { width: 100%; padding: 11px 14px; border-radius: 14px; }
   .hero__vertical { display: none; }
 }
 

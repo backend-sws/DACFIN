@@ -7,10 +7,10 @@
     ];
 @endphp
 
-<section class="relative z-20 -mt-7 sm:-mt-9 mb-8 sm:mb-10">
+<section class="relative z-20 -mt-6 sm:-mt-8 lg:-mt-10 mb-8 sm:mb-10">
     <div class="container-x max-w-6xl">
         <div 
-            class="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white/95 backdrop-blur-xl border border-sand/70 shadow-xl shadow-emerald/5 py-3 px-4 sm:py-3.5 sm:px-6 lg:py-4 lg:px-7 text-ink grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 items-center divide-y sm:divide-y-0 sm:divide-x divide-sand/50" 
+            class="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white/95 backdrop-blur-xl border border-sand/70 shadow-xl shadow-emerald/5 p-3 sm:p-4 lg:py-4 lg:px-7 text-ink grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 items-center" 
             data-stats-strip
         >
             <!-- Top Shimmer Accent Line -->
@@ -18,7 +18,7 @@
 
             @foreach($stats as $stat)
                 <div 
-                    class="pt-3 sm:pt-0 sm:px-4 first:pt-0 first:pl-0 last:pr-0 text-center sm:text-left group/item rounded-xl p-1.5 sm:p-2 transition-all duration-200 hover:bg-sand/15" 
+                    class="p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-sand/15 sm:bg-transparent text-center sm:text-left group/item transition-all duration-200 hover:bg-sand/30" 
                     data-stat-item
                 >
                     <x-ui.counter 

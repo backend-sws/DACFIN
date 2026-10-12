@@ -77,7 +77,7 @@
                     </div>
 
                     <!-- Interactive Rotating Fiduciary Stamp Badge -->
-                    <div class="absolute -top-6 -right-6 sm:-top-8 sm:-right-8 w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-emerald text-white p-1.5 shadow-[0_15px_35px_rgba(27,54,118,0.4)] flex items-center justify-center border-4 border-white transition-all duration-500 hover:scale-110 cursor-pointer group/stamp z-20">
+                    <div class="absolute -top-4 -right-2 sm:-top-8 sm:-right-8 w-20 h-20 sm:w-32 sm:h-32 rounded-full bg-emerald text-white p-1 sm:p-1.5 shadow-[0_15px_35px_rgba(27,54,118,0.4)] flex items-center justify-center border-2 sm:border-4 border-white transition-all duration-500 hover:scale-110 cursor-pointer group/stamp z-20">
                         <svg class="w-full h-full animate-spin-slow group-hover/stamp:[animation-duration:12s]" viewBox="0 0 100 100">
                             <defs>
                                 <path id="aboutTextCircle" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
@@ -89,7 +89,7 @@
                             </text>
                         </svg>
                         <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                            <img src="{{ asset('images/dacfin-badge.svg') }}" class="w-9 h-9 rounded-full object-contain shadow-md ring-2 ring-white/50" alt="DACFIN Official Seal">
+                            <img src="{{ asset('images/dacfin-badge.svg') }}" class="w-6 h-6 sm:w-9 sm:h-9 rounded-full object-contain shadow-md ring-2 ring-white/50" alt="DACFIN Official Seal">
                         </div>
                     </div>
 
@@ -176,11 +176,11 @@
                 @endif
 
                 <!-- Call to Action Buttons -->
-                <div class="pt-3 flex flex-wrap items-center gap-4">
-                    <x-ui.button :href="url($about['cta_primary'][1])" variant="primary" class="text-xs px-6 py-3 shadow-md shadow-saffron/20">
+                <div class="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+                    <x-ui.button :href="url($about['cta_primary'][1])" variant="primary" class="text-xs px-6 py-3 shadow-md shadow-saffron/20 w-full sm:w-auto text-center justify-center">
                         {{ $about['cta_primary'][0] }}
                     </x-ui.button>
-                    <x-ui.button :href="url($about['cta_secondary'][1])" variant="ghost" class="text-xs px-5 py-3">
+                    <x-ui.button :href="url($about['cta_secondary'][1])" variant="ghost" class="text-xs px-5 py-3 w-full sm:w-auto text-center justify-center">
                         {{ $about['cta_secondary'][0] }}
                     </x-ui.button>
                 </div>
