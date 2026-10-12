@@ -420,10 +420,14 @@ export function initWhySection() {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    const isMobile = window.innerWidth < 768;
+    const pinnedStage = section.querySelector('[data-why-pinned]');
+    const track = section.querySelector('[data-why-track]');
+    if (!pinnedStage || !track) return;
+
     const header = section.querySelector('[data-why-header]');
-    const grid = section.querySelector('[data-why-grid]');
     const cards = section.querySelectorAll('[data-why-card]');
+    const progressBar = section.querySelector('[data-why-progress]');
+    const counter = section.querySelector('[data-why-counter]');
     const approachGrid = section.querySelector('[data-why-approach-grid]');
     const approachCards = section.querySelectorAll('[data-why-approach-card]');
 
@@ -432,7 +436,7 @@ export function initWhySection() {
         gsap.fromTo(header,
             {
                 opacity: 0,
-                y: -30,
+                y: -25,
             },
             {
                 opacity: 1,
@@ -448,53 +452,78 @@ export function initWhySection() {
         );
     }
 
-    // 2. The 6 Bento Principle Cards: POP MOTION ON SCROLL
-    // As requested: start small (size chota), pop up and scale smoothly into place on scroll
-    if (cards.length > 0 && grid) {
-        gsap.fromTo(cards,
-            {
-                opacity: 0,
-                scale: isMobile ? 0.86 : 0.8,
-                y: isMobile ? 45 : 70,
-                rotate: (i) => (i % 2 === 0 ? -1.8 : 1.8),
-            },
-            {
-                opacity: 1,
-                scale: 1,
-                y: 0,
-                rotate: 0,
-                duration: 0.85,
-                stagger: isMobile ? 0.08 : 0.12,
-                ease: 'back.out(1.8)',
-                clearProps: 'transform,opacity',
-                scrollTrigger: {
-                    trigger: grid,
-                    start: 'top 85%',
-                    toggleActions: 'restart none restart reset',
+    // 2. Horizontal Pinned Scroll: All 6 boxes in a single line, scrolling 1-by-1
+    const getScrollDistance = () => {
+        const paddingEnd = window.innerWidth >= 1024 ? 120 : 48;
+        return Math.max(0, track.scrollWidth - window.innerWidth + paddingEnd);
+    };
+
+    const totalDistance = getScrollDistance();
+    if (totalDistance > 0) {
+        gsap.to(track, {
+            x: () => -getScrollDistance(),
+            ease: 'none',
+            scrollTrigger: {
+                trigger: pinnedStage,
+                pin: true,
+                scrub: 0.9,
+                start: 'top top',
+                end: () => `+=${getScrollDistance() * 1.2}`,
+                anticipatePin: 1,
+                invalidateOnRefresh: true,
+                onUpdate: (self) => {
+                    const progress = self.progress;
+
+                    // Progress bar fill (min 16% to 100%)
+                    if (progressBar) {
+                        const pct = Math.min(100, Math.max(16, progress * 100));
+                        progressBar.style.width = `${pct}%`;
+                    }
+
+                    // Dynamic counter 01 / 06 -> 06 / 06
+                    if (cards.length > 0) {
+                        const activeIndex = Math.min(
+                            cards.length - 1,
+                            Math.max(0, Math.round(progress * (cards.length - 1)))
+                        );
+
+                        if (counter) {
+                            counter.textContent = `0${activeIndex + 1} / 0${cards.length}`;
+                        }
+
+                        // Subtle active spotlight ring on current card
+                        cards.forEach((card, idx) => {
+                            if (idx === activeIndex) {
+                                card.classList.add('ring-2', 'ring-saffron/50');
+                            } else {
+                                card.classList.remove('ring-2', 'ring-saffron/50');
+                            }
+                        });
+                    }
                 },
-            }
-        );
+            },
+        });
     }
 
-    // 3. The 3 Approach Steps Bottom Bar: Slide up & pop into place
+    // 3. The 3 Approach Steps Bottom Bar: Smooth reveal as pin releases
     if (approachCards.length > 0 && approachGrid) {
         gsap.fromTo(approachCards,
             {
                 opacity: 0,
-                y: 40,
-                scale: 0.88,
+                y: 35,
+                scale: 0.94,
             },
             {
                 opacity: 1,
                 y: 0,
                 scale: 1,
-                duration: 0.75,
+                duration: 0.7,
                 stagger: 0.12,
-                ease: 'back.out(1.6)',
+                ease: 'power3.out',
                 clearProps: 'transform,opacity',
                 scrollTrigger: {
                     trigger: approachGrid,
-                    start: 'top 88%',
+                    start: 'top 85%',
                     toggleActions: 'restart none restart reset',
                 },
             }
