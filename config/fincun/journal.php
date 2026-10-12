@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'title' => 'FINCUN Wealth Journal',
-    'intro' => 'An Investor Education Initiative by FINCUN.',
+    'title' => 'DACFIN Wealth Journal',
+    'intro' => 'An Investor Education Initiative by DACFIN.',
     'issues' => [
         'newsletter-issue-5-july-2026' => [
             'no' => '05',

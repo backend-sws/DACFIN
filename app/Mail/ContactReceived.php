@@ -25,7 +25,7 @@ class ContactReceived extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'New FINCUN Consultation Request from '.$this->contactMessage->name,
+            subject: 'New DACFIN Consultation Request from '.$this->contactMessage->name,
         );
     }
 

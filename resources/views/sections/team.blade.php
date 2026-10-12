@@ -23,7 +23,7 @@
         </p>
 
         <!-- Team Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6" data-stagger>
+        <div class="grid grid-cols-1 sm:grid-cols-2 max-w-3xl gap-6" data-stagger>
             @foreach($team['members'] as $member)
                 <div class="group rounded-3xl overflow-hidden bg-sand/30 border border-sand hover:border-emerald/40 hover:bg-white transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col" data-tilt>
                     

@@ -11,16 +11,19 @@ export function initLines() {
             strokeDashoffset: length,
         });
 
-        gsap.to(path, {
-            strokeDashoffset: 0,
-            duration: 1.8,
-            ease: 'power2.out',
-            scrollTrigger: {
-                trigger: path,
-                start: 'top 85%',
-                once: true,
-            },
-        });
+        gsap.fromTo(path, 
+            { strokeDashoffset: length },
+            {
+                strokeDashoffset: 0,
+                duration: 1.8,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: path,
+                    start: 'top 85%',
+                    toggleActions: 'restart none restart reset',
+                },
+            }
+        );
     });
 
     // Refresh ScrollTrigger when images load

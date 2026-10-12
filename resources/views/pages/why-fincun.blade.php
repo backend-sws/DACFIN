@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page', 'why-fincun')
-@section('title', 'Why Choose FINCUN?')
+@section('title', 'Why Choose DACFIN?')
 
 @php
     $whyFincun = config('fincun.company.why_fincun');
@@ -10,10 +10,10 @@
 
 @section('content')
     <x-page-hero 
-        eyebrow="Why Choose FINCUN" 
+        eyebrow="Why Choose DACFIN" 
         :title="$whyFincun['title']" 
         :text="$whyFincun['text']"
-        :breadcrumbs="[['label' => 'Why Fincun?']]"
+        :breadcrumbs="[['label' => 'Why DACFIN?']]"
     />
 
     <!-- Giant Stephen Covey Quote Section -->

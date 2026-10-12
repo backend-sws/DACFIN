@@ -24,7 +24,7 @@
                     <div class="relative rounded-[2.5rem] overflow-hidden border border-sand bg-forest aspect-[4/5] shadow-xl group">
                         <img 
                             src="{{ asset($about['image']) }}" 
-                            alt="FINCUN Story" 
+                            alt="{{ config('fincun.site.brand') }} Story" 
                             width="500" 
                             height="600" 
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"

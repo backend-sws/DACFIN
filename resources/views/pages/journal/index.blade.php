@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page', 'journal-index')
-@section('title', 'FINCUN Wealth Journal')
+@section('title', 'DACFIN Wealth Journal')
 
 @section('content')
     <x-page-hero 
@@ -41,7 +41,7 @@
                         <!-- Magazine Cover Mockup -->
                         <div class="aspect-[4/3] rounded-2xl bg-ink p-6 flex flex-col justify-between relative overflow-hidden group-hover:scale-[1.02] transition-transform">
                             <div class="space-y-1">
-                                <span class="text-[9px] uppercase tracking-widest text-mint font-bold block">FINCUN JOURNAL</span>
+                                <span class="text-[9px] uppercase tracking-widest text-mint font-bold block">DACFIN JOURNAL</span>
                                 <h3 class="font-display font-bold text-lg text-cream leading-snug group-hover:text-saffron transition-colors">
                                     {{ $issue['title'] ?? 'Strategic Wealth Perspectives' }}
                                 </h3>

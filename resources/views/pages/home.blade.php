@@ -4,10 +4,13 @@
 @section('title', 'Financial Planning, Wealth Management & Investment Advice')
 
 @section('content')
-    <!-- 1. Hero Asymmetric Split Banner (Wireframe) -->
+    <!-- 1. Hero Asymmetric Split Banner -->
     @include('sections.hero')
 
-    <!-- 2. Three-Pillar Trust Strip (Wireframe) -->
+    <!-- 2. Core Operational Stats Strip (Restored) -->
+    @include('sections.stats')
+
+    <!-- 3. Three-Pillar Trust Strip -->
     @include('sections.trust-bar')
 
     <!-- 3. About Us & Foundational Mission -->

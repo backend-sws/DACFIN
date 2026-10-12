@@ -9,7 +9,13 @@ Alpine.data('header', header);
 Alpine.data('contactForm', contactForm);
 Alpine.start();
 
-document.addEventListener('DOMContentLoaded', () => {
+function boot() {
     initLenis();
     initAnimations();
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+} else {
+    boot();
+}

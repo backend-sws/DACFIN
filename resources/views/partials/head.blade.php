@@ -26,7 +26,7 @@
 <meta name="twitter:image" content="{{ asset(config('fincun.site.meta.image')) }}">
 
 <!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="{{ asset('images/fincun-logo.svg') }}">
+<link rel="icon" type="image/svg+xml" href="{{ asset('images/dacfin-badge.svg') }}">
 
 <!-- Google Fonts: Fraunces & Manrope -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,28 +46,18 @@
   'name' => config('fincun.site.name'),
   'alternateName' => config('fincun.site.brand'),
   'url' => url('/'),
-  'logo' => asset('images/fincun-logo.svg'),
+  'logo' => asset('images/dacfin-logo.svg'),
   'description' => config('fincun.site.meta.description'),
   'email' => config('fincun.site.email'),
   'telephone' => config('fincun.site.primary_phone_tel'),
   'openingHours' => 'Mo-Sa 08:00-20:00',
   'address' => [
-    [
-      '@type' => 'PostalAddress',
-      'streetAddress' => 'I/J-2, Chandi Vyapar Bhawan, Exhibition Road',
-      'addressLocality' => 'Patna',
-      'postalCode' => '800001',
-      'addressRegion' => 'Bihar',
-      'addressCountry' => 'IN'
-    ],
-    [
-      '@type' => 'PostalAddress',
-      'streetAddress' => 'G-2, Kanhai Complex, Argora chowk',
-      'addressLocality' => 'Ranchi',
-      'postalCode' => '834002',
-      'addressRegion' => 'Jharkhand',
-      'addressCountry' => 'IN'
-    ]
+    '@type' => 'PostalAddress',
+    'streetAddress' => 'Shop No 14, Vijay Aman Apartment, Main Road, Near Gravity Mall, Kankarbagh',
+    'addressLocality' => 'Patna',
+    'postalCode' => '800020',
+    'addressRegion' => 'Bihar',
+    'addressCountry' => 'IN'
   ]
 ], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
 </script>

@@ -1,0 +1,275 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" fill="none" class="w-full h-auto">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="charterCardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#05151D"/>
+      <stop offset="45%" stop-color="#092430"/>
+      <stop offset="90%" stop-color="#0A7F96"/>
+      <stop offset="100%" stop-color="#00B4D8"/>
+    </linearGradient>
+
+    <!-- Coin Gradients -->
+    <linearGradient id="goldCoinGrad" x1="15%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#FFFBEB"/>
+      <stop offset="25%" stop-color="#FCD34D"/>
+      <stop offset="60%" stop-color="#F59E0B"/>
+      <stop offset="90%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#78350F"/>
+    </linearGradient>
+    <radialGradient id="coinShine" cx="35%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#FDE68A" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Chart Gradients -->
+    <linearGradient id="chartLineGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00B4D8"/>
+      <stop offset="45%" stop-color="#10B981"/>
+      <stop offset="80%" stop-color="#AFEEEE"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <linearGradient id="chartFillGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.38"/>
+      <stop offset="50%" stop-color="#00B4D8" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#05151D" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Character Outfit Gradients -->
+    <linearGradient id="suitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E3A47"/>
+      <stop offset="40%" stop-color="#0D2531"/>
+      <stop offset="100%" stop-color="#05131A"/>
+    </linearGradient>
+    <linearGradient id="tieGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="70%" stop-color="#0A7F96"/>
+      <stop offset="100%" stop-color="#044D5B"/>
+    </linearGradient>
+
+    <!-- Floating Cards Gradient -->
+    <linearGradient id="glassCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E2F3D" stop-opacity="0.92"/>
+      <stop offset="100%" stop-color="#051820" stop-opacity="0.96"/>
+    </linearGradient>
+
+    <!-- Drop Shadows -->
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+    <filter id="glowCyan" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glowGold" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- ============================================== -->
+  <!-- MAIN CONTAINER FRAME WITH FUTURISTIC GLOW -->
+  <!-- ============================================== -->
+  <rect x="8" y="8" width="484" height="384" rx="30" fill="url(#charterCardBg)" stroke="#00B4D8" stroke-opacity="0.4" stroke-width="2"/>
+  
+  <!-- Subtle Ambient Glow Orbs -->
+  <circle cx="360" cy="110" r="100" fill="#0A7F96" fill-opacity="0.3" filter="url(#glowCyan)"/>
+  <circle cx="90" cy="110" r="70" fill="#F59E0B" fill-opacity="0.18" filter="url(#glowGold)"/>
+
+  <!-- Futuristic Tech Dot Grid -->
+  <g opacity="0.12" fill="#AFEEEE">
+    <circle cx="50" cy="60" r="1.5"/><circle cx="90" cy="60" r="1.5"/><circle cx="130" cy="60" r="1.5"/><circle cx="170" cy="60" r="1.5"/><circle cx="210" cy="60" r="1.5"/><circle cx="250" cy="60" r="1.5"/><circle cx="290" cy="60" r="1.5"/><circle cx="330" cy="60" r="1.5"/><circle cx="370" cy="60" r="1.5"/><circle cx="410" cy="60" r="1.5"/><circle cx="450" cy="60" r="1.5"/>
+    <circle cx="50" cy="110" r="1.5"/><circle cx="90" cy="110" r="1.5"/><circle cx="130" cy="110" r="1.5"/><circle cx="170" cy="110" r="1.5"/><circle cx="210" cy="110" r="1.5"/><circle cx="250" cy="110" r="1.5"/><circle cx="290" cy="110" r="1.5"/><circle cx="330" cy="110" r="1.5"/><circle cx="370" cy="110" r="1.5"/><circle cx="410" cy="110" r="1.5"/><circle cx="450" cy="110" r="1.5"/>
+    <circle cx="50" cy="160" r="1.5"/><circle cx="90" cy="160" r="1.5"/><circle cx="130" cy="160" r="1.5"/><circle cx="170" cy="160" r="1.5"/><circle cx="210" cy="160" r="1.5"/><circle cx="250" cy="160" r="1.5"/><circle cx="290" cy="160" r="1.5"/><circle cx="330" cy="160" r="1.5"/><circle cx="370" cy="160" r="1.5"/><circle cx="410" cy="160" r="1.5"/><circle cx="450" cy="160" r="1.5"/>
+    <circle cx="50" cy="210" r="1.5"/><circle cx="90" cy="210" r="1.5"/><circle cx="130" cy="210" r="1.5"/><circle cx="170" cy="210" r="1.5"/><circle cx="210" cy="210" r="1.5"/><circle cx="250" cy="210" r="1.5"/><circle cx="290" cy="210" r="1.5"/><circle cx="330" cy="210" r="1.5"/><circle cx="370" cy="210" r="1.5"/><circle cx="410" cy="210" r="1.5"/><circle cx="450" cy="210" r="1.5"/>
+  </g>
+
+  <!-- Coordinate Grid Lines -->
+  <line x1="220" y1="50" x2="455" y2="50" stroke="#AFEEEE" stroke-opacity="0.1" stroke-dasharray="3 4"/>
+  <line x1="220" y1="100" x2="455" y2="100" stroke="#AFEEEE" stroke-opacity="0.1" stroke-dasharray="3 4"/>
+  <line x1="220" y1="150" x2="455" y2="150" stroke="#AFEEEE" stroke-opacity="0.1" stroke-dasharray="3 4"/>
+
+  <!-- ============================================== -->
+  <!-- BACKGROUND WEALTH GROWTH CHART & METRIC BARS -->
+  <!-- ============================================== -->
+  <g transform="translate(195, 45)">
+    <!-- Compounding Vertical Bar Columns -->
+    <rect x="35" y="105" width="12" height="45" rx="3.5" fill="#00B4D8" fill-opacity="0.25"/>
+    <rect x="65" y="85" width="12" height="65" rx="3.5" fill="#00B4D8" fill-opacity="0.4"/>
+    <rect x="95" y="68" width="12" height="82" rx="3.5" fill="#00B4D8" fill-opacity="0.55"/>
+    <rect x="125" y="48" width="12" height="102" rx="3.5" fill="#00B4D8" fill-opacity="0.75"/>
+    <rect x="155" y="28" width="12" height="122" rx="3.5" fill="#10B981" fill-opacity="0.85"/>
+    <rect x="185" y="10" width="12" height="140" rx="3.5" fill="#10B981"/>
+
+    <!-- Chart Fill Area -->
+    <path d="M 20 145 Q 80 135 125 80 T 215 55 T 265 15 L 265 150 L 20 150 Z" fill="url(#chartFillGrad)"/>
+    
+    <!-- Glowing Curved Trendline -->
+    <path d="M 20 145 Q 80 135 125 80 T 215 55 T 265 15" stroke="url(#chartLineGrad)" stroke-width="4" stroke-linecap="round" filter="url(#glowCyan)"/>
+
+    <!-- Milestone Target Rings -->
+    <circle cx="125" cy="80" r="5" fill="#05151D" stroke="#AFEEEE" stroke-width="3"/>
+    <circle cx="215" cy="55" r="5" fill="#05151D" stroke="#00B4D8" stroke-width="3"/>
+    <circle cx="265" cy="15" r="7.5" fill="#10B981" stroke="#FFFFFF" stroke-width="3" filter="url(#glowCyan)"/>
+  </g>
+
+  <!-- ============================================== -->
+  <!-- THE FINANCE CHARACTER (Financial Wealth Advisor) -->
+  <!-- ============================================== -->
+  <g id="advisor-character">
+    <!-- Ground Shadow -->
+    <ellipse cx="145" cy="360" rx="90" ry="14" fill="#02090D" fill-opacity="0.6"/>
+
+    <!-- Suit Jacket Torso -->
+    <path d="M 65 365 C 65 270 95 240 145 240 C 195 240 225 270 225 365 Z" fill="url(#suitGrad)" stroke="#0A7F96" stroke-width="1.5" stroke-opacity="0.6"/>
+
+    <!-- Crisp Shirt Collar -->
+    <path d="M 124 240 L 145 290 L 166 240 Z" fill="#F8FAFC"/>
+    
+    <!-- Silk Tie -->
+    <path d="M 140 252 L 150 252 L 152 310 L 145 320 L 138 310 Z" fill="url(#tieGrad)"/>
+    <path d="M 138 250 L 152 250 L 150 262 L 140 262 Z" fill="#10B981"/>
+
+    <!-- Suit Lapel Seams -->
+    <path d="M 104 242 L 136 302 L 130 365" stroke="#00B4D8" stroke-width="2" stroke-opacity="0.8" fill="none"/>
+    <path d="M 186 242 L 154 302 L 160 365" stroke="#00B4D8" stroke-width="2" stroke-opacity="0.8" fill="none"/>
+
+    <!-- Gold Pocket Square -->
+    <path d="M 98 296 L 112 296 L 106 288 Z" fill="#F59E0B"/>
+
+    <!-- Neck Structure -->
+    <rect x="134" y="202" width="22" height="42" rx="7" fill="#F4B99B"/>
+    
+    <!-- Head Contour -->
+    <ellipse cx="145" cy="176" rx="32" ry="38" fill="#FAD4C0"/>
+    <ellipse cx="145" cy="182" rx="29" ry="32" fill="#F4B99B" fill-opacity="0.25"/>
+
+    <!-- Ears -->
+    <circle cx="113" cy="176" r="7.5" fill="#FAD4C0"/>
+    <circle cx="177" cy="176" r="7.5" fill="#FAD4C0"/>
+
+    <!-- Modern Styled Dark Hair -->
+    <path d="M 112 165 C 112 136 128 124 145 124 C 164 124 178 136 178 158 C 178 168 176 176 176 176 C 170 155 160 144 145 144 C 130 144 120 152 112 165 Z" fill="#1E293B"/>
+    <!-- Hair Volume Crest -->
+    <path d="M 118 148 Q 145 120 174 138 Q 178 150 170 154 Q 150 134 122 154 Z" fill="#0F172A"/>
+
+    <!-- Eyebrows -->
+    <path d="M 126 163 Q 135 160 140 163" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 150 163 Q 155 160 164 163" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Smart Glasses (Fintech Professional Identity) -->
+    <rect x="122" y="167" width="20" height="15" rx="4.5" fill="#05151D" fill-opacity="0.25" stroke="#00B4D8" stroke-width="2.2"/>
+    <rect x="148" y="167" width="20" height="15" rx="4.5" fill="#05151D" fill-opacity="0.25" stroke="#00B4D8" stroke-width="2.2"/>
+    <line x1="142" y1="174" x2="148" y2="174" stroke="#00B4D8" stroke-width="2.2"/>
+    <!-- Specular Lens Sheen -->
+    <line x1="126" y1="171" x2="133" y2="178" stroke="#AFEEEE" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="152" y1="171" x2="159" y2="178" stroke="#AFEEEE" stroke-width="1.8" stroke-linecap="round"/>
+
+    <!-- Eyes (Focused, Confident) -->
+    <circle cx="132" cy="174.5" r="2.8" fill="#0F172A"/>
+    <circle cx="158" cy="174.5" r="2.8" fill="#0F172A"/>
+
+    <!-- Nose & Warm Professional Smile -->
+    <path d="M 145 177 L 143 186 L 147 186" stroke="#E29578" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M 136 195 Q 145 202 154 195" stroke="#0F172A" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+
+    <!-- Right Hand Gesturing Toward Growth Trend -->
+    <path d="M 75 315 Q 58 290 48 260" stroke="#0D2531" stroke-width="15" stroke-linecap="round"/>
+    <circle cx="48" cy="256" r="9" fill="#FAD4C0"/>
+    <circle cx="48" cy="256" r="16" fill="#00B4D8" fill-opacity="0.3" filter="url(#glowCyan)"/>
+
+    <!-- Left Hand Holding High-Tech Financial Tablet -->
+    <g transform="translate(175, 268)">
+      <!-- Tablet Body with Ambient Blue Rim -->
+      <rect x="0" y="0" width="90" height="68" rx="10" fill="#05151D" stroke="#00B4D8" stroke-width="2" filter="url(#glowCyan)"/>
+      <rect x="4" y="4" width="82" height="60" rx="7" fill="#092430"/>
+
+      <!-- Live Candlestick / Area Chart on Tablet -->
+      <path d="M 8 50 Q 25 44 44 32 T 76 14" stroke="#10B981" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+      <circle cx="76" cy="14" r="3.5" fill="#10B981" filter="url(#glowCyan)"/>
+
+      <!-- Mini UI Controls on Tablet -->
+      <rect x="8" y="10" width="26" height="3.5" rx="1.5" fill="#AFEEEE"/>
+      <text x="8" y="24" font-family="'Manrope', sans-serif" font-size="8" fill="#10B981" font-weight="800">▲ +24.8% SIP</text>
+      <text x="8" y="34" font-family="'Manrope', sans-serif" font-size="6.5" fill="#94A3B8" font-weight="600">Goal: Met</text>
+
+      <!-- Gripping Hand Fingers -->
+      <ellipse cx="-5" cy="26" rx="7.5" ry="5.5" fill="#FAD4C0"/>
+      <ellipse cx="-5" cy="38" rx="7.5" ry="5.5" fill="#FAD4C0"/>
+      <ellipse cx="-5" cy="50" rx="7.5" ry="5.5" fill="#FAD4C0"/>
+      <ellipse cx="6" cy="64" rx="8.5" ry="6.5" fill="#FAD4C0"/>
+    </g>
+  </g>
+
+  <!-- ============================================== -->
+  <!-- FLOATING 3D GOLD RUPEE COIN (₹) -->
+  <!-- ============================================== -->
+  <g transform="translate(52, 45)" filter="url(#softShadow)">
+    <circle cx="38" cy="38" r="38" fill="#F59E0B" fill-opacity="0.3" filter="url(#glowGold)"/>
+    
+    <!-- Outer 3D Coin Rim -->
+    <circle cx="38" cy="38" r="34" fill="url(#goldCoinGrad)" stroke="#FFFBEB" stroke-width="2.5"/>
+    <circle cx="38" cy="38" r="28" fill="#F59E0B" stroke="#B45309" stroke-width="1.5"/>
+    <circle cx="38" cy="38" r="26" fill="url(#goldCoinGrad)"/>
+    <circle cx="38" cy="38" r="26" fill="url(#coinShine)"/>
+
+    <!-- Embossed Rupee Currency Glyph -->
+    <text x="38" y="47" font-family="'Inter', sans-serif" font-size="26" font-weight="900" fill="#FFFFFF" text-anchor="middle" filter="drop-shadow(0px 2px 3px rgba(0,0,0,0.5))">₹</text>
+
+    <!-- Coin Specular Accent -->
+    <path d="M 20 28 A 24 24 0 0 1 52 16" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" fill="none" opacity="0.8"/>
+
+    <!-- Shiny Gold Sparkle Diamond -->
+    <path d="M 70 10 L 73 18 L 81 21 L 73 24 L 70 32 L 67 24 L 59 21 L 67 18 Z" fill="#FCD34D" filter="url(#glowGold)"/>
+  </g>
+
+  <!-- ============================================== -->
+  <!-- FLOATING GLASS CARD: PORTFOLIO ALPHA CAGR -->
+  <!-- ============================================== -->
+  <g transform="translate(255, 195)" filter="url(#softShadow)">
+    <!-- Frosted Glass Backing -->
+    <rect x="0" y="0" width="220" height="94" rx="20" fill="url(#glassCardGrad)" stroke="#AFEEEE" stroke-opacity="0.45" stroke-width="1.8"/>
+
+    <!-- Glowing Live Status Dot -->
+    <circle cx="22" cy="26" r="5" fill="#10B981"/>
+    <circle cx="22" cy="26" r="10" fill="#10B981" fill-opacity="0.35" filter="url(#glowCyan)"/>
+    <text x="38" y="29" font-family="'Manrope', sans-serif" font-size="10.5" font-weight="800" fill="#AFEEEE" letter-spacing="1.2">PORTFOLIO ALPHA</text>
+
+    <!-- Metric Typography -->
+    <text x="22" y="56" font-family="'Fraunces', serif" font-size="22" font-weight="700" fill="#FFFFFF">+32.6% CAGR</text>
+    <text x="22" y="75" font-family="'Manrope', sans-serif" font-size="10" font-weight="600" fill="#94A3B8">Systematic Compounding Track</text>
+
+    <!-- Upward Trend Badge Chip -->
+    <rect x="170" y="16" width="38" height="26" rx="8" fill="#10B981" fill-opacity="0.2" stroke="#10B981" stroke-opacity="0.7"/>
+    <path d="M 189 25 L 189 33 M 189 25 L 185 29 M 189 25 L 193 29" stroke="#10B981" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- ============================================== -->
+  <!-- FLOATING BADGE: AMFI REGISTERED FIDUCIARY -->
+  <!-- ============================================== -->
+  <g transform="translate(18, 305)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="180" height="46" rx="16" fill="#05151D" fill-opacity="0.95" stroke="#F59E0B" stroke-width="1.6" stroke-opacity="0.8"/>
+    
+    <!-- Gold Shield Badge -->
+    <circle cx="24" cy="23" r="13" fill="#F59E0B" fill-opacity="0.2"/>
+    <path d="M 24 15 L 31 18 V 24 C 31 29 24 31 24 31 C 24 31 17 29 17 24 V 18 Z" fill="#F59E0B"/>
+    <path d="M 21 23 L 23 25 L 28 20" stroke="#05151D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <text x="44" y="20" font-family="'Manrope', sans-serif" font-size="9.5" font-weight="800" fill="#F59E0B" letter-spacing="1">AMFI REGISTERED</text>
+    <text x="44" y="34" font-family="'Manrope', sans-serif" font-size="10.5" font-weight="700" fill="#E2E8F0">100% Fiduciary Guard</text>
+  </g>
+
+  <!-- Ambient Micro Particles -->
+  <g fill="#00B4D8" opacity="0.8">
+    <path d="M 245 42 L 247 48 L 253 50 L 247 52 L 245 58 L 243 52 L 237 50 L 243 48 Z"/>
+    <path d="M 460 145 L 462 149 L 466 150 L 462 151 L 460 155 L 458 151 L 454 150 L 458 149 Z"/>
+    <circle cx="255" cy="165" r="2.5" fill="#AFEEEE"/>
+    <circle cx="40" cy="190" r="2" fill="#F59E0B"/>
+  </g>
+</svg>

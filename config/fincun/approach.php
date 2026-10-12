@@ -4,12 +4,12 @@ return [
     'items' => [
         'alignment' => [
             'name' => 'Alignment',
-            'title' => 'Alignment | FINCUN',
+            'title' => 'Alignment | DACFIN',
             'eyebrow' => 'Our Approach',
             'heading' => 'We are dedicated to supporting our clients needs and long-term aspirations.',
             'body' => [
-                'It is our mission to work closely with clients, helping them define and articulate what they want to accomplish with their wealth. Ongoing collaboration and communication are essential in managing clients’ assets, and a high level of trust is critical in this type of relationship. Our clients share highly personal information and beliefs about matters that may impact future generations. We have always believed that we must earn this trust through all of our actions. The structure of Fincun is properly aligned with our clients’ interests, and we always work to avoid any possible conflicts of interest.',
-                "At Fincun, we have built a firm wide culture that places the client at the center of everything we do. We believe in long-term relationships with our clients and when we meet with a client and the client's family or other trusted advisors, this focus on relationships is essential in executing on a long-term plan with multiple variables.",
+                'It is our mission to work closely with clients, helping them define and articulate what they want to accomplish with their wealth. Ongoing collaboration and communication are essential in managing clients’ assets, and a high level of trust is critical in this type of relationship. Our clients share highly personal information and beliefs about matters that may impact future generations. We have always believed that we must earn this trust through all of our actions. The structure of DACFIN is properly aligned with our clients’ interests, and we always work to avoid any possible conflicts of interest.',
+                "At DACFIN, we have built a firm wide culture that places the client at the center of everything we do. We believe in long-term relationships with our clients and when we meet with a client and the client's family or other trusted advisors, this focus on relationships is essential in executing on a long-term plan with multiple variables.",
             ],
             'steps' => [
                 ['01', 'Understanding Core Values', 'Deep listening to uncover your authentic personal goals and family commitments.'],
@@ -20,7 +20,7 @@ return [
 
         'customised-solutions' => [
             'name' => 'Customised Solutions',
-            'title' => 'Customised Solutions | FINCUN',
+            'title' => 'Customised Solutions | DACFIN',
             'eyebrow' => 'Our Approach',
             // PLACEHOLDER: replace with original text from fincun.in/our-approach/customised-solutions
             'heading' => 'Tailored financial blueprints crafted specifically around your unique milestones, risk tolerance, and life aspirations.',
@@ -38,12 +38,12 @@ return [
 
         'keep-you-informed' => [
             'name' => 'Keep You Informed',
-            'title' => 'Keep You Informed | FINCUN',
+            'title' => 'Keep You Informed | DACFIN',
             'eyebrow' => 'Our Approach',
             // PLACEHOLDER: replace with original text from fincun.in/our-approach/keep-you-informed
             'heading' => 'Radical transparency, regular portfolio reporting, and continuous proactive communication.',
             'body' => [
-                'Trust flourishes when there are no surprises. In an industry often clouded with complex financial jargon and hidden charges, FINCUN maintains unwavering clarity and transparency.',
+                'Trust flourishes when there are no surprises. In an industry often clouded with complex financial jargon and hidden charges, DACFIN maintains unwavering clarity and transparency.',
                 'We believe an informed investor is an empowered investor. We provide continuous updates on your portfolio performance, benchmark comparisons, and macroeconomic shifts that might impact your wealth.',
                 'Whether through our regular Wealth Journal publications, intuitive mobile app dashboards, or quarterly one-on-one review sessions, we ensure you always know where your money stands and where it is headed.',
             ],

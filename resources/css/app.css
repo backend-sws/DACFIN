@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import './hero.css';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -6,25 +7,27 @@
 @source '../**/*.js';
 
 @theme {
-  /* Exact 5 Swatches from User Palette */
+  /* Official DACFIN Brand Theme Swatches */
   --color-white: #FFFFFF;
-  --color-ice-cyan: #E0FFFF;
-  --color-pale-turquoise: #AFEEEE;
-  --color-powder-blue: #B0E0E6;
-  --color-light-blue: #ADD8E6;
+  --color-ice-cyan: #F0F4FA;        /* Crisp Dacfin sky-tinted white */
+  --color-pale-turquoise: #C8D7EE;  /* Soft pastel Dacfin blue */
+  --color-powder-blue: #AEC4E8;     /* Luminous Dacfin border */
+  --color-light-blue: #5C82CE;      /* Clear energetic royal blue */
 
   /* Theme Role Tokens */
-  --color-cream: #FFFFFF;       /* Swatch 1: Crisp Pure White Background */
-  --color-mint: #E0FFFF;        /* Swatch 2: Light Cyan for soft glowing tags, eyebrows, chips */
-  --color-turquoise: #AFEEEE;   /* Swatch 3: Pale Turquoise for pills, borders, highlights */
-  --color-sand: #B0E0E6;        /* Swatch 4: Powder Blue for borders, chips, secondary cards */
-  --color-skyblue: #ADD8E6;     /* Swatch 5: Light Blue */
+  --color-cream: #FFFFFF;            /* Crisp Pure White Background */
+  --color-mint: #DCE6F5;             /* Soft Dacfin chips, badges, tags */
+  --color-turquoise: #2A54B4;        /* Electric Dacfin royal blue */
+  --color-sand: #E1E8F2;             /* Clean subtle border */
+  --color-skyblue: #5C82CE;          /* Clear Royal Sky Blue */
 
-  --color-saffron: #00B4D8;     /* Vibrant Cerulean Cyan for primary action buttons, links, accents */
-  --color-emerald: #0A7F96;     /* Deep Ocean Turquoise for primary brand identity & rings */
-  --color-ink: #071922;         /* Deep Midnight Ocean for headings, dark header pill & footer */
-  --color-forest: #0D2834;      /* Deep Marine Cyan for bento cards, mega menu & drawer */
-  --color-slate: #476270;       /* Refined Ocean Slate for clear, readable body paragraphs */
+  --color-saffron: #224597;          /* Primary Action Royal Blue */
+  --color-emerald: #1B3676;          /* Official DACFIN Royal Navy Blue (from Logo) */
+  --color-gold: #C4AC82;             /* Official DACFIN Sunrise Gold (from Logo Sun & Rays) */
+  --color-gold-light: #F6F1E7;       /* Soft luxury gold pill background */
+  --color-ink: #0D1C44;              /* Deep Dacfin Midnight Navy for headings, dark cards */
+  --color-forest: #132658;           /* Rich Dacfin Navy for bento cards & containers */
+  --color-slate: #4A5873;            /* Refined readable slate for paragraphs */
 
   --font-display: "Fraunces", Georgia, serif;
   --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -130,7 +133,7 @@ body {
 #cursor.cursor-hover {
   width: 48px;
   height: 48px;
-  background-color: rgba(0, 180, 216, 0.25);
+  background-color: rgba(37, 99, 235, 0.25);
   backdrop-filter: blur(2px);
   border: 1px solid var(--color-saffron);
 }
@@ -183,4 +186,41 @@ html.lenis, html.lenis body {
 ::selection {
   background-color: var(--color-emerald);
   color: #FFFFFF;
+}
+
+/* Micro-Animations & Dynamic Motion Effects */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(8px); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 0.25; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.08); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 7s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 24s linear infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 4s ease-in-out infinite;
 }

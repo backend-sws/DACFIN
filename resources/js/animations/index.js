@@ -14,6 +14,8 @@ import { initTransition } from './transition';
 gsap.registerPlugin(ScrollTrigger);
 
 export function initAnimations() {
+    initHero();
+
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
         document.documentElement.classList.add('no-motion');
@@ -21,7 +23,6 @@ export function initAnimations() {
     }
 
     initTransition();
-    initHero();
     initReveal();
     initCounters();
     initMarquee();
@@ -30,4 +31,8 @@ export function initAnimations() {
     initMagnetic();
     initTilt();
     initLines();
+
+    window.addEventListener('load', () => {
+        ScrollTrigger.refresh();
+    });
 }

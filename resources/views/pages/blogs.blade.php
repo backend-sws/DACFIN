@@ -40,7 +40,7 @@
 @section('content')
     <x-page-hero 
         eyebrow="Knowledge &amp; Perspectives" 
-        title="FINCUN Advisory Blog" 
+        title="DACFIN Advisory Blog" 
         text="Clear, jargon-free articles designed to help individuals and families master their financial lives."
         :breadcrumbs="[['label' => 'Blogs']]"
     />

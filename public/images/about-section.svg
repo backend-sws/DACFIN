@@ -1,45 +1,54 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" fill="none">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0B1F1A"/>
-      <stop offset="100%" stop-color="#123D33"/>
+      <stop offset="0%" stop-color="#071922"/>
+      <stop offset="60%" stop-color="#0D2834"/>
+      <stop offset="100%" stop-color="#0A7F96"/>
     </linearGradient>
     <linearGradient id="chartG" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#1F8A70" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#1F8A70" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#00B4D8" stop-opacity="0.45"/>
+      <stop offset="60%" stop-color="#0A7F96" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#071922" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="lineG" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00B4D8"/>
+      <stop offset="50%" stop-color="#AFEEEE"/>
+      <stop offset="100%" stop-color="#E0FFFF"/>
     </linearGradient>
   </defs>
-  <rect width="600" height="500" rx="32" fill="url(#bg)"/>
+  <rect width="600" height="500" rx="36" fill="url(#bg)"/>
   
   <!-- Subtle Grid lines -->
-  <line x1="60" y1="120" x2="540" y2="120" stroke="#1F8A70" stroke-opacity="0.15" stroke-dasharray="4 4"/>
-  <line x1="60" y1="200" x2="540" y2="200" stroke="#1F8A70" stroke-opacity="0.15" stroke-dasharray="4 4"/>
-  <line x1="60" y1="280" x2="540" y2="280" stroke="#1F8A70" stroke-opacity="0.15" stroke-dasharray="4 4"/>
-  <line x1="60" y1="360" x2="540" y2="360" stroke="#1F8A70" stroke-opacity="0.15" stroke-dasharray="4 4"/>
+  <line x1="60" y1="120" x2="540" y2="120" stroke="#AFEEEE" stroke-opacity="0.1" stroke-dasharray="4 6"/>
+  <line x1="60" y1="200" x2="540" y2="200" stroke="#AFEEEE" stroke-opacity="0.1" stroke-dasharray="4 6"/>
+  <line x1="60" y1="280" x2="540" y2="280" stroke="#AFEEEE" stroke-opacity="0.1" stroke-dasharray="4 6"/>
+  <line x1="60" y1="360" x2="540" y2="360" stroke="#AFEEEE" stroke-opacity="0.1" stroke-dasharray="4 6"/>
 
-  <!-- Glowing background orb -->
-  <circle cx="420" cy="180" r="120" fill="#1F8A70" fill-opacity="0.18" filter="blur(40px)"/>
-  <circle cx="200" cy="320" r="90" fill="#F2A93B" fill-opacity="0.12" filter="blur(30px)"/>
+  <!-- Glowing background orbs -->
+  <circle cx="420" cy="180" r="140" fill="#0A7F96" fill-opacity="0.25" filter="blur(40px)"/>
+  <circle cx="200" cy="320" r="100" fill="#00B4D8" fill-opacity="0.18" filter="blur(30px)"/>
 
   <!-- Chart Area -->
   <path d="M 80 340 Q 180 320 260 240 T 420 180 T 520 110 L 520 380 L 80 380 Z" fill="url(#chartG)"/>
-  <path d="M 80 340 Q 180 320 260 240 T 420 180 T 520 110" stroke="#F2A93B" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 80 340 Q 180 320 260 240 T 420 180 T 520 110" stroke="url(#lineG)" stroke-width="4.5" stroke-linecap="round"/>
 
-  <!-- Chart Points -->
-  <circle cx="260" cy="240" r="6" fill="#0B1F1A" stroke="#F2A93B" stroke-width="3"/>
-  <circle cx="420" cy="180" r="6" fill="#0B1F1A" stroke="#CFF5E7" stroke-width="3"/>
-  <circle cx="520" cy="110" r="8" fill="#F2A93B" stroke="#F7F3EA" stroke-width="3"/>
+  <!-- Chart Milestone Points -->
+  <circle cx="260" cy="240" r="7" fill="#071922" stroke="#00B4D8" stroke-width="3"/>
+  <circle cx="420" cy="180" r="7" fill="#071922" stroke="#AFEEEE" stroke-width="3"/>
+  <circle cx="520" cy="110" r="9" fill="#00B4D8" stroke="#FFFFFF" stroke-width="3.5"/>
 
   <!-- Floating advisory glass card -->
-  <rect x="80" y="80" width="220" height="100" rx="20" fill="#123D33" fill-opacity="0.8" stroke="#1F8A70" stroke-width="1.5"/>
-  <circle cx="115" cy="120" r="16" fill="#1F8A70" fill-opacity="0.3"/>
-  <path d="M110 120 L115 125 L122 115" stroke="#CFF5E7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="145" y="116" font-family="'Manrope', sans-serif" font-size="12" fill="#CFF5E7" font-weight="600">SMART ADVISORY</text>
-  <text x="145" y="136" font-family="'Fraunces', serif" font-size="18" fill="#F7F3EA" font-weight="700">+18.4% Return</text>
-  <text x="145" y="156" font-family="'Manrope', sans-serif" font-size="11" fill="#5B6B66">Alpha Benchmark</text>
+  <rect x="70" y="70" width="230" height="96" rx="20" fill="#071922" fill-opacity="0.85" stroke="#AFEEEE" stroke-opacity="0.3" stroke-width="1.5"/>
+  <circle cx="105" cy="118" r="16" fill="#0A7F96" fill-opacity="0.4"/>
+  <path d="M100 118 L104 122 L112 114" stroke="#E0FFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="132" y="108" font-family="'Manrope', sans-serif" font-size="11" fill="#AFEEEE" font-weight="700" letter-spacing="1">SMART ADVISORY</text>
+  <text x="132" y="128" font-family="'Fraunces', serif" font-size="18" fill="#FFFFFF" font-weight="700">+18.4% Return</text>
+  <text x="132" y="146" font-family="'Manrope', sans-serif" font-size="11" fill="#B0E0E6">Alpha Benchmark</text>
 
   <!-- Metric badge bottom right -->
-  <rect x="340" y="320" width="180" height="80" rx="16" fill="#0B1F1A" fill-opacity="0.9" stroke="#E8E0CF" stroke-opacity="0.2"/>
-  <text x="360" y="352" font-family="'Manrope', sans-serif" font-size="11" fill="#F2A93B" font-weight="700" letter-spacing="1">100% UNBIASED</text>
-  <text x="360" y="378" font-family="'Fraunces', serif" font-size="16" fill="#F7F3EA">Goal-Aligned Wealth</text>
+  <rect x="330" y="310" width="200" height="84" rx="20" fill="#071922" fill-opacity="0.9" stroke="#0A7F96" stroke-opacity="0.4" stroke-width="1.5"/>
+  <circle cx="356" cy="342" r="6" fill="#00B4D8"/>
+  <text x="370" y="346" font-family="'Manrope', sans-serif" font-size="11" fill="#00B4D8" font-weight="800" letter-spacing="1.2">100% UNBIASED</text>
+  <text x="356" y="374" font-family="'Fraunces', serif" font-size="16" font-weight="600" fill="#FFFFFF">Goal-Aligned Wealth</text>
 </svg>
+

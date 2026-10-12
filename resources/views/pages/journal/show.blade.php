@@ -12,7 +12,7 @@
     <x-page-hero 
         :eyebrow="'Issue ' . $issue['no'] . ' • ' . $issue['date']" 
         :title="$issue['title'] ?? ('Issue ' . $issue['no'] . ' — ' . $issue['date'])" 
-        text="An Investor Education Initiative by FINCUN Private Limited."
+        text="An Investor Education Initiative by Dacfin Services Private Limited."
         :breadcrumbs="[['label' => 'Wealth Journal', 'url' => route('journal.index')], ['label' => 'Issue ' . $issue['no']]]"
     />
 
@@ -26,7 +26,7 @@
                         {{ $issue['no'] }}
                     </span>
                     <div>
-                        <span class="font-bold text-ink block">FINCUN Wealth Journal</span>
+                        <span class="font-bold text-ink block">DACFIN Wealth Journal</span>
                         <span>Published: {{ $issue['date'] }}</span>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
 
                     <div class="space-y-4 pt-4 text-slate">
                         <p>
-                            At FINCUN, our investor education releases aim to provide actionable market intelligence free of short-term noise. Markets naturally traverse cycles of optimism and correction; an investor anchored in structured asset allocation consistently outperforms speculative decision-making.
+                            At DACFIN, our investor education releases aim to provide actionable market intelligence free of short-term noise. Markets naturally traverse cycles of optimism and correction; an investor anchored in structured asset allocation consistently outperforms speculative decision-making.
                         </p>
                         <p>
                             To receive our full PDF newsletter edition or discuss how current market developments influence your specific portfolio milestones, schedule a complimentary consultation with one of our certified wealth advisors.

@@ -4,7 +4,7 @@ return [
     'items' => [
         'financial-planing' => [
             'name' => 'Financial Planning',
-            'title' => 'Financial Planning | FINCUN',
+            'title' => 'Financial Planning | DACFIN',
             'eyebrow' => 'Financial Planning',
             'heading' => 'Build Wealth With Confidence',
             'intro' => "Financial planning is not just about investing. It's about creating a roadmap that helps you grow wealth, reduce risk, achieve life goals and secure your future.",
@@ -45,7 +45,7 @@ return [
 
         'investment-advise' => [
             'name' => 'Investment Advise',
-            'title' => 'Investment Advise | FINCUN',
+            'title' => 'Investment Advise | DACFIN',
             'eyebrow' => 'Investment Advisory',
             'heading' => 'Grow Your Capital With Discipline and Clarity',
             'intro' => 'Mutual Funds, SIP, and Goal-based investments tailored to your personal horizon, risk tolerance, and life aspirations.',
@@ -81,7 +81,7 @@ return [
 
         'wealth-management' => [
             'name' => 'Wealth Management',
-            'title' => 'Wealth Management | FINCUN',
+            'title' => 'Wealth Management | DACFIN',
             'eyebrow' => 'Wealth Management',
             'heading' => 'Preserve, Grow, and Transfer Generational Wealth',
             'intro' => 'Specialized approach and Portfolio Management Services (PMS & AIFs) built for High Net Worth Individuals and family offices.',
@@ -117,7 +117,7 @@ return [
 
         'loan' => [
             'name' => 'Loan',
-            'title' => 'Loan Services | FINCUN',
+            'title' => 'Loan Services | DACFIN',
             'eyebrow' => 'Credit & Financing',
             'heading' => 'Smart Financing Solutions to Unlock Your Potential',
             'intro' => 'Competitive Home Loans and Loan Against Property options that seamlessly align with your broader balance sheet.',
@@ -145,7 +145,7 @@ return [
                 'steps' => ['Consultation', 'Eligibility Check', 'Bank Comparison', 'Documentation', 'Disbursement'],
             ],
             'why' => [
-                'title' => 'Why Partner with FINCUN for Loans?',
+                'title' => 'Why Partner with DACFIN for Loans?',
                 'text' => 'We view debt as an integral part of your financial health, ensuring borrowing creates leverage rather than stress.',
                 'chips' => ['Preferential Interest Rates', 'Minimal Paperwork', 'Fast Sanction', 'Balanced Debt-to-Income'],
             ],
@@ -153,7 +153,7 @@ return [
 
         'insurance' => [
             'name' => 'Insurance',
-            'title' => 'Insurance Solutions | FINCUN',
+            'title' => 'Insurance Solutions | DACFIN',
             'eyebrow' => 'Risk & Protection',
             'heading' => 'Safeguard Your Family’s Tomorrow, Today',
             'intro' => 'Comprehensive life and health insurance coverage designed to shield your family and assets from unexpected events.',
@@ -189,7 +189,7 @@ return [
 
         'training' => [
             'name' => 'Training',
-            'title' => 'Financial Training | FINCUN',
+            'title' => 'Financial Training | DACFIN',
             'eyebrow' => 'Investor Education',
             'heading' => 'Empowering Minds with Practical Financial Literacy',
             'intro' => 'Practical financial workshops and training sessions for professionals, corporate teams, and aspiring investors.',

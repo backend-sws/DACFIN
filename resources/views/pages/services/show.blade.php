@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page', 'service-' . $slug)
-@section('title', $item['title'] ?? ($item['name'] . ' | FINCUN'))
+@section('title', $item['title'] ?? ($item['name'] . ' | ' . config('fincun.site.brand')))
 
 @section('content')
     <x-page-hero 

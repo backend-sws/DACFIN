@@ -26,7 +26,7 @@
                 </h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-stagger>
+            <div class="grid grid-cols-1 md:grid-cols-2 max-w-4xl gap-8" data-stagger>
                 @foreach($teamBios as $slug => $member)
                     <div class="rounded-3xl bg-sand/30 border border-sand hover:border-emerald/40 hover:bg-white transition-all duration-300 p-6 flex flex-col justify-between space-y-6 shadow-sm hover:shadow-xl group" data-tilt>
                         

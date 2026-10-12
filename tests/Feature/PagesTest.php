@@ -87,7 +87,7 @@ class PagesTest extends TestCase
     {
         $payload = [
             'name' => 'Arun Sharma',
-            'phone' => '+91 9835349232',
+            'phone' => '+91 9934675399',
             'email' => 'arun@example.com',
             'interest' => 'Financial Planning',
             'message' => 'Interested in comprehensive retirement planning advice.',

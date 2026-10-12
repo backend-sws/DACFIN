@@ -2,7 +2,7 @@
 
 return [
     'about' => [
-        'eyebrow' => 'About FINCUN',
+        'eyebrow' => 'About DACFIN',
         'title' => 'Building Financial Confidence For Every Stage Of Life',
         'text' => 'We help individuals, families and businesses make smarter financial decisions through personalized planning, wealth management and investment advisory.',
         'image' => '/images/about-section.svg',
@@ -10,7 +10,7 @@ return [
             'eyebrow' => 'Our Story',
             'title' => 'Making Finance Simpler, Smarter and More Human',
             'paragraphs' => [
-                'FINCUN was founded on a simple belief: financial planning should be transparent, accessible and focused on people rather than products.',
+                'DACFIN (Dacfin Services Private Limited) was founded on a simple belief: financial planning should be transparent, accessible and focused on people rather than products.',
                 'By combining personalized advisory with technology-driven insights, we help clients grow, protect and manage wealth with confidence.',
             ],
         ],
@@ -19,7 +19,7 @@ return [
     ],
 
     'why_fincun' => [
-        'title' => 'Why Choose FINCUN?',
+        'title' => 'Why Choose DACFIN?',
         'text' => 'Trust, transparency and disciplined financial planning designed around your life goals.',
         'quote' => ['Trust is the glue of life. It\'s the foundational principle that holds all relationships.', 'Stephen Covey'],
     ],
@@ -37,45 +37,19 @@ return [
 
     // Bios for team members (used on /our-team)
     'team_bios' => [
-        'bikesh-ojha' => [
-            'name' => 'Bikesh Ojha',
-            'role' => 'Founder & Wealth Manager',
-            'initials' => 'BO',
-            'image' => '/images/team/bikesh.svg',
-            // PLACEHOLDER: replace with original text from fincun.in/our-team
-            'bio' => 'Bikesh brings over a decade of hands-on experience in personal wealth advisory, goal-based planning, and client-centric asset allocation strategies.',
+        'dharmendra-kumar' => [
+            'name' => 'Dharmendra Kumar',
+            'role' => 'Director & Chief Financial Advisor',
+            'initials' => 'DK',
+            'image' => '/images/team/dharmendra.svg',
+            'bio' => 'Dharmendra Kumar brings extensive experience in personal wealth advisory, goal-based planning, and client-centric asset allocation strategies.',
         ],
-        'avinash-pathak' => [
-            'name' => 'Avinash Pathak',
-            'role' => 'Vice President',
-            'initials' => 'AP',
-            'image' => '/images/team/avinash.svg',
-            // PLACEHOLDER: replace with original text from fincun.in/our-team
-            'bio' => 'Avinash leads strategic operations and partner distribution, focusing on institutional client relationships and operational excellence.',
-        ],
-        'prem-shankar-dubey' => [
-            'name' => 'Prem Shankar Dubey',
-            'role' => 'Admin Head',
-            'initials' => 'PD',
-            'image' => '/images/team/prem-shankar.svg',
-            // PLACEHOLDER: replace with original text from fincun.in/our-team
-            'bio' => 'Prem oversees administration, compliance adherence, and smooth inter-branch logistics across Patna and Ranchi regional offices.',
-        ],
-        'surbhi-sinha' => [
-            'name' => 'Surbhi Sinha',
-            'role' => 'Operations Manager',
-            'initials' => 'SS',
-            'image' => '/images/team/surbhi.svg',
-            // PLACEHOLDER: replace with original text from fincun.in/our-team
-            'bio' => 'Surbhi manages day-to-day client onboarding, transaction workflows, and seamless service delivery across investment channels.',
-        ],
-        'abhishek-nandi' => [
-            'name' => 'Abhishek Nandi',
-            'role' => 'Goal Based Financial Planner',
-            'initials' => 'AN',
-            'image' => '/images/team/abhishek.svg',
-            // PLACEHOLDER: replace with original text from fincun.in/our-team
-            'bio' => 'Abhishek specializes in comprehensive financial mapping, retirement projection models, and disciplined portfolio health reviews.',
+        'asha-kumari' => [
+            'name' => 'Asha Kumari',
+            'role' => 'Director & Operations Head',
+            'initials' => 'AK',
+            'image' => '/images/team/asha.svg',
+            'bio' => 'Asha Kumari leads institutional operations, compliance governance, and client service excellence, ensuring transparent and reliable financial stewardship.',
         ],
     ],
 ];

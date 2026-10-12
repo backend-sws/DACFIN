@@ -1,90 +1,136 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+gsap.registerPlugin(ScrollTrigger);
+
+const fmt = (n, locale) =>
+  new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(Math.round(n));
+
 export function initHero() {
-    gsap.registerPlugin(ScrollTrigger);
+  const root = document.querySelector('[data-hero]');
+  if (!root) return;
 
-    // Split text words reveal (pure JS span wrapping)
-    document.querySelectorAll('[data-split="words"]').forEach((heading) => {
-        if (heading.dataset.splitDone) return;
-        heading.dataset.splitDone = 'true';
+  const q = (s) => root.querySelectorAll(s);
+  const card = root.querySelector('[data-hcard]');
+  const floats = [...q('[data-float]')];
+  const value = root.querySelector('[data-count]');
+  const knob = root.querySelector('.hcard__toggle i');
 
-        const nodes = Array.from(heading.childNodes);
-        heading.innerHTML = '';
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const desktop = matchMedia('(min-width: 1024px)').matches;
 
-        nodes.forEach((node) => {
-            if (node.nodeType === Node.TEXT_NODE) {
-                const words = node.textContent.trim().split(/\s+/);
-                words.forEach((word) => {
-                    if (!word) return;
-                    const span = document.createElement('span');
-                    span.className = 'inline-block overflow-hidden mr-[0.28em]';
-                    const inner = document.createElement('span');
-                    inner.className = 'inline-block word-split';
-                    inner.textContent = word;
-                    span.appendChild(inner);
-                    heading.appendChild(span);
-                });
-            } else if (node.nodeType === Node.ELEMENT_NODE) {
-                const span = document.createElement('span');
-                span.className = 'inline-block overflow-hidden mr-[0.28em]';
-                const inner = document.createElement('span');
-                inner.className = 'inline-block word-split';
-                inner.innerHTML = node.outerHTML;
-                span.appendChild(inner);
-                heading.appendChild(span);
-            }
-        });
+  root.classList.add('is-ready');
+  if (reduce) return;                       // final state stays visible, no motion
 
-        const wordElements = heading.querySelectorAll('.word-split');
-        if (wordElements.length > 0) {
-            gsap.from(wordElements, {
-                yPercent: 100,
-                opacity: 0,
-                duration: 0.9,
-                stagger: 0.04,
-                ease: 'power4.out',
-                scrollTrigger: {
-                    trigger: heading,
-                    start: 'top 90%',
-                    once: true,
-                },
-            });
-        }
+  /* 3D tilt of the main card (same values as the CSS fallback) */
+  const base = { rotateY: desktop ? -10 : -4, rotateX: desktop ? 4 : 2, rotateZ: desktop ? -1 : 0 };
+  gsap.set(card, { ...base, transformPerspective: 1400 });
+
+  /* count-up */
+  const target = Number(value.dataset.count);
+  const cur = value.dataset.currency || '';
+  const locale = value.dataset.locale || 'en-US';
+  const finalText = value.textContent;
+  const counter = { v: 0 };
+  value.textContent = cur + '0';
+
+  /* intro timeline - elements slide in from the left one-by-one on load/refresh and replay on scroll */
+  const xDist = desktop ? -80 : -50;
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+  tl.fromTo('.hero__badge',
+      { x: xDist, autoAlpha: 0 },
+      { x: 0, autoAlpha: 1, duration: 0.7, clearProps: 'transform,opacity,visibility' }
+    )
+    .fromTo(q('.hero__title .line'),
+      { x: xDist - 20, autoAlpha: 0 },
+      { x: 0, autoAlpha: 1, duration: 0.85, stagger: 0.16, clearProps: 'transform,opacity,visibility' },
+      '-=0.35'
+    )
+    .fromTo('.hero__text',
+      { x: xDist, autoAlpha: 0 },
+      { x: 0, autoAlpha: 1, duration: 0.75, clearProps: 'transform,opacity,visibility' },
+      '-=0.4'
+    )
+    .fromTo(q('.hero__cta > *'),
+      { x: xDist + 10, autoAlpha: 0 },
+      { x: 0, autoAlpha: 1, duration: 0.65, stagger: 0.14, clearProps: 'transform,opacity,visibility' },
+      '-=0.35'
+    )
+    .fromTo(q('.hero__features li'),
+      { x: xDist + 15, autoAlpha: 0 },
+      { x: 0, autoAlpha: 1, duration: 0.6, stagger: 0.12, clearProps: 'transform,opacity,visibility' },
+      '-=0.3'
+    )
+    .fromTo(card,
+      { x: desktop ? 90 : 40, rotateY: base.rotateY - 28, autoAlpha: 0 },
+      { x: 0, rotateY: base.rotateY, autoAlpha: 1, duration: 1.1 },
+      0.3
+    )
+    .fromTo(floats,
+      { x: desktop ? 60 : 30, autoAlpha: 0 },
+      { x: 0, autoAlpha: 1, duration: 0.8, stagger: 0.18 },
+      0.8
+    )
+    .fromTo(q('.hcard__actions li'),
+      { y: 14, autoAlpha: 0 },
+      { y: 0, autoAlpha: 1, duration: 0.5, stagger: 0.08 },
+      1.0
+    )
+    .fromTo(counter,
+      { v: 0 },
+      {
+        v: target,
+        duration: 2.2,
+        ease: 'power2.out',
+        onUpdate: () => { value.textContent = cur + fmt(counter.v, locale); },
+        onComplete: () => { value.textContent = finalText; },
+      },
+      0.8
+    );
+
+  /* ScrollTrigger to replay animation when scrolling from bottom back up to the top ("niche se upper aye tab") */
+  ScrollTrigger.create({
+    trigger: root,
+    start: 'top top',
+    end: 'bottom top',
+    onLeave: () => {
+      tl.pause(0);
+      value.textContent = cur + '0';
+    },
+    onEnterBack: () => {
+      tl.restart();
+    },
+  });
+
+  /* floating cards bob (desktop only, they are stacked on mobile) */
+  if (desktop) {
+    gsap.to(floats, {
+      y: '+=10', duration: 2.6, ease: 'sine.inOut',
+      repeat: -1, yoyo: true, delay: 1.8, stagger: { each: 0.5 },
     });
+  }
 
-    // Chart Line Drawing animation in Hero
-    const chartLines = document.querySelectorAll('.chart-line');
-    chartLines.forEach((line) => {
-        const length = line.getTotalLength ? line.getTotalLength() : 350;
-        gsap.set(line, {
-            strokeDasharray: length,
-            strokeDashoffset: length,
-        });
-        gsap.to(line, {
-            strokeDashoffset: 0,
-            duration: 2.2,
-            ease: 'power2.out',
-            scrollTrigger: {
-                trigger: line,
-                start: 'top 85%',
-                once: true,
-            },
-        });
-    });
+  /* toggle switches by itself */
+  gsap.to(knob, { x: -20, duration: 0.4, ease: 'power2.inOut', repeat: -1, yoyo: true, repeatDelay: 2.6, delay: 2.4 });
 
-    // Parallax on mouse move / scroll
-    gsap.utils.toArray('[data-parallax]').forEach((el) => {
-        const speed = parseFloat(el.dataset.parallax) || 0.1;
-        gsap.to(el, {
-            y: () => -100 * speed,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: el,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true,
-            },
-        });
+  /* mouse parallax (desktop + mouse only) */
+  if (fine && desktop) {
+    const ry = gsap.quickTo(card, 'rotateY', { duration: 0.8, ease: 'power3.out' });
+    const rx = gsap.quickTo(card, 'rotateX', { duration: 0.8, ease: 'power3.out' });
+    const fx = floats.map((f) => gsap.quickTo(f, 'x', { duration: 1, ease: 'power3.out' }));
+
+    root.addEventListener('pointermove', (e) => {
+      const r = root.getBoundingClientRect();
+      const nx = (e.clientX - r.left) / r.width - 0.5;
+      const ny = (e.clientY - r.top) / r.height - 0.5;
+      ry(base.rotateY + nx * 8);
+      rx(base.rotateX - ny * 8);
+      fx.forEach((f, i) => f(-nx * (18 + i * 10)));
     });
+    root.addEventListener('pointerleave', () => {
+      ry(base.rotateY); rx(base.rotateX); fx.forEach((f) => f(0));
+    });
+  }
 }

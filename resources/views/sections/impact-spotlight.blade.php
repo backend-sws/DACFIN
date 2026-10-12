@@ -5,26 +5,40 @@
             ['val' => '15+ Years', 'label' => 'Proven leadership navigating bull and bear market cycles.'],
             ['val' => '100%', 'label' => 'Unbiased advisory standard with zero product quotas.'],
         ],
-        'title' => 'Patna & Ranchi: The Transformation of Wealth Advisory.',
-        'text' => 'For decades, tier-2 cities in eastern India were underserved by transactional product pushers. FINCUN was established in 2016 to introduce institutional-grade, goal-based wealth planning right to your doorstep in Patna and Ranchi.',
+        'title' => 'Patna & Bihar: The Transformation of Wealth Advisory.',
+        'text' => 'For decades, families and enterprises across Bihar were underserved by transactional product pushers. Dacfin Services Private Limited was established to introduce institutional-grade, goal-based wealth planning right to your doorstep in Patna.',
         'cta' => ['Explore Regional Presence', '/about-us'],
         'image' => '/images/about-section.svg',
     ];
     $stats = $spotlight['stats'] ?? [];
 @endphp
 
-<section class="section-y bg-cream overflow-hidden">
-    <div class="container-x">
+<section class="section-y bg-cream relative overflow-visible">
+    <div class="container-x space-y-8 sm:space-y-12">
+        <div class="text-center max-w-2xl mx-auto space-y-3" data-spotlight-header>
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-ice-cyan border border-turquoise/50 text-xs font-bold uppercase tracking-wider text-emerald shadow-xs will-change-transform" data-spotlight-eyebrow>
+                <span class="w-2 h-2 rounded-full bg-emerald animate-pulse"></span>
+                <span>Regional Transformation Story</span>
+            </div>
+            <h2 class="h-display text-3xl sm:text-4xl lg:text-5xl font-bold text-ink leading-[1.18] will-change-transform" data-spotlight-title>
+                Transforming Wealth <br class="hidden sm:inline">
+                Advisory in Eastern India
+            </h2>
+        </div>
+
         <!-- Wireframe 3-Column Asymmetric Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
             
             <!-- Left Column: 3 Big Stacked Stats -->
-            <div class="lg:col-span-4 flex flex-col justify-between space-y-6 sm:space-y-8" data-reveal="right">
+            <div class="lg:col-span-4 flex flex-col justify-between space-y-4 sm:space-y-6" data-reveal="right">
                 @foreach($stats as $st)
-                    <div class="p-6 rounded-3xl bg-white border border-sand/60 shadow-sm hover:shadow-md transition-all space-y-1 group">
-                        <span class="block font-display font-bold text-3xl sm:text-4xl text-ink group-hover:text-emerald transition-colors">
-                            {{ $st['val'] }}
-                        </span>
+                    <div class="p-6 rounded-3xl bg-white border border-sand/60 shadow-sm hover:shadow-md transition-all space-y-2 group">
+                        <div class="flex items-center justify-between">
+                            <span class="font-display font-bold text-3xl sm:text-4xl text-ink group-hover:text-emerald transition-colors">
+                                {{ $st['val'] }}
+                            </span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-saffron"></span>
+                        </div>
                         <p class="text-xs sm:text-sm text-slate leading-relaxed">
                             {{ $st['label'] }}
                         </p>
@@ -32,18 +46,50 @@
                 @endforeach
             </div>
 
-            <!-- Center Column: Visual Card -->
-            <div class="lg:col-span-4 rounded-3xl bg-white border border-sand/60 p-4 sm:p-5 flex items-center justify-center shadow-sm relative overflow-hidden" data-reveal="up">
-                <div class="w-full h-full min-h-[260px] rounded-2xl bg-forest/10 border border-sand/40 overflow-hidden relative flex items-center justify-center p-4">
-                    <img 
-                        src="{{ $spotlight['image'] ?? '/images/about-section.svg' }}" 
-                        alt="Regional Wealth Advisory" 
-                        class="w-full h-full object-contain"
-                        loading="lazy"
-                    >
-                    <span class="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-ink/80 text-mint text-[10px] font-semibold">
-                        Dual Regional Hubs
+            <!-- Center Column: Patna Headquarters Glass Card -->
+            <div class="lg:col-span-4 rounded-3xl bg-gradient-to-br from-forest via-ink to-forest text-cream border border-emerald/30 p-6 sm:p-7 flex flex-col justify-between shadow-xl relative overflow-hidden" data-reveal="up">
+                <div class="absolute -right-16 -top-16 w-56 h-56 bg-saffron/15 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="space-y-2 relative z-10">
+                    <span class="px-3 py-1 rounded-full bg-white/10 text-mint text-[11px] font-semibold tracking-wide border border-white/15">
+                        In-Person Headquarters
                     </span>
+                    <h3 class="h-display text-xl sm:text-2xl font-bold text-cream mt-2">
+                        Physical Presence Where You Are
+                    </h3>
+                </div>
+
+                <!-- Headquarters & Contact Card -->
+                <div class="space-y-3.5 my-6 relative z-10">
+                    <div class="p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-emerald/40 transition-colors">
+                        <div class="flex items-center justify-between text-xs font-bold text-mint pb-1">
+                            <span>PATNA HEADQUARTERS</span>
+                            <span class="text-[10px] font-mono text-sand/80">KANKARBAGH</span>
+                        </div>
+                        <p class="text-xs text-white/95 leading-relaxed">
+                            Shop No 14, Vijay Aman Apartment, Main Road, Near Gravity Mall, Kankarbagh, Patna, Bihar - 800020
+                        </p>
+                        <div class="flex items-center justify-between pt-1.5 text-[11px] font-mono">
+                            <a href="tel:{{ config('fincun.site.primary_phone_tel') }}" class="text-white hover:underline font-bold">{{ config('fincun.site.phones.0') }}</a>
+                            <a href="{{ config('fincun.site.whatsapp_url') }}" target="_blank" rel="noopener noreferrer" class="text-white hover:underline font-bold">WhatsApp</a>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-emerald/40 transition-colors">
+                        <div class="flex items-center justify-between text-xs font-bold text-mint pb-1">
+                            <span>DIRECTORS</span>
+                            <span class="text-[10px] font-mono text-sand/80">EXECUTIVE DESK</span>
+                        </div>
+                        <p class="text-xs text-white/95 leading-relaxed">
+                            Dharmendra Kumar &amp; Asha Kumari
+                        </p>
+                        <span class="text-[11px] text-white/80 font-mono mt-1 block">Contact Person: Dharmendra Kumar</span>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-white/15 flex items-center justify-between text-xs text-sand/80 relative z-10">
+                    <span>{{ config('fincun.site.brand') }} Advisory</span>
+                    <span class="text-mint font-semibold">{{ config('fincun.site.hours') }}</span>
                 </div>
             </div>
 
@@ -57,11 +103,26 @@
                     <p class="text-xs sm:text-sm text-slate leading-relaxed">
                         {{ $spotlight['text'] }}
                     </p>
+
+                    <div class="space-y-2 pt-2 border-t border-sand/30 text-xs text-slate">
+                        <div class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald"></span>
+                            <span>Dedicated relationship managers for HNIs &amp; business owners</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald"></span>
+                            <span>Zero hidden commissions or undisclosed expense ratios</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald"></span>
+                            <span>Institutional portfolio tools tailored to family offices</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="pt-4 border-t border-sand/40">
                     <a 
-                        href="{{ $spotlight['cta'][1] ?? '/about-us' }}"
+                        href="{{ url($spotlight['cta'][1] ?? '/about-us') }}"
                         class="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-emerald hover:text-ink transition-colors group"
                     >
                         <span>{{ $spotlight['cta'][0] ?? 'Explore Regional Presence' }}</span>

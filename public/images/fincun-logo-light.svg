@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 48" fill="none">
-  <rect x="0" y="4" width="40" height="40" rx="12" fill="#123D33" />
-  <path d="M12 14H28V18H16V22H25V26H16V34H12V14Z" fill="#F2A93B"/>
-  <circle cx="28" cy="14" r="3" fill="#CFF5E7"/>
-  <text x="50" y="32" font-family="'Fraunces', serif" font-size="26" font-weight="800" fill="#F7F3EA" letter-spacing="2">FINCUN</text>
-  <circle cx="178" cy="30" r="3.5" fill="#F2A93B"/>
+  <rect x="0" y="4" width="40" height="40" rx="12" fill="#152A4A" />
+  <path d="M12 14H22C26.4 14 29 17 29 24C29 31 26.4 34 22 34H12V14ZM16 18V30H21.5C24 30 25.2 27.5 25.2 24C25.2 20.5 24 18 21.5 18H16Z" fill="#3B82F6"/>
+  <circle cx="28" cy="14" r="3" fill="#93C5FD"/>
+  <text x="50" y="32" font-family="'Fraunces', serif" font-size="26" font-weight="800" fill="#FFFFFF" letter-spacing="2">DACFIN</text>
+  <circle cx="178" cy="30" r="3.5" fill="#3B82F6"/>
 </svg>

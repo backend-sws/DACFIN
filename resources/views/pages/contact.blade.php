@@ -179,19 +179,32 @@
                         <span class="text-xs uppercase font-bold tracking-widest text-mint block">Reach Us Directly</span>
                         
                         <div class="space-y-6 text-sm">
+                            <!-- Contact Person & Directors -->
+                            <div class="space-y-1">
+                                <span class="font-bold text-saffron block">Contact Person:</span>
+                                <p class="text-cream font-medium text-base">{{ $site['contact_person'] ?? 'Dharmendra Kumar' }}</p>
+                                <p class="text-sand/70 text-xs">Directors: {{ implode(', ', $site['directors'] ?? ['Dharmendra Kumar', 'Asha Kumari']) }}</p>
+                            </div>
+
                             <!-- Offices -->
                             @foreach($site['offices'] as $office)
                                 <div class="space-y-1">
-                                    <span class="font-bold text-saffron block">{{ $office['city'] }} Office:</span>
-                                    <p class="text-sand/80 whitespace-pre-line leading-relaxed">{{ $office['address'] }}</p>
+                                    <span class="font-bold text-saffron block">{{ $office['city'] }} Headquarters:</span>
+                                    <p class="text-sand/90 whitespace-pre-line leading-relaxed">{{ $office['address'] }}</p>
                                 </div>
                             @endforeach
 
-                            <div class="pt-4 border-t border-emerald/20 space-y-2">
+                            <div class="pt-4 border-t border-emerald/20 space-y-3">
                                 <p>
-                                    <span class="text-mint font-semibold block">Phones:</span>
-                                    <a href="tel:{{ $site['primary_phone_tel'] }}" class="text-cream hover:text-saffron transition-colors">{{ $site['phones'][0] }}</a>, 
-                                    <a href="tel:{{ $site['phones'][1] }}" class="text-cream hover:text-saffron transition-colors">{{ $site['phones'][1] }}</a>
+                                    <span class="text-mint font-semibold block">Phone Number:</span>
+                                    <a href="tel:{{ $site['primary_phone_tel'] }}" class="text-cream hover:text-saffron transition-colors">{{ $site['phones'][0] }}</a>
+                                </p>
+                                <p>
+                                    <span class="text-mint font-semibold block">WhatsApp:</span>
+                                    <a href="{{ $site['whatsapp_url'] ?? ('https://wa.me/91' . ($site['whatsapp'] ?? '9934675399')) }}" target="_blank" rel="noopener noreferrer" class="text-cream hover:text-saffron transition-colors inline-flex items-center gap-1.5">
+                                        <span>+91 {{ $site['whatsapp'] ?? '9934675399' }}</span>
+                                        <span class="text-xs px-2 py-0.5 rounded-full bg-emerald/30 text-mint">Chat on WhatsApp &rarr;</span>
+                                    </a>
                                 </p>
                                 <p>
                                     <span class="text-mint font-semibold block">Email:</span>
@@ -215,7 +228,7 @@
                             allowfullscreen="" 
                             loading="lazy" 
                             referrerpolicy="no-referrer-when-downgrade"
-                            title="FINCUN Office Location Map"
+                            title="{{ config('fincun.site.brand') }} Office Location Map"
                         ></iframe>
                     </div>
 

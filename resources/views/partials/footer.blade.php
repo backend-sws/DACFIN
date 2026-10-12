@@ -2,7 +2,7 @@
     <!-- Giant Faded Outlined Wordmark Behind in Parallax -->
     <div class="absolute bottom-10 left-1/2 -translate-x-1/2 select-none pointer-events-none opacity-[0.03] whitespace-nowrap overflow-hidden" data-parallax="0.1">
         <span class="font-display text-[16vw] font-black tracking-widest text-cream uppercase">
-            FINCUN
+            {{ config('fincun.site.brand') }}
         </span>
     </div>
 
@@ -11,8 +11,8 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
             <!-- Brand Column (2 cols) -->
             <div class="lg:col-span-2 space-y-6">
-                <a href="{{ route('home') }}" class="inline-block" aria-label="FINCUN Home">
-                    <img src="{{ asset('images/fincun-logo-light.svg') }}" alt="FINCUN" width="160" height="40" class="h-10 w-auto">
+                <a href="{{ route('home') }}" class="inline-block" aria-label="{{ config('fincun.site.brand') }} Home">
+                    <img src="{{ asset('images/dacfin-logo-light.svg') }}" alt="{{ config('fincun.site.brand') }}" width="160" height="40" class="h-10 w-auto">
                 </a>
                 <p class="text-sm text-sand/70 max-w-sm leading-relaxed">
                     {{ config('fincun.site.tagline') }}
@@ -53,13 +53,13 @@
 
             <!-- Services Column -->
             <div class="space-y-4">
-                <h4 class="font-display font-semibold text-cream text-base uppercase tracking-wider text-xs text-mint">
+                <h4 class="font-display font-semibold text-white text-base uppercase tracking-wider text-xs">
                     Services
                 </h4>
                 <ul class="space-y-2.5 text-sm">
                     @foreach(config('fincun.navigation.footer.services') as $srv)
                         <li>
-                            <a href="{{ $srv[1] }}" class="hover:text-saffron transition-colors">
+                            <a href="{{ $srv[1] }}" class="text-white/80 hover:text-white transition-colors">
                                 {{ $srv[0] }}
                             </a>
                         </li>
@@ -69,13 +69,13 @@
 
             <!-- Quick Links Column -->
             <div class="space-y-4">
-                <h4 class="font-display font-semibold text-cream text-base uppercase tracking-wider text-xs text-mint">
+                <h4 class="font-display font-semibold text-white text-base uppercase tracking-wider text-xs">
                     Quick Links
                 </h4>
                 <ul class="space-y-2.5 text-sm">
                     @foreach(config('fincun.navigation.footer.quick') as $link)
                         <li>
-                            <a href="{{ $link[1] }}" class="hover:text-saffron transition-colors">
+                            <a href="{{ $link[1] }}" class="text-white/80 hover:text-white transition-colors">
                                 {{ $link[0] }}
                             </a>
                         </li>
@@ -85,21 +85,23 @@
 
             <!-- Get In Touch Column -->
             <div class="space-y-4">
-                <h4 class="font-display font-semibold text-cream text-base uppercase tracking-wider text-xs text-mint">
+                <h4 class="font-display font-semibold text-white text-base uppercase tracking-wider text-xs">
                     Get in Touch
                 </h4>
                 <div class="space-y-3 text-xs sm:text-sm">
                     @foreach(config('fincun.site.offices') as $office)
                         <div class="space-y-0.5">
-                            <span class="font-bold text-cream">{{ $office['city'] }} Office:</span>
-                            <p class="text-sand/70 whitespace-pre-line leading-relaxed">{{ $office['address'] }}</p>
+                            <span class="font-bold text-white">{{ $office['city'] }} Office:</span>
+                            <p class="text-white/90 whitespace-pre-line leading-relaxed">{{ $office['address'] }}</p>
                         </div>
                     @endforeach
 
-                    <div class="pt-1 space-y-1">
-                        <p><span class="text-cream font-medium">Phone:</span> <a href="tel:{{ config('fincun.site.primary_phone_tel') }}" class="text-saffron hover:underline">{{ config('fincun.site.phones.0') }}</a></p>
-                        <p><span class="text-cream font-medium">Email:</span> <a href="mailto:{{ config('fincun.site.email') }}" class="text-saffron hover:underline">{{ config('fincun.site.email') }}</a></p>
-                        <p><span class="text-cream font-medium">Hours:</span> {{ config('fincun.site.hours') }}</p>
+                    <div class="pt-1 space-y-1.5">
+                        <p><span class="text-white font-medium">Contact:</span> <span class="text-white font-semibold">{{ config('fincun.site.contact_person') }}</span></p>
+                        <p><span class="text-white font-medium">Phone:</span> <a href="tel:{{ config('fincun.site.primary_phone_tel') }}" class="text-white hover:text-white/80 font-bold underline underline-offset-2">{{ config('fincun.site.phones.0') }}</a></p>
+                        <p><span class="text-white font-medium">WhatsApp:</span> <a href="{{ config('fincun.site.whatsapp_url') }}" target="_blank" rel="noopener noreferrer" class="text-white hover:text-white/80 font-bold underline underline-offset-2">+91 {{ config('fincun.site.whatsapp') }}</a></p>
+                        <p><span class="text-white font-medium">Email:</span> <a href="mailto:{{ config('fincun.site.email') }}" class="text-white hover:text-white/80 font-bold underline underline-offset-2">{{ config('fincun.site.email') }}</a></p>
+                        <p><span class="text-white font-medium">Hours:</span> <span class="text-white">{{ config('fincun.site.hours') }}</span></p>
                     </div>
                 </div>
             </div>
@@ -107,30 +109,30 @@
 
         <!-- Middle Row: Bottom Links (Mutual Funds, Loans Against MF, NPS Registration, NPS Payments) -->
         <div class="pt-8 border-t border-emerald/15">
-            <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs text-sand/70 font-medium">
+            <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs text-white/80 font-medium">
                 @foreach(config('fincun.navigation.footer.bottom_links') as $blink)
-                    <a href="{{ $blink[1] }}" class="hover:text-saffron transition-colors" @if(str_starts_with($blink[1], 'http')) target="_blank" rel="noopener noreferrer" @endif>
+                    <a href="{{ $blink[1] }}" class="hover:text-white transition-colors" @if(str_starts_with($blink[1], 'http')) target="_blank" rel="noopener noreferrer" @endif>
                         {{ $blink[0] }}
                     </a>
                     @if(!$loop->last)
-                        <span class="text-emerald/40 hidden sm:inline">&bull;</span>
+                        <span class="text-white/40 hidden sm:inline">&bull;</span>
                     @endif
                 @endforeach
             </div>
         </div>
 
         <!-- Legal Disclaimer -->
-        <div class="p-6 rounded-2xl bg-forest/40 border border-emerald/20 text-xs text-sand/60 leading-relaxed text-justify space-y-2">
+        <div class="p-6 rounded-2xl bg-forest/40 border border-emerald/20 text-xs text-white/75 leading-relaxed text-justify space-y-2">
             <span class="font-bold text-mint uppercase tracking-wider block text-[10px]">Statutory Disclaimer</span>
             <p>{{ config('fincun.site.disclaimer') }}</p>
         </div>
 
-        <!-- Bottom Line: Copyright, CIN, AMFI, Back-to-top -->
-        <div class="pt-6 border-t border-emerald/15 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-sand/60">
+        <!-- Bottom Line: Copyright, Directors, Back-to-top -->
+        <div class="pt-6 border-t border-emerald/15 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/70">
             <div class="space-y-1 text-center md:text-left">
                 <p>&copy; {{ date('Y') }} {{ config('fincun.site.name') }}. All rights reserved.</p>
-                <p>CIN: <span class="text-sand/80 font-mono">{{ config('fincun.site.cin') }}</span></p>
-                <div class="flex flex-wrap items-center gap-x-3 gap-y-1 pt-0.5">
+                <p class="text-white/85">Directors: <span class="text-white font-medium">{{ implode(', ', config('fincun.site.directors')) }}</span></p>
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-1 pt-0.5 text-white/75">
                     @foreach(config('fincun.site.amfi') as $reg)
                         <span>{{ $reg }}</span>
                     @endforeach

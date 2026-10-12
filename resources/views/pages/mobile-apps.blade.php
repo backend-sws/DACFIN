@@ -18,13 +18,13 @@
                 <!-- Left: App Features (7 cols) -->
                 <div class="lg:col-span-7 space-y-8" data-reveal="right">
                     <x-ui.section-title 
-                        eyebrow="FINCUN Client App" 
+                        eyebrow="DACFIN Client App" 
                         title="Intelligent Portfolio Tracking Designed for Simplicity" 
                     />
 
                     <!-- PLACEHOLDER: replace with original text from fincun.in/mobile-apps -->
                     <p class="text-slate text-base sm:text-lg leading-relaxed">
-                        The official FINCUN mobile app connects directly with your investment portfolio, providing daily valuations, automated capital gains reports, and one-tap rebalancing requests.
+                        The official DACFIN mobile app connects directly with your investment portfolio, providing daily valuations, automated capital gains reports, and one-tap rebalancing requests.
                     </p>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">

@@ -7,7 +7,7 @@
 <body style="font-family: sans-serif; background-color: #F7F3EA; padding: 24px; color: #0B1F1A;">
     <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 16px; padding: 32px; border: 1px solid #E8E0CF;">
         <h2 style="color: #0B1F1A; margin-top: 0;">New Consultation Request Received</h2>
-        <p>A new visitor has submitted the contact form on FINCUN website:</p>
+        <p>A new visitor has submitted the contact form on DACFIN website:</p>
         
         <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
             <tr>
@@ -37,7 +37,7 @@
         </table>
 
         <div style="margin-top: 32px; padding-top: 16px; border-top: 1px solid #E8E0CF; font-size: 12px; color: #5B6B66;">
-            Submitted on {{ $contactMessage->created_at->format('M d, Y h:i A') }} via FINCUN Advisory Portal.
+            Submitted on {{ $contactMessage->created_at->format('M d, Y h:i A') }} via DACFIN Advisory Portal.
         </div>
     </div>
 </body>
