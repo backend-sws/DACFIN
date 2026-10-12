@@ -420,41 +420,18 @@ export function initWhySection() {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    const pinnedStage = section.querySelector('[data-why-pinned]');
     const track = section.querySelector('[data-why-track]');
-    if (!pinnedStage || !track) return;
+    if (!track) return;
 
-    const header = section.querySelector('[data-why-header]');
     const cards = section.querySelectorAll('[data-why-card]');
     const progressBar = section.querySelector('[data-why-progress]');
     const counter = section.querySelector('[data-why-counter]');
-    const approachGrid = section.querySelector('[data-why-approach-grid]');
-    const approachCards = section.querySelectorAll('[data-why-approach-card]');
+    const blueprint = document.querySelector('[data-why-blueprint]');
+    const approachCards = document.querySelectorAll('[data-why-approach-card]');
 
-    // 1. Header: Smooth soft entrance from top
-    if (header) {
-        gsap.fromTo(header,
-            {
-                opacity: 0,
-                y: -25,
-            },
-            {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: section,
-                    start: 'top 85%',
-                    toggleActions: 'restart none restart reset',
-                },
-            }
-        );
-    }
-
-    // 2. Horizontal Pinned Scroll: All 6 boxes in a single line, scrolling 1-by-1
+    // Calculate exact horizontal scroll distance (no dead scroll, last card fully visible)
     const getScrollDistance = () => {
-        const paddingEnd = window.innerWidth >= 1024 ? 120 : 48;
+        const paddingEnd = window.innerWidth >= 1024 ? 96 : 32;
         return Math.max(0, track.scrollWidth - window.innerWidth + paddingEnd);
     };
 
@@ -464,12 +441,11 @@ export function initWhySection() {
             x: () => -getScrollDistance(),
             ease: 'none',
             scrollTrigger: {
-                trigger: pinnedStage,
+                trigger: section,
                 pin: true,
-                scrub: 0.9,
+                scrub: 0.6,
                 start: 'top top',
-                end: () => `+=${getScrollDistance() * 1.2}`,
-                anticipatePin: 1,
+                end: () => `+=${getScrollDistance()}`,
                 invalidateOnRefresh: true,
                 onUpdate: (self) => {
                     const progress = self.progress;
@@ -494,9 +470,9 @@ export function initWhySection() {
                         // Subtle active spotlight ring on current card
                         cards.forEach((card, idx) => {
                             if (idx === activeIndex) {
-                                card.classList.add('ring-2', 'ring-saffron/50');
+                                card.classList.add('ring-2', 'ring-saffron/60', 'border-saffron/60');
                             } else {
-                                card.classList.remove('ring-2', 'ring-saffron/50');
+                                card.classList.remove('ring-2', 'ring-saffron/60', 'border-saffron/60');
                             }
                         });
                     }
@@ -505,8 +481,8 @@ export function initWhySection() {
         });
     }
 
-    // 3. The 3 Approach Steps Bottom Bar: Smooth reveal as pin releases
-    if (approachCards.length > 0 && approachGrid) {
+    // Smooth reveal for The Three-Pillar Approach immediately below
+    if (approachCards.length > 0 && blueprint) {
         gsap.fromTo(approachCards,
             {
                 opacity: 0,
