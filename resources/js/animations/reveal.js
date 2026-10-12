@@ -148,6 +148,9 @@ export function initTrustBar() {
     const trustSection = document.querySelector('[data-trust-section]');
     if (!trustSection) return;
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
     const isMobile = window.innerWidth < 768;
     const xDist = isMobile ? 60 : 130;
 
@@ -157,8 +160,9 @@ export function initTrustBar() {
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: trustSection,
-            start: 'top 85%',
-            toggleActions: 'restart none restart reset',
+            start: 'top 92%',
+            end: 'top 55%',
+            scrub: 0.8,
         },
     });
 
@@ -173,10 +177,8 @@ export function initTrustBar() {
             opacity: 1,
             x: 0,
             scale: 1,
-            duration: 0.85,
-            stagger: 0.12,
-            ease: 'power3.out',
-            clearProps: 'transform',
+            ease: 'power2.out',
+            stagger: 0.1,
         },
         0
     );
@@ -192,10 +194,8 @@ export function initTrustBar() {
             opacity: 1,
             x: 0,
             scale: 1,
-            duration: 0.85,
-            stagger: 0.12,
-            ease: 'power3.out',
-            clearProps: 'transform',
+            ease: 'power2.out',
+            stagger: 0.1,
         },
         0
     );
@@ -367,8 +367,8 @@ export function initSpotlightSection() {
     if (title && header) {
         gsap.fromTo(title,
             {
-                y: isMobile ? -60 : -100,
-                scale: isMobile ? 1.1 : 1.18,
+                y: isMobile ? -50 : -80,
+                scale: isMobile ? 1.08 : 1.15,
                 opacity: 0.2,
                 filter: 'blur(3px)',
                 transformOrigin: 'center center',
@@ -383,7 +383,7 @@ export function initSpotlightSection() {
                     trigger: header,
                     start: 'top 92%',
                     end: 'top 45%',
-                    scrub: 1,
+                    scrub: 0.8,
                 },
             }
         );
@@ -392,7 +392,7 @@ export function initSpotlightSection() {
     if (eyebrow && header) {
         gsap.fromTo(eyebrow,
             {
-                y: isMobile ? -40 : -60,
+                y: isMobile ? -30 : -50,
                 scale: 0.85,
                 opacity: 0.2,
             },
@@ -405,14 +405,14 @@ export function initSpotlightSection() {
                     trigger: header,
                     start: 'top 92%',
                     end: 'top 50%',
-                    scrub: 1,
+                    scrub: 0.8,
                 },
             }
         );
     }
 
-    // 2. 3-Column Asymmetric Grid Animation on Scroll:
-    // Left from left, Right from right, Center POPS in the middle!
+    // 2. 3-Column Asymmetric Grid Animation on Scroll (Real-time scrubbed motion):
+    // Left stats from Left, Right story from Right, Center Patna HQ card POPS in center!
     const grid = section.querySelector('[data-spotlight-grid]');
     if (!grid) return;
 
@@ -421,94 +421,184 @@ export function initSpotlightSection() {
     const centerCol = section.querySelector('[data-spotlight-center]');
     const rightCol = section.querySelector('[data-spotlight-right]');
 
-    const xDist = isMobile ? 80 : 160;
+    const mm = gsap.matchMedia();
 
-    const tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: grid,
-            start: isMobile ? 'top 88%' : 'top 82%',
-            toggleActions: 'restart none restart reset',
-        },
+    // Desktop: 3 columns side-by-side scrubbed synchronously with scroll
+    mm.add('(min-width: 1024px)', () => {
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: grid,
+                start: 'top 88%',
+                end: 'top 28%',
+                scrub: 0.8,
+            },
+        });
+
+        // LEFT: 3 stat cards slide in from Left
+        if (leftStats.length > 0) {
+            tl.fromTo(leftStats,
+                {
+                    opacity: 0,
+                    x: -180,
+                    scale: 0.92,
+                },
+                {
+                    opacity: 1,
+                    x: 0,
+                    scale: 1,
+                    ease: 'power2.out',
+                    stagger: 0.08,
+                },
+                0
+            );
+        } else if (leftCol) {
+            tl.fromTo(leftCol,
+                {
+                    opacity: 0,
+                    x: -180,
+                    scale: 0.92,
+                },
+                {
+                    opacity: 1,
+                    x: 0,
+                    scale: 1,
+                    ease: 'power2.out',
+                },
+                0
+            );
+        }
+
+        // RIGHT: Right story card slides in from Right
+        if (rightCol) {
+            tl.fromTo(rightCol,
+                {
+                    opacity: 0,
+                    x: 180,
+                    scale: 0.92,
+                },
+                {
+                    opacity: 1,
+                    x: 0,
+                    scale: 1,
+                    ease: 'power2.out',
+                },
+                0
+            );
+        }
+
+        // CENTER: Center card POPS into the center on scroll!
+        if (centerCol) {
+            tl.fromTo(centerCol,
+                {
+                    opacity: 0,
+                    scale: 0.55,
+                    y: 70,
+                    transformOrigin: 'center center',
+                },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    y: 0,
+                    ease: 'back.out(1.8)',
+                },
+                0.04
+            );
+        }
     });
 
-    // LEFT: Left stats slide in from the LEFT (x: -xDist -> 0)
-    if (leftStats.length > 0) {
-        tl.fromTo(leftStats,
-            {
-                opacity: 0,
-                x: -xDist,
-                scale: 0.92,
-            },
-            {
-                opacity: 1,
-                x: 0,
-                scale: 1,
-                duration: 0.9,
-                stagger: 0.12,
-                ease: 'power3.out',
-                clearProps: 'transform,opacity',
-            },
-            0
-        );
-    } else if (leftCol) {
-        tl.fromTo(leftCol,
-            {
-                opacity: 0,
-                x: -xDist,
-                scale: 0.92,
-            },
-            {
-                opacity: 1,
-                x: 0,
-                scale: 1,
-                duration: 0.9,
-                ease: 'power3.out',
-                clearProps: 'transform,opacity',
-            },
-            0
-        );
-    }
+    // Mobile & Tablet: Stacked columns scrub individually as each card enters the viewport
+    mm.add('(max-width: 1023px)', () => {
+        // Left Column / Stats: scrubs in from Left
+        if (leftStats.length > 0 && leftCol) {
+            gsap.fromTo(leftStats,
+                {
+                    opacity: 0,
+                    x: -80,
+                    scale: 0.94,
+                },
+                {
+                    opacity: 1,
+                    x: 0,
+                    scale: 1,
+                    ease: 'power2.out',
+                    stagger: 0.1,
+                    scrollTrigger: {
+                        trigger: leftCol,
+                        start: 'top 92%',
+                        end: 'top 55%',
+                        scrub: 0.8,
+                    },
+                }
+            );
+        } else if (leftCol) {
+            gsap.fromTo(leftCol,
+                {
+                    opacity: 0,
+                    x: -80,
+                    scale: 0.94,
+                },
+                {
+                    opacity: 1,
+                    x: 0,
+                    scale: 1,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: leftCol,
+                        start: 'top 92%',
+                        end: 'top 55%',
+                        scrub: 0.8,
+                    },
+                }
+            );
+        }
 
-    // RIGHT: Right story card slides in from the RIGHT (x: +xDist -> 0)
-    if (rightCol) {
-        tl.fromTo(rightCol,
-            {
-                opacity: 0,
-                x: xDist,
-                scale: 0.92,
-            },
-            {
-                opacity: 1,
-                x: 0,
-                scale: 1,
-                duration: 0.9,
-                ease: 'power3.out',
-                clearProps: 'transform,opacity',
-            },
-            0
-        );
-    }
+        // Center Column: POPS into view in center
+        if (centerCol) {
+            gsap.fromTo(centerCol,
+                {
+                    opacity: 0,
+                    scale: 0.65,
+                    y: 45,
+                    transformOrigin: 'center center',
+                },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    y: 0,
+                    ease: 'back.out(1.8)',
+                    scrollTrigger: {
+                        trigger: centerCol,
+                        start: 'top 92%',
+                        end: 'top 50%',
+                        scrub: 0.8,
+                    },
+                }
+            );
+        }
 
-    // CENTER: Center card POPS into the center on scroll!
-    if (centerCol) {
-        tl.fromTo(centerCol,
-            {
-                opacity: 0,
-                scale: isMobile ? 0.72 : 0.6,
-                y: isMobile ? 35 : 55,
-                transformOrigin: 'center center',
-            },
-            {
-                opacity: 1,
-                scale: 1,
-                y: 0,
-                duration: 1.0,
-                ease: 'back.out(2)',
-                clearProps: 'transform,opacity',
-            },
-            0.15
-        );
-    }
+        // Right Column: scrubs in from Right
+        if (rightCol) {
+            gsap.fromTo(rightCol,
+                {
+                    opacity: 0,
+                    x: 80,
+                    scale: 0.94,
+                },
+                {
+                    opacity: 1,
+                    x: 0,
+                    scale: 1,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: rightCol,
+                        start: 'top 92%',
+                        end: 'top 55%',
+                        scrub: 0.8,
+                    },
+                }
+            );
+        }
+    });
 }
 
 export function initWhySection() {
@@ -518,14 +608,13 @@ export function initWhySection() {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    const isMobile = window.innerWidth < 768;
     const header = section.querySelector('[data-why-header]');
     const grid = section.querySelector('[data-why-grid]');
     const cards = section.querySelectorAll('[data-why-card]');
     const approachGrid = section.querySelector('[data-why-approach-grid]');
     const approachCards = section.querySelectorAll('[data-why-approach-card]');
 
-    // 1. Header: Smooth soft entrance from top
+    // 1. Header: Smooth soft entrance from top on scroll
     if (header) {
         gsap.fromTo(header,
             {
@@ -535,45 +624,69 @@ export function initWhySection() {
             {
                 opacity: 1,
                 y: 0,
-                duration: 0.8,
-                ease: 'power3.out',
+                ease: 'power2.out',
                 scrollTrigger: {
                     trigger: section,
-                    start: 'top 85%',
-                    toggleActions: 'restart none restart reset',
+                    start: 'top 92%',
+                    end: 'top 65%',
+                    scrub: 0.8,
                 },
             }
         );
     }
 
-    // 2. The 6 Bento Principle Cards: POP MOTION ON SCROLL
+    // 2. The 6 Bento Principle Cards: POP MOTION ON SCROLL (Real-time scrubbed with scroll!)
     if (cards.length > 0 && grid) {
-        gsap.fromTo(cards,
-            {
-                opacity: 0,
-                scale: isMobile ? 0.86 : 0.8,
-                y: isMobile ? 45 : 70,
-                rotate: (i) => (i % 2 === 0 ? -1.8 : 1.8),
-            },
-            {
-                opacity: 1,
-                scale: 1,
-                y: 0,
-                rotate: 0,
-                duration: 0.85,
-                stagger: isMobile ? 0.08 : 0.12,
-                ease: 'back.out(1.8)',
-                clearProps: 'transform,opacity',
-                scrollTrigger: {
-                    trigger: grid,
-                    start: 'top 85%',
-                    toggleActions: 'restart none restart reset',
+        const mm = gsap.matchMedia();
+        mm.add('(min-width: 1024px)', () => {
+            gsap.fromTo(cards,
+                {
+                    opacity: 0,
+                    scale: 0.82,
+                    y: 60,
                 },
-            }
-        );
+                {
+                    opacity: 1,
+                    scale: 1,
+                    y: 0,
+                    ease: 'power2.out',
+                    stagger: 0.08,
+                    scrollTrigger: {
+                        trigger: grid,
+                        start: 'top 88%',
+                        end: 'top 35%',
+                        scrub: 0.8,
+                    },
+                }
+            );
+        });
+
+        mm.add('(max-width: 1023px)', () => {
+            cards.forEach((card) => {
+                gsap.fromTo(card,
+                    {
+                        opacity: 0,
+                        scale: 0.86,
+                        y: 40,
+                    },
+                    {
+                        opacity: 1,
+                        scale: 1,
+                        y: 0,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: card,
+                            start: 'top 92%',
+                            end: 'top 60%',
+                            scrub: 0.8,
+                        },
+                    }
+                );
+            });
+        });
     }
 
-    // 3. The 3 Approach Steps Bottom Bar: Slide up & pop into place
+    // 3. The 3 Approach Steps Bottom Bar: Slide up & pop into place on scroll
     if (approachCards.length > 0 && approachGrid) {
         gsap.fromTo(approachCards,
             {
@@ -585,14 +698,13 @@ export function initWhySection() {
                 opacity: 1,
                 y: 0,
                 scale: 1,
-                duration: 0.75,
-                stagger: 0.12,
-                ease: 'back.out(1.6)',
-                clearProps: 'transform,opacity',
+                ease: 'power2.out',
+                stagger: 0.1,
                 scrollTrigger: {
                     trigger: approachGrid,
-                    start: 'top 88%',
-                    toggleActions: 'restart none restart reset',
+                    start: 'top 92%',
+                    end: 'top 65%',
+                    scrub: 0.8,
                 },
             }
         );
