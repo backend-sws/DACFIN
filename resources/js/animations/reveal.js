@@ -423,14 +423,16 @@ export function initSpotlightSection() {
 
     const mm = gsap.matchMedia();
 
-    // Desktop: 3 columns side-by-side scrubbed synchronously with scroll
+    // Desktop: Pinned scroll showcase where scrolling moves cards into position!
     mm.add('(min-width: 1024px)', () => {
         const tl = gsap.timeline({
             scrollTrigger: {
-                trigger: grid,
-                start: 'top 88%',
-                end: 'top 28%',
+                trigger: section,
+                start: 'top top',
+                end: '+=900',
+                pin: true,
                 scrub: 0.8,
+                anticipatePin: 1,
             },
         });
 
@@ -439,8 +441,8 @@ export function initSpotlightSection() {
             tl.fromTo(leftStats,
                 {
                     opacity: 0,
-                    x: -180,
-                    scale: 0.92,
+                    x: -280,
+                    scale: 0.88,
                 },
                 {
                     opacity: 1,
@@ -455,8 +457,8 @@ export function initSpotlightSection() {
             tl.fromTo(leftCol,
                 {
                     opacity: 0,
-                    x: -180,
-                    scale: 0.92,
+                    x: -280,
+                    scale: 0.88,
                 },
                 {
                     opacity: 1,
@@ -473,8 +475,8 @@ export function initSpotlightSection() {
             tl.fromTo(rightCol,
                 {
                     opacity: 0,
-                    x: 180,
-                    scale: 0.92,
+                    x: 280,
+                    scale: 0.88,
                 },
                 {
                     opacity: 1,
@@ -491,8 +493,8 @@ export function initSpotlightSection() {
             tl.fromTo(centerCol,
                 {
                     opacity: 0,
-                    scale: 0.55,
-                    y: 70,
+                    scale: 0.45,
+                    y: 90,
                     transformOrigin: 'center center',
                 },
                 {

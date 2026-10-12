@@ -13,7 +13,7 @@
     $stats = $spotlight['stats'] ?? [];
 @endphp
 
-<section class="section-y bg-cream relative overflow-hidden" data-spotlight-section>
+<section class="py-12 sm:py-16 lg:py-16 lg:min-h-screen lg:flex lg:flex-col lg:justify-center bg-cream relative overflow-hidden" data-spotlight-section>
     <div class="container-x space-y-8 sm:space-y-12">
         <div class="text-center max-w-2xl mx-auto space-y-3" data-spotlight-header>
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-ice-cyan border border-turquoise/50 text-xs font-bold uppercase tracking-wider text-emerald shadow-xs will-change-transform" data-spotlight-eyebrow>
