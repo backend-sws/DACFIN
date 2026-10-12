@@ -35,7 +35,7 @@
 
     <!-- Single Horizontal Row / Track (Glides 1-by-1 on vertical scroll) -->
     <div class="why-track-viewport w-full overflow-hidden relative my-auto py-2 sm:py-4" data-why-viewport>
-        <div class="why-track flex flex-nowrap items-stretch gap-5 sm:gap-6 lg:gap-8 pl-4 sm:pl-6 lg:pl-8 xl:pl-[calc(max(2rem,(100vw-1280px)/2+2rem))] pr-8 sm:pr-16 lg:pr-32 will-change-transform" data-why-track>
+        <div class="why-track flex flex-nowrap items-stretch gap-5 sm:gap-6 lg:gap-8 w-max min-w-max pl-4 sm:pl-6 lg:pl-8 xl:pl-[max(2rem,calc((100vw-1280px)/2+2rem))] pr-8 sm:pr-16 lg:pr-32" style="will-change: transform;" data-why-track>
             
             @foreach($why['items'] as $idx => $item)
                 <div class="why-card w-[82vw] sm:w-[360px] md:w-[400px] lg:w-[420px] h-[300px] sm:h-[320px] lg:h-[340px] shrink-0 rounded-2xl sm:rounded-3xl p-6 sm:p-7 bg-ink/90 border border-emerald/25 hover:border-saffron/60 hover:shadow-2xl hover:shadow-saffron/10 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden backdrop-blur-md will-change-transform" data-why-card data-tilt>

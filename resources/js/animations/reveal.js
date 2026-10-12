@@ -429,57 +429,62 @@ export function initWhySection() {
     const blueprint = document.querySelector('[data-why-blueprint]');
     const approachCards = document.querySelectorAll('[data-why-approach-card]');
 
-    // Calculate exact horizontal scroll distance (no dead scroll, last card fully visible)
+    // Calculate exact horizontal scroll distance dynamically
     const getScrollDistance = () => {
+        let calculatedWidth = 0;
+        cards.forEach((c) => {
+            calculatedWidth += (c.offsetWidth || 380);
+        });
+        calculatedWidth += Math.max(0, cards.length - 1) * 24 + 140;
+
+        const trackWidth = Math.max(track.scrollWidth, calculatedWidth);
         const paddingEnd = window.innerWidth >= 1024 ? 96 : 32;
-        return Math.max(0, track.scrollWidth - window.innerWidth + paddingEnd);
+        return Math.max(trackWidth - window.innerWidth + paddingEnd, 600);
     };
 
-    const totalDistance = getScrollDistance();
-    if (totalDistance > 0) {
-        gsap.to(track, {
-            x: () => -getScrollDistance(),
-            ease: 'none',
-            scrollTrigger: {
-                trigger: section,
-                pin: true,
-                scrub: 0.6,
-                start: 'top top',
-                end: () => `+=${getScrollDistance()}`,
-                invalidateOnRefresh: true,
-                onUpdate: (self) => {
-                    const progress = self.progress;
+    // Pinned Horizontal Scrub: As user scrolls vertically, track glides horizontally 1-by-1
+    gsap.to(track, {
+        x: () => -getScrollDistance(),
+        ease: 'none',
+        scrollTrigger: {
+            trigger: section,
+            pin: true,
+            scrub: 1,
+            start: 'top top',
+            end: () => `+=${getScrollDistance()}`,
+            invalidateOnRefresh: true,
+            onUpdate: (self) => {
+                const progress = self.progress;
 
-                    // Progress bar fill (min 16% to 100%)
-                    if (progressBar) {
-                        const pct = Math.min(100, Math.max(16, progress * 100));
-                        progressBar.style.width = `${pct}%`;
+                // Progress bar fill (min 16% to 100%)
+                if (progressBar) {
+                    const pct = Math.min(100, Math.max(16, progress * 100));
+                    progressBar.style.width = `${pct}%`;
+                }
+
+                // Dynamic counter 01 / 06 -> 06 / 06
+                if (cards.length > 0) {
+                    const activeIndex = Math.min(
+                        cards.length - 1,
+                        Math.max(0, Math.round(progress * (cards.length - 1)))
+                    );
+
+                    if (counter) {
+                        counter.textContent = `0${activeIndex + 1} / 0${cards.length}`;
                     }
 
-                    // Dynamic counter 01 / 06 -> 06 / 06
-                    if (cards.length > 0) {
-                        const activeIndex = Math.min(
-                            cards.length - 1,
-                            Math.max(0, Math.round(progress * (cards.length - 1)))
-                        );
-
-                        if (counter) {
-                            counter.textContent = `0${activeIndex + 1} / 0${cards.length}`;
+                    // Active spotlight ring on current card
+                    cards.forEach((card, idx) => {
+                        if (idx === activeIndex) {
+                            card.classList.add('ring-2', 'ring-saffron/60', 'border-saffron/60');
+                        } else {
+                            card.classList.remove('ring-2', 'ring-saffron/60', 'border-saffron/60');
                         }
-
-                        // Subtle active spotlight ring on current card
-                        cards.forEach((card, idx) => {
-                            if (idx === activeIndex) {
-                                card.classList.add('ring-2', 'ring-saffron/60', 'border-saffron/60');
-                            } else {
-                                card.classList.remove('ring-2', 'ring-saffron/60', 'border-saffron/60');
-                            }
-                        });
-                    }
-                },
+                    });
+                }
             },
-        });
-    }
+        },
+    });
 
     // Smooth reveal for The Three-Pillar Approach immediately below
     if (approachCards.length > 0 && blueprint) {
@@ -498,7 +503,7 @@ export function initWhySection() {
                 ease: 'power3.out',
                 clearProps: 'transform,opacity',
                 scrollTrigger: {
-                    trigger: approachGrid,
+                    trigger: blueprint,
                     start: 'top 85%',
                     toggleActions: 'restart none restart reset',
                 },
