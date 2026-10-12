@@ -420,91 +420,80 @@ export function initWhySection() {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    const track = section.querySelector('[data-why-track]');
-    if (!track) return;
-
+    const isMobile = window.innerWidth < 768;
+    const header = section.querySelector('[data-why-header]');
+    const grid = section.querySelector('[data-why-grid]');
     const cards = section.querySelectorAll('[data-why-card]');
-    const progressBar = section.querySelector('[data-why-progress]');
-    const counter = section.querySelector('[data-why-counter]');
-    const blueprint = document.querySelector('[data-why-blueprint]');
-    const approachCards = document.querySelectorAll('[data-why-approach-card]');
+    const approachGrid = section.querySelector('[data-why-approach-grid]');
+    const approachCards = section.querySelectorAll('[data-why-approach-card]');
 
-    // Calculate exact horizontal scroll distance dynamically
-    const getScrollDistance = () => {
-        let calculatedWidth = 0;
-        cards.forEach((c) => {
-            calculatedWidth += (c.offsetWidth || 380);
-        });
-        calculatedWidth += Math.max(0, cards.length - 1) * 24 + 140;
-
-        const trackWidth = Math.max(track.scrollWidth, calculatedWidth);
-        const paddingEnd = window.innerWidth >= 1024 ? 96 : 32;
-        return Math.max(trackWidth - window.innerWidth + paddingEnd, 600);
-    };
-
-    // Pinned Horizontal Scrub: As user scrolls vertically, track glides horizontally 1-by-1
-    gsap.to(track, {
-        x: () => -getScrollDistance(),
-        ease: 'none',
-        scrollTrigger: {
-            trigger: section,
-            pin: true,
-            scrub: 1,
-            start: 'top top',
-            end: () => `+=${getScrollDistance()}`,
-            invalidateOnRefresh: true,
-            onUpdate: (self) => {
-                const progress = self.progress;
-
-                // Progress bar fill (min 16% to 100%)
-                if (progressBar) {
-                    const pct = Math.min(100, Math.max(16, progress * 100));
-                    progressBar.style.width = `${pct}%`;
-                }
-
-                // Dynamic counter 01 / 06 -> 06 / 06
-                if (cards.length > 0) {
-                    const activeIndex = Math.min(
-                        cards.length - 1,
-                        Math.max(0, Math.round(progress * (cards.length - 1)))
-                    );
-
-                    if (counter) {
-                        counter.textContent = `0${activeIndex + 1} / 0${cards.length}`;
-                    }
-
-                    // Active spotlight ring on current card
-                    cards.forEach((card, idx) => {
-                        if (idx === activeIndex) {
-                            card.classList.add('ring-2', 'ring-saffron/60', 'border-saffron/60');
-                        } else {
-                            card.classList.remove('ring-2', 'ring-saffron/60', 'border-saffron/60');
-                        }
-                    });
-                }
+    // 1. Header: Smooth soft entrance from top
+    if (header) {
+        gsap.fromTo(header,
+            {
+                opacity: 0,
+                y: -30,
             },
-        },
-    });
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 85%',
+                    toggleActions: 'restart none restart reset',
+                },
+            }
+        );
+    }
 
-    // Smooth reveal for The Three-Pillar Approach immediately below
-    if (approachCards.length > 0 && blueprint) {
+    // 2. The 6 Bento Principle Cards: POP MOTION ON SCROLL
+    if (cards.length > 0 && grid) {
+        gsap.fromTo(cards,
+            {
+                opacity: 0,
+                scale: isMobile ? 0.86 : 0.8,
+                y: isMobile ? 45 : 70,
+                rotate: (i) => (i % 2 === 0 ? -1.8 : 1.8),
+            },
+            {
+                opacity: 1,
+                scale: 1,
+                y: 0,
+                rotate: 0,
+                duration: 0.85,
+                stagger: isMobile ? 0.08 : 0.12,
+                ease: 'back.out(1.8)',
+                clearProps: 'transform,opacity',
+                scrollTrigger: {
+                    trigger: grid,
+                    start: 'top 85%',
+                    toggleActions: 'restart none restart reset',
+                },
+            }
+        );
+    }
+
+    // 3. The 3 Approach Steps Bottom Bar: Slide up & pop into place
+    if (approachCards.length > 0 && approachGrid) {
         gsap.fromTo(approachCards,
             {
                 opacity: 0,
-                y: 35,
-                scale: 0.94,
+                y: 40,
+                scale: 0.88,
             },
             {
                 opacity: 1,
                 y: 0,
                 scale: 1,
-                duration: 0.7,
+                duration: 0.75,
                 stagger: 0.12,
-                ease: 'power3.out',
+                ease: 'back.out(1.6)',
                 clearProps: 'transform,opacity',
                 scrollTrigger: {
-                    trigger: blueprint,
-                    start: 'top 85%',
+                    trigger: approachGrid,
+                    start: 'top 88%',
                     toggleActions: 'restart none restart reset',
                 },
             }
