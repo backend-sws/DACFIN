@@ -13,7 +13,7 @@
     $stats = $spotlight['stats'] ?? [];
 @endphp
 
-<section class="section-y bg-cream relative overflow-visible">
+<section class="section-y bg-cream relative overflow-hidden" data-spotlight-section>
     <div class="container-x space-y-8 sm:space-y-12">
         <div class="text-center max-w-2xl mx-auto space-y-3" data-spotlight-header>
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-ice-cyan border border-turquoise/50 text-xs font-bold uppercase tracking-wider text-emerald shadow-xs will-change-transform" data-spotlight-eyebrow>
@@ -27,12 +27,12 @@
         </div>
 
         <!-- Wireframe 3-Column Asymmetric Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch" data-spotlight-grid>
             
-            <!-- Left Column: 3 Big Stacked Stats -->
-            <div class="lg:col-span-4 flex flex-col justify-between space-y-4 sm:space-y-6" data-reveal="right">
+            <!-- Left Column: 3 Big Stacked Stats (Slides from Left) -->
+            <div class="lg:col-span-4 flex flex-col justify-between space-y-4 sm:space-y-6 will-change-transform" data-spotlight-left>
                 @foreach($stats as $st)
-                    <div class="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-sand/60 shadow-sm hover:shadow-md transition-all space-y-2 group">
+                    <div class="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-sand/60 shadow-sm hover:shadow-md transition-all space-y-2 group will-change-transform" data-spotlight-stat>
                         <div class="flex items-center justify-between">
                             <span class="font-display font-bold text-3xl sm:text-4xl text-ink group-hover:text-emerald transition-colors">
                                 {{ $st['val'] }}
@@ -46,8 +46,8 @@
                 @endforeach
             </div>
 
-            <!-- Center Column: Patna Headquarters Glass Card -->
-            <div class="lg:col-span-4 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-forest via-ink to-forest text-cream border border-emerald/30 p-5 sm:p-7 flex flex-col justify-between shadow-xl relative overflow-hidden" data-reveal="up">
+            <!-- Center Column: Patna Headquarters Glass Card (Pops in Center) -->
+            <div class="lg:col-span-4 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-forest via-ink to-forest text-cream border border-emerald/30 p-5 sm:p-7 flex flex-col justify-between shadow-xl relative overflow-hidden will-change-transform" data-spotlight-center>
                 <div class="absolute -right-16 -top-16 w-56 h-56 bg-saffron/15 rounded-full blur-3xl pointer-events-none"></div>
 
                 <div class="space-y-2 relative z-10">
@@ -93,8 +93,8 @@
                 </div>
             </div>
 
-            <!-- Right Column: Editorial Transformation Story -->
-            <div class="lg:col-span-4 rounded-2xl sm:rounded-3xl bg-white border border-sand/60 p-5 sm:p-8 flex flex-col justify-between shadow-sm space-y-5 sm:space-y-6" data-reveal="left">
+            <!-- Right Column: Editorial Transformation Story (Slides from Right) -->
+            <div class="lg:col-span-4 rounded-2xl sm:rounded-3xl bg-white border border-sand/60 p-5 sm:p-8 flex flex-col justify-between shadow-sm space-y-5 sm:space-y-6 will-change-transform" data-spotlight-right>
                 <div class="space-y-4">
                     <span class="text-xs uppercase font-bold tracking-widest text-emerald">Regional Leadership</span>
                     <h3 class="h-display font-bold text-xl sm:text-2xl text-ink leading-snug">
