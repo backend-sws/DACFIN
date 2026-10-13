@@ -9,10 +9,11 @@
     $baseClass = "group inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 focus:outline-none";
 
     $variants = [
-        'primary' => 'bg-saffron text-ink hover:bg-saffron/90 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]',
+        'primary' => 'bg-saffron text-white hover:bg-saffron/90 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]',
         'ghost' => 'border border-sand text-ink hover:border-emerald hover:text-emerald bg-transparent hover:bg-sand/20',
-        'dark' => 'bg-ink text-cream hover:bg-forest border border-emerald/30 hover:border-emerald hover:scale-[1.02]',
-        'glass' => 'bg-white/10 backdrop-blur-md text-cream hover:bg-white/20 border border-white/15',
+        'ghost-light' => 'border border-cyan-400/40 text-white hover:text-cyan-200 hover:border-cyan-300 bg-cyan-500/10 hover:bg-cyan-500/20',
+        'dark' => 'bg-forest text-white hover:bg-saffron border border-emerald/30 hover:border-emerald hover:scale-[1.02]',
+        'glass' => 'bg-white/10 backdrop-blur-md text-white hover:bg-white/20 border border-white/15',
     ];
 
     $classes = $baseClass . ' ' . ($variants[$variant] ?? $variants['primary']);

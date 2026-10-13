@@ -1,3 +1,3 @@
 <section class="overflow-hidden">
-    <x-ui.marquee :dark="true" />
+    <x-ui.marquee :dark="false" />
 </section>

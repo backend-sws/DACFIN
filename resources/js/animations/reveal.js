@@ -142,6 +142,12 @@ export function initReveal() {
 
     // Why DACFIN 6 Bento Principles & 3 Approach Cards: Pop Motion on Scroll
     initWhySection();
+
+    // Core Strengths: Header from Left, Side box from Right, Center box Pops on scroll (Zero overlap)
+    initStrengthsSection();
+
+    // Advisory Pillars (Bottom Services): Header from Left, Side box from Right, Center box Pops
+    initBottomServices();
 }
 
 export function initTrustBar() {
@@ -351,6 +357,8 @@ export function initTestimonials() {
     }
 }
 
+
+
 export function initSpotlightSection() {
     const section = document.querySelector('[data-spotlight-section]');
     if (!section) return;
@@ -360,59 +368,6 @@ export function initSpotlightSection() {
 
     const isMobile = window.innerWidth < 768;
     const header = section.querySelector('[data-spotlight-header]');
-    const eyebrow = section.querySelector('[data-spotlight-eyebrow]');
-    const title = section.querySelector('[data-spotlight-title]');
-
-    // 1. Header scroll-bound motion
-    if (title && header) {
-        gsap.fromTo(title,
-            {
-                y: isMobile ? -50 : -80,
-                scale: isMobile ? 1.08 : 1.15,
-                opacity: 0.2,
-                filter: 'blur(3px)',
-                transformOrigin: 'center center',
-            },
-            {
-                y: 0,
-                scale: 1,
-                opacity: 1,
-                filter: 'blur(0px)',
-                ease: 'power2.out',
-                scrollTrigger: {
-                    trigger: header,
-                    start: 'top 92%',
-                    end: 'top 45%',
-                    scrub: 0.8,
-                },
-            }
-        );
-    }
-
-    if (eyebrow && header) {
-        gsap.fromTo(eyebrow,
-            {
-                y: isMobile ? -30 : -50,
-                scale: 0.85,
-                opacity: 0.2,
-            },
-            {
-                y: 0,
-                scale: 1,
-                opacity: 1,
-                ease: 'power2.out',
-                scrollTrigger: {
-                    trigger: header,
-                    start: 'top 92%',
-                    end: 'top 50%',
-                    scrub: 0.8,
-                },
-            }
-        );
-    }
-
-    // 2. 3-Column Asymmetric Grid Animation on Scroll (Real-time scrubbed motion):
-    // Left stats from Left, Right story from Right, Center Patna HQ card POPS in center!
     const grid = section.querySelector('[data-spotlight-grid]');
     if (!grid) return;
 
@@ -421,186 +376,69 @@ export function initSpotlightSection() {
     const centerCol = section.querySelector('[data-spotlight-center]');
     const rightCol = section.querySelector('[data-spotlight-right]');
 
-    const mm = gsap.matchMedia();
+    const xDist = isMobile ? 90 : 220;
 
-    // Desktop: Pinned scroll showcase where scrolling moves cards into position!
-    mm.add('(min-width: 1024px)', () => {
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: section,
-                start: 'top top',
-                end: '+=900',
-                pin: true,
-                scrub: 0.8,
-                anticipatePin: 1,
-            },
-        });
+    // 1. Header subtle glide on scroll
+    if (header) {
+        gsap.fromTo(header,
+            { opacity: 0.15, y: 35 },
+            {
+                opacity: 1,
+                y: 0,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: header,
+                    start: 'top 92%',
+                    end: 'top 55%',
+                    scrub: 0.8,
+                },
+            }
+        );
+    }
 
-        // LEFT: 3 stat cards slide in from Left
-        if (leftStats.length > 0) {
-            tl.fromTo(leftStats,
-                {
-                    opacity: 0,
-                    x: -280,
-                    scale: 0.88,
-                },
-                {
-                    opacity: 1,
-                    x: 0,
-                    scale: 1,
-                    ease: 'power2.out',
-                    stagger: 0.08,
-                },
-                0
-            );
-        } else if (leftCol) {
-            tl.fromTo(leftCol,
-                {
-                    opacity: 0,
-                    x: -280,
-                    scale: 0.88,
-                },
-                {
-                    opacity: 1,
-                    x: 0,
-                    scale: 1,
-                    ease: 'power2.out',
-                },
-                0
-            );
-        }
-
-        // RIGHT: Right story card slides in from Right
-        if (rightCol) {
-            tl.fromTo(rightCol,
-                {
-                    opacity: 0,
-                    x: 280,
-                    scale: 0.88,
-                },
-                {
-                    opacity: 1,
-                    x: 0,
-                    scale: 1,
-                    ease: 'power2.out',
-                },
-                0
-            );
-        }
-
-        // CENTER: Center card POPS into the center on scroll!
-        if (centerCol) {
-            tl.fromTo(centerCol,
-                {
-                    opacity: 0,
-                    scale: 0.45,
-                    y: 90,
-                    transformOrigin: 'center center',
-                },
-                {
-                    opacity: 1,
-                    scale: 1,
-                    y: 0,
-                    ease: 'back.out(1.8)',
-                },
-                0.04
-            );
-        }
+    // 2. 3-Column Asymmetric Cards Animation BOUND DIRECTLY TO SCROLL:
+    // Left slides in from Left, Right slides in from Right, Center POPS into place!
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: grid,
+            start: isMobile ? 'top 92%' : 'top 88%',
+            end: isMobile ? 'top 50%' : 'top 32%',
+            scrub: 0.8,
+        },
     });
 
-    // Mobile & Tablet: Stacked columns scrub individually as each card enters the viewport
-    mm.add('(max-width: 1023px)', () => {
-        // Left Column / Stats: scrubs in from Left
-        if (leftStats.length > 0 && leftCol) {
-            gsap.fromTo(leftStats,
-                {
-                    opacity: 0,
-                    x: -80,
-                    scale: 0.94,
-                },
-                {
-                    opacity: 1,
-                    x: 0,
-                    scale: 1,
-                    ease: 'power2.out',
-                    stagger: 0.1,
-                    scrollTrigger: {
-                        trigger: leftCol,
-                        start: 'top 92%',
-                        end: 'top 55%',
-                        scrub: 0.8,
-                    },
-                }
-            );
-        } else if (leftCol) {
-            gsap.fromTo(leftCol,
-                {
-                    opacity: 0,
-                    x: -80,
-                    scale: 0.94,
-                },
-                {
-                    opacity: 1,
-                    x: 0,
-                    scale: 1,
-                    ease: 'power2.out',
-                    scrollTrigger: {
-                        trigger: leftCol,
-                        start: 'top 92%',
-                        end: 'top 55%',
-                        scrub: 0.8,
-                    },
-                }
-            );
-        }
+    // LEFT: Left stats slide in from Left as user scrolls
+    if (leftStats.length > 0) {
+        tl.fromTo(leftStats,
+            { opacity: 0, x: -xDist, scale: 0.88 },
+            { opacity: 1, x: 0, scale: 1, ease: 'power2.out', stagger: 0.08 },
+            0
+        );
+    } else if (leftCol) {
+        tl.fromTo(leftCol,
+            { opacity: 0, x: -xDist, scale: 0.88 },
+            { opacity: 1, x: 0, scale: 1, ease: 'power2.out' },
+            0
+        );
+    }
 
-        // Center Column: POPS into view in center
-        if (centerCol) {
-            gsap.fromTo(centerCol,
-                {
-                    opacity: 0,
-                    scale: 0.65,
-                    y: 45,
-                    transformOrigin: 'center center',
-                },
-                {
-                    opacity: 1,
-                    scale: 1,
-                    y: 0,
-                    ease: 'back.out(1.8)',
-                    scrollTrigger: {
-                        trigger: centerCol,
-                        start: 'top 92%',
-                        end: 'top 50%',
-                        scrub: 0.8,
-                    },
-                }
-            );
-        }
+    // RIGHT: Right story card slides in from Right as user scrolls
+    if (rightCol) {
+        tl.fromTo(rightCol,
+            { opacity: 0, x: xDist, scale: 0.88 },
+            { opacity: 1, x: 0, scale: 1, ease: 'power2.out' },
+            0
+        );
+    }
 
-        // Right Column: scrubs in from Right
-        if (rightCol) {
-            gsap.fromTo(rightCol,
-                {
-                    opacity: 0,
-                    x: 80,
-                    scale: 0.94,
-                },
-                {
-                    opacity: 1,
-                    x: 0,
-                    scale: 1,
-                    ease: 'power2.out',
-                    scrollTrigger: {
-                        trigger: rightCol,
-                        start: 'top 92%',
-                        end: 'top 55%',
-                        scrub: 0.8,
-                    },
-                }
-            );
-        }
-    });
+    // CENTER: Center card POPS into the center as user scrolls!
+    if (centerCol) {
+        tl.fromTo(centerCol,
+            { opacity: 0, scale: 0.48, y: 70, transformOrigin: 'center center' },
+            { opacity: 1, scale: 1, y: 0, ease: 'back.out(2)' },
+            0.04
+        );
+    }
 }
 
 export function initWhySection() {
@@ -610,105 +448,243 @@ export function initWhySection() {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
+    const isMobile = window.innerWidth < 768;
     const header = section.querySelector('[data-why-header]');
     const grid = section.querySelector('[data-why-grid]');
-    const cards = section.querySelectorAll('[data-why-card]');
+    const leftCards = section.querySelectorAll('[data-why-card][data-why-col="left"]');
+    const centerCards = section.querySelectorAll('[data-why-card][data-why-col="center"]');
+    const rightCards = section.querySelectorAll('[data-why-card][data-why-col="right"]');
+    const allCards = section.querySelectorAll('[data-why-card]');
     const approachGrid = section.querySelector('[data-why-approach-grid]');
     const approachCards = section.querySelectorAll('[data-why-approach-card]');
 
-    // 1. Header: Smooth soft entrance from top on scroll
+    // 1. Header: Smooth crisp reveal
     if (header) {
         gsap.fromTo(header,
-            {
-                opacity: 0,
-                y: -30,
-            },
+            { opacity: 0, y: -25 },
             {
                 opacity: 1,
                 y: 0,
-                ease: 'power2.out',
+                duration: 0.7,
+                ease: 'power3.out',
                 scrollTrigger: {
                     trigger: section,
-                    start: 'top 92%',
-                    end: 'top 65%',
-                    scrub: 0.8,
+                    start: 'top 85%',
+                    toggleActions: 'play none none reverse',
                 },
             }
         );
     }
 
-    // 2. The 6 Bento Principle Cards: POP MOTION ON SCROLL (Real-time scrubbed with scroll!)
-    if (cards.length > 0 && grid) {
+    // 2. The 6 Bento Principle Cards: Punchy Directional Motion Animation
+    if (grid && allCards.length > 0) {
         const mm = gsap.matchMedia();
+
+        // Desktop: Left cards glide from left, Right cards glide from right, Center cards POP
         mm.add('(min-width: 1024px)', () => {
-            gsap.fromTo(cards,
-                {
-                    opacity: 0,
-                    scale: 0.82,
-                    y: 60,
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: grid,
+                    start: 'top 82%',
+                    toggleActions: 'play none none reverse',
                 },
+            });
+
+            // Left column (01, 04)
+            if (leftCards.length > 0) {
+                tl.fromTo(leftCards,
+                    { opacity: 0, x: -75, scale: 0.88 },
+                    { opacity: 1, x: 0, scale: 1, duration: 0.8, ease: 'power3.out', stagger: 0.12 },
+                    0
+                );
+            }
+
+            // Right column (03, 06)
+            if (rightCards.length > 0) {
+                tl.fromTo(rightCards,
+                    { opacity: 0, x: 75, scale: 0.88 },
+                    { opacity: 1, x: 0, scale: 1, duration: 0.8, ease: 'power3.out', stagger: 0.12 },
+                    0
+                );
+            }
+
+            // Center column (02, 05) - POPS with spring bounce
+            if (centerCards.length > 0) {
+                tl.fromTo(centerCards,
+                    { opacity: 0, y: 55, scale: 0.78 },
+                    { opacity: 1, y: 0, scale: 1, duration: 0.85, ease: 'back.out(1.8)', stagger: 0.12 },
+                    0.08
+                );
+            }
+        });
+
+        // Mobile / Tablet: Staggered pop and glide up into place
+        mm.add('(max-width: 1023px)', () => {
+            gsap.fromTo(allCards,
+                { opacity: 0, y: 40, scale: 0.9 },
                 {
                     opacity: 1,
-                    scale: 1,
                     y: 0,
-                    ease: 'power2.out',
+                    scale: 1,
+                    duration: 0.65,
+                    ease: 'back.out(1.4)',
                     stagger: 0.08,
                     scrollTrigger: {
                         trigger: grid,
                         start: 'top 88%',
-                        end: 'top 35%',
-                        scrub: 0.8,
+                        toggleActions: 'play none none reverse',
                     },
                 }
             );
         });
-
-        mm.add('(max-width: 1023px)', () => {
-            cards.forEach((card) => {
-                gsap.fromTo(card,
-                    {
-                        opacity: 0,
-                        scale: 0.86,
-                        y: 40,
-                    },
-                    {
-                        opacity: 1,
-                        scale: 1,
-                        y: 0,
-                        ease: 'power2.out',
-                        scrollTrigger: {
-                            trigger: card,
-                            start: 'top 92%',
-                            end: 'top 60%',
-                            scrub: 0.8,
-                        },
-                    }
-                );
-            });
-        });
     }
 
-    // 3. The 3 Approach Steps Bottom Bar: Slide up & pop into place on scroll
+    // 3. The 3 Approach Steps Bottom Bar: Staggered pop entrance
     if (approachCards.length > 0 && approachGrid) {
         gsap.fromTo(approachCards,
-            {
-                opacity: 0,
-                y: 40,
-                scale: 0.88,
-            },
+            { opacity: 0, y: 35, scale: 0.92 },
             {
                 opacity: 1,
                 y: 0,
                 scale: 1,
-                ease: 'power2.out',
+                duration: 0.7,
+                ease: 'back.out(1.5)',
                 stagger: 0.1,
                 scrollTrigger: {
                     trigger: approachGrid,
-                    start: 'top 92%',
-                    end: 'top 65%',
-                    scrub: 0.8,
+                    start: 'top 90%',
+                    toggleActions: 'play none none reverse',
                 },
             }
+        );
+    }
+}
+
+/**
+ * Core Strengths Section Scroll-Triggered Motion:
+ * 1. Header glides in from Left on scroll-down
+ * 2. Side boxes glide in from Right on same scroll
+ * 3. Center box pops in (scale & spring, guaranteed zero overlap)
+ */
+export function initStrengthsSection() {
+    const section = document.querySelector('[data-strengths-section]');
+    if (!section) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const isMobile = window.innerWidth < 768;
+    const header = section.querySelector('[data-strengths-header]');
+    const leftBoxes = section.querySelectorAll('[data-strengths-left]');
+    const rightBoxes = section.querySelectorAll('[data-strengths-right]');
+    const centerBox = section.querySelector('[data-strengths-center]');
+
+    // Safe distances (within column margin, never crossing adjacent column boundaries -> ZERO OVERLAP)
+    const xDist = isMobile ? 40 : 80;
+
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: section,
+            start: isMobile ? 'top 92%' : 'top 85%',
+            end: isMobile ? 'top 50%' : 'top 30%',
+            scrub: 0.8,
+        },
+    });
+
+    // 1. Point 1: Header comes from Left side on scroll
+    if (header) {
+        tl.fromTo(header,
+            { opacity: 0, x: -xDist },
+            { opacity: 1, x: 0, ease: 'power2.out' },
+            0
+        );
+    }
+
+    // Left boxes (Large Intro card + Box 02) come from Left on scroll
+    if (leftBoxes.length > 0) {
+        tl.fromTo(leftBoxes,
+            { opacity: 0, x: -xDist, scale: 0.94 },
+            { opacity: 1, x: 0, scale: 1, ease: 'power2.out', stagger: 0.08 },
+            0
+        );
+    }
+
+    // 2. Point 2: Side boxes (Box 01 + Box 04) come from Right on same scroll
+    if (rightBoxes.length > 0) {
+        tl.fromTo(rightBoxes,
+            { opacity: 0, x: xDist, scale: 0.94 },
+            { opacity: 1, x: 0, scale: 1, ease: 'power2.out', stagger: 0.08 },
+            0
+        );
+    }
+
+    // 3. Point 3: Center box (Box 03) POPS into place (scale up, slight y, zero overlay)
+    if (centerBox) {
+        tl.fromTo(centerBox,
+            { opacity: 0, scale: 0.72, y: 35, transformOrigin: 'center center' },
+            { opacity: 1, scale: 1, y: 0, ease: 'back.out(2)' },
+            0.05
+        );
+    }
+}
+
+/**
+ * Advisory Pillars (Bottom Services) Scroll-Triggered Motion:
+ * Header from Left, Side box from Right, Center box Pops on scroll
+ */
+export function initBottomServices() {
+    const section = document.querySelector('[data-bottom-services-section]');
+    if (!section) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const isMobile = window.innerWidth < 768;
+    const header = section.querySelector('[data-bottom-services-header]');
+    const leftCard = section.querySelector('[data-bottom-services-card][data-bottom-services-col="left"]');
+    const centerCard = section.querySelector('[data-bottom-services-card][data-bottom-services-col="center"]');
+    const rightCard = section.querySelector('[data-bottom-services-card][data-bottom-services-col="right"]');
+
+    const xDist = isMobile ? 40 : 80;
+
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: section,
+            start: isMobile ? 'top 92%' : 'top 85%',
+            end: isMobile ? 'top 50%' : 'top 30%',
+            scrub: 0.8,
+        },
+    });
+
+    if (header) {
+        tl.fromTo(header,
+            { opacity: 0, x: -xDist },
+            { opacity: 1, x: 0, ease: 'power2.out' },
+            0
+        );
+    }
+
+    if (leftCard) {
+        tl.fromTo(leftCard,
+            { opacity: 0, x: -xDist, scale: 0.94 },
+            { opacity: 1, x: 0, scale: 1, ease: 'power2.out' },
+            0
+        );
+    }
+
+    if (rightCard) {
+        tl.fromTo(rightCard,
+            { opacity: 0, x: xDist, scale: 0.94 },
+            { opacity: 1, x: 0, scale: 1, ease: 'power2.out' },
+            0
+        );
+    }
+
+    if (centerCard) {
+        tl.fromTo(centerCard,
+            { opacity: 0, scale: 0.72, y: 35, transformOrigin: 'center center' },
+            { opacity: 1, scale: 1, y: 0, ease: 'back.out(2)' },
+            0.05
         );
     }
 }

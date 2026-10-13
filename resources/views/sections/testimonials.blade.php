@@ -67,18 +67,21 @@
 
                 <!-- Back Card (Dynamic Case Study Data) -->
                 <div class="absolute" data-deck-back>
-                    <div class="w-52 max-w-[72vw] sm:w-72 aspect-[4/5] rounded-3xl bg-sand/40 backdrop-blur-md border border-sand shadow-lg p-4 sm:p-5 flex flex-col justify-between overflow-hidden transition-all duration-500 ease-out -rotate-6 -translate-x-3 sm:-translate-x-10 group-hover/deck:-rotate-12 group-hover/deck:-translate-x-6 sm:group-hover/deck:-translate-x-16 group-hover/deck:scale-102">
-                        <div class="flex items-center justify-between pb-2 border-b border-sand/40">
-                            <span class="text-[11px] font-mono text-slate font-semibold truncate max-w-[180px]" x-text="items[activeIdx]?.case_title || 'Case Study: Enterprise SIP'"></span>
-                            <span class="w-2 h-2 rounded-full bg-emerald shrink-0"></span>
+                    <div class="group relative w-52 max-w-[72vw] sm:w-72 aspect-[4/5] rounded-3xl bg-gradient-to-br from-[#1a3f85] via-[#132f66] to-[#0c1f44] border border-[#3b82f6]/40 shadow-2xl p-4 sm:p-5 flex flex-col justify-between overflow-hidden transition-all duration-500 ease-out -rotate-6 -translate-x-3 sm:-translate-x-10 group-hover/deck:-rotate-12 group-hover/deck:-translate-x-6 sm:group-hover/deck:-translate-x-16 group-hover/deck:scale-102 text-white">
+                        <!-- Metallic Specular Edge Shine -->
+                        <div class="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#60a5fa]/70 to-transparent pointer-events-none"></div>
+
+                        <div class="flex items-center justify-between pb-2 border-b border-white/15 relative z-10">
+                            <span class="text-[11px] font-mono text-[#93c5fd] font-semibold truncate max-w-[180px]" x-text="items[activeIdx]?.case_title || 'Case Study: Enterprise SIP'"></span>
+                            <span class="w-2 h-2 rounded-full bg-[#60a5fa] shrink-0"></span>
                         </div>
-                        <div class="w-full py-4 rounded-2xl bg-forest/20 flex flex-col items-center justify-center text-emerald font-bold p-2 text-center border border-emerald/20 shadow-inner">
-                            <span class="text-xl sm:text-2xl text-ink font-display font-extrabold transition-all" x-text="items[activeIdx]?.case_metric || '+18.4% Alpha'"></span>
-                            <span class="text-[11px] text-slate font-medium transition-all" x-text="items[activeIdx]?.case_sub || '10-Year Compounded Wealth'"></span>
+                        <div class="w-full py-4 rounded-2xl bg-white/10 flex flex-col items-center justify-center text-white font-bold p-2 text-center border border-white/15 shadow-inner relative z-10">
+                            <span class="text-xl sm:text-2xl text-white font-display font-extrabold transition-all" x-text="items[activeIdx]?.case_metric || '+18.4% Alpha'"></span>
+                            <span class="text-[11px] text-[#dbeafe] font-medium transition-all" x-text="items[activeIdx]?.case_sub || '10-Year Compounded Wealth'"></span>
                         </div>
-                        <div class="flex items-center justify-between text-xs text-ink font-semibold pt-2 border-t border-sand/40">
-                            <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald"></span> <span x-text="items[activeIdx]?.case_tag || 'Patna Hub'"></span></span>
-                            <span class="text-emerald font-bold">Verified AUM</span>
+                        <div class="flex items-center justify-between text-xs text-[#dbeafe] font-semibold pt-2 border-t border-white/15 relative z-10">
+                            <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-saffron"></span> <span x-text="items[activeIdx]?.case_tag || 'Patna Hub'"></span></span>
+                            <span class="text-[#93c5fd] font-bold">Verified AUM</span>
                         </div>
                     </div>
                 </div>
@@ -114,7 +117,7 @@
                             </div>
 
                             <div class="space-y-3 my-auto">
-                                <div class="w-14 h-14 rounded-2xl bg-forest text-mint flex items-center justify-center font-display font-bold text-lg shadow-inner border border-emerald/30 group-hover/deck:scale-110 group-hover/deck:bg-saffron group-hover/deck:text-ink transition-all duration-300">
+                                <div class="w-14 h-14 rounded-2xl bg-forest text-mint flex items-center justify-center font-display font-bold text-lg shadow-inner border border-emerald/30 group-hover/deck:scale-110 group-hover/deck:bg-saffron group-hover/deck:text-white transition-all duration-300">
                                     FIN
                                 </div>
                                 <h4 class="font-display font-bold text-base sm:text-lg text-ink">
@@ -149,7 +152,7 @@
                                 @click="select({{ $idx }})"
                                 class="px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 border cursor-pointer select-none relative overflow-hidden shrink-0"
                                 :class="activeIdx === {{ $idx }} 
-                                    ? 'bg-ink text-cream border-ink shadow-md scale-102 ring-2 ring-saffron/30' 
+                                    ? 'bg-gradient-to-r from-[#1a3f85] to-[#132f66] text-white border-[#3b82f6]/60 shadow-md scale-102 ring-2 ring-[#60a5fa]/30' 
                                     : 'bg-white text-slate border-sand/60 hover:border-emerald/40 hover:text-ink hover:bg-ice-cyan/20'"
                             >
                                 <span class="relative z-10">{{ $t['name'] }}</span>
@@ -243,7 +246,7 @@
 
                                 <a 
                                     href="{{ url($testimonials['cta'][1] ?? '/wealth-journal') }}" 
-                                    class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-ink hover:bg-forest text-cream text-xs font-semibold transition-all hover:scale-[1.02] shadow-sm group/btn cursor-pointer shrink-0"
+                                    class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#1a3f85] to-[#132f66] hover:from-saffron hover:to-amber-500 text-white text-xs font-semibold transition-all hover:scale-[1.02] shadow-sm group/btn cursor-pointer shrink-0"
                                 >
                                     <span>{{ $testimonials['cta'][0] ?? 'See More Stories' }}</span>
                                     <svg class="w-3.5 h-3.5 text-saffron transition-transform duration-200 group-hover/btn:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">

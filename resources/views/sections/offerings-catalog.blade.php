@@ -131,6 +131,8 @@
                     <!-- Top Visual Image Container with Theme Gradient & Badges -->
                     <div>
                         <div class="w-full h-32 sm:h-36 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#0D1C44] via-[#132658] to-[#1B3676]/40 border border-powder-blue/40 overflow-hidden relative flex items-center justify-center p-3 shadow-inner group-hover:border-turquoise/60 transition-colors">
+                            <!-- Metallic Specular Edge Shine -->
+                            <div class="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#60a5fa]/70 to-transparent pointer-events-none"></div>
                             <img 
                                 src="{{ asset($item['image']) }}" 
                                 alt="{{ $item['title'] }}"
