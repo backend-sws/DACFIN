@@ -13,7 +13,7 @@
     $stats = $spotlight['stats'] ?? [];
 @endphp
 
-<section class="py-12 sm:py-16 lg:py-16 lg:min-h-screen lg:flex lg:flex-col lg:justify-center bg-cream relative overflow-hidden" data-spotlight-section>
+<section class="section-y bg-cream relative overflow-hidden" data-spotlight-section>
     <div class="container-x space-y-8 sm:space-y-12">
         <div class="text-center max-w-2xl mx-auto space-y-3" data-spotlight-header>
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-ice-cyan border border-turquoise/50 text-xs font-bold uppercase tracking-wider text-emerald shadow-xs will-change-transform" data-spotlight-eyebrow>
@@ -32,14 +32,18 @@
             <!-- Left Column: 3 Big Stacked Stats (Slides from Left) -->
             <div class="lg:col-span-4 flex flex-col justify-between space-y-4 sm:space-y-6 will-change-transform" data-spotlight-left>
                 @foreach($stats as $st)
-                    <div class="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-sand/60 shadow-sm hover:shadow-md transition-all space-y-2 group will-change-transform" data-spotlight-stat>
-                        <div class="flex items-center justify-between">
-                            <span class="font-display font-bold text-3xl sm:text-4xl text-ink group-hover:text-emerald transition-colors">
+                    <div class="group relative p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#1a3f85] via-[#132f66] to-[#0c1f44] border border-[#3b82f6]/40 hover:border-[#93c5fd] shadow-[0_10px_30px_rgba(15,40,90,0.18)] hover:shadow-[0_18px_45px_rgba(26,63,133,0.35)] hover:-translate-y-0.5 transition-all duration-300 space-y-2 overflow-hidden text-white will-change-transform" data-spotlight-stat>
+                        <!-- Metallic Specular Edge Shine -->
+                        <div class="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#60a5fa]/70 to-transparent pointer-events-none"></div>
+                        <div class="absolute -right-8 -top-8 w-24 h-24 bg-[#3b82f6]/20 rounded-full blur-xl pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+
+                        <div class="flex items-center justify-between relative z-10">
+                            <span class="font-display font-bold text-3xl sm:text-4xl text-white group-hover:text-[#bfdbfe] transition-colors">
                                 {{ $st['val'] }}
                             </span>
-                            <span class="w-2.5 h-2.5 rounded-full bg-saffron"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-saffron shadow-xs"></span>
                         </div>
-                        <p class="text-xs sm:text-sm text-slate leading-relaxed">
+                        <p class="text-xs sm:text-sm text-[#dbeafe] leading-relaxed relative z-10">
                             {{ $st['label'] }}
                         </p>
                     </div>
@@ -47,49 +51,51 @@
             </div>
 
             <!-- Center Column: Patna Headquarters Glass Card (Pops in Center) -->
-            <div class="lg:col-span-4 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-forest via-ink to-forest text-cream border border-emerald/30 p-5 sm:p-7 flex flex-col justify-between shadow-xl relative overflow-hidden will-change-transform" data-spotlight-center>
-                <div class="absolute -right-16 -top-16 w-56 h-56 bg-saffron/15 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="lg:col-span-4 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#1a3f85] via-[#132f66] to-[#0c1f44] text-white border border-[#3b82f6]/40 p-5 sm:p-7 flex flex-col justify-between shadow-[0_15px_45px_rgba(21,50,102,0.25)] relative overflow-hidden will-change-transform" data-spotlight-center>
+                <!-- Metallic Specular Edge Shine -->
+                <div class="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#60a5fa]/70 to-transparent pointer-events-none"></div>
+                <div class="absolute -right-16 -top-16 w-56 h-56 bg-[#3b82f6]/25 rounded-full blur-3xl pointer-events-none"></div>
 
                 <div class="space-y-2 relative z-10">
-                    <span class="px-3 py-1 rounded-full bg-white/10 text-mint text-[11px] font-semibold tracking-wide border border-white/15">
+                    <span class="px-3 py-1 rounded-full bg-white/10 text-[#93c5fd] text-[11px] font-semibold tracking-wide border border-white/15">
                         In-Person Headquarters
                     </span>
-                    <h3 class="h-display text-xl sm:text-2xl font-bold text-cream mt-2">
+                    <h3 class="h-display text-xl sm:text-2xl font-bold text-white mt-2">
                         Physical Presence Where You Are
                     </h3>
                 </div>
 
                 <!-- Headquarters & Contact Card -->
                 <div class="space-y-3.5 my-6 relative z-10">
-                    <div class="p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-emerald/40 transition-colors">
-                        <div class="flex items-center justify-between text-xs font-bold text-mint pb-1">
+                    <div class="p-4 rounded-2xl bg-white/10 border border-white/15 hover:border-[#60a5fa]/50 transition-colors">
+                        <div class="flex items-center justify-between text-xs font-bold text-[#93c5fd] pb-1">
                             <span>PATNA HEADQUARTERS</span>
-                            <span class="text-[10px] font-mono text-sand/80">KANKARBAGH</span>
+                            <span class="text-[10px] font-mono text-[#dbeafe]/80">KANKARBAGH</span>
                         </div>
                         <p class="text-xs text-white/95 leading-relaxed">
                             Shop No 14, Vijay Aman Apartment, Main Road, Near Gravity Mall, Kankarbagh, Patna, Bihar - 800020
                         </p>
                         <div class="flex items-center justify-between pt-1.5 text-[11px] font-mono">
                             <a href="tel:{{ config('fincun.site.primary_phone_tel') }}" class="text-white hover:underline font-bold">{{ config('fincun.site.phones.0') }}</a>
-                            <a href="{{ config('fincun.site.whatsapp_url') }}" target="_blank" rel="noopener noreferrer" class="text-white hover:underline font-bold">WhatsApp</a>
+                            <a href="{{ config('fincun.site.whatsapp_url') }}" target="_blank" rel="noopener noreferrer" class="text-[#93c5fd] hover:text-white hover:underline font-bold">WhatsApp</a>
                         </div>
                     </div>
 
-                    <div class="p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-emerald/40 transition-colors">
-                        <div class="flex items-center justify-between text-xs font-bold text-mint pb-1">
+                    <div class="p-4 rounded-2xl bg-white/10 border border-white/15 hover:border-[#60a5fa]/50 transition-colors">
+                        <div class="flex items-center justify-between text-xs font-bold text-[#93c5fd] pb-1">
                             <span>DIRECTOR</span>
-                            <span class="text-[10px] font-mono text-sand/80">EXECUTIVE DESK</span>
+                            <span class="text-[10px] font-mono text-[#dbeafe]/80">EXECUTIVE DESK</span>
                         </div>
                         <p class="text-xs text-white/95 leading-relaxed font-semibold">
                             Dharmendra Kumar
                         </p>
-                        <span class="text-[11px] text-white/80 font-mono mt-1 block">Founder &amp; Principal Advisor</span>
+                        <span class="text-[11px] text-[#dbeafe]/80 font-mono mt-1 block">Founder &amp; Principal Advisor</span>
                     </div>
                 </div>
 
-                <div class="pt-4 border-t border-white/15 flex items-center justify-between text-xs text-sand/80 relative z-10">
+                <div class="pt-4 border-t border-white/15 flex items-center justify-between text-xs text-[#dbeafe]/80 relative z-10">
                     <span>{{ config('fincun.site.brand') }} Advisory</span>
-                    <span class="text-mint font-semibold">{{ config('fincun.site.hours') }}</span>
+                    <span class="text-[#93c5fd] font-semibold">{{ config('fincun.site.hours') }}</span>
                 </div>
             </div>
 

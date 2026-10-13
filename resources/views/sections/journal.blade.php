@@ -47,17 +47,21 @@
                     data-tilt
                 >
                     <!-- Visual Thumbnail Container -->
-                    <div class="aspect-[4/3] rounded-2xl bg-gradient-to-br from-forest/15 to-ink/20 border border-sand/40 p-4 flex flex-col justify-between relative overflow-hidden group-hover:from-forest/25 transition-colors">
-                        <div class="flex items-center justify-between text-[11px] font-mono">
-                            <span class="px-2.5 py-1 rounded-full bg-ink text-mint font-bold tracking-wider">
+                    <div class="aspect-[4/3] rounded-2xl bg-gradient-to-br from-[#1a3f85] via-[#132f66] to-[#0c1f44] border border-[#3b82f6]/40 p-4 flex flex-col justify-between relative overflow-hidden text-white group-hover:border-[#93c5fd] transition-colors">
+                        <!-- Metallic Specular Edge Shine -->
+                        <div class="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#60a5fa]/70 to-transparent pointer-events-none"></div>
+                        <div class="absolute -right-8 -top-8 w-20 h-20 bg-[#3b82f6]/25 rounded-full blur-xl pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+
+                        <div class="flex items-center justify-between text-[11px] font-mono relative z-10">
+                            <span class="px-2.5 py-1 rounded-full bg-white/10 border border-white/20 text-[#93c5fd] font-bold tracking-wider">
                                 Issue {{ $issue['no'] }}
                             </span>
-                            <span class="text-slate font-sans font-semibold">
+                            <span class="text-[#dbeafe] font-sans font-semibold">
                                 {{ $issue['date'] }}
                             </span>
                         </div>
 
-                        <div class="w-10 h-10 rounded-xl bg-forest text-mint flex items-center justify-center text-xs font-bold font-display self-end shadow-md">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#2563eb] to-[#1d4ed8] text-white flex items-center justify-center text-xs font-bold font-display self-end shadow-md border border-[#60a5fa]/40 relative z-10 group-hover:from-saffron group-hover:to-amber-500 transition-all duration-300">
                             PDF
                         </div>
                     </div>

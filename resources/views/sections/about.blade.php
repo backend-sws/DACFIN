@@ -124,41 +124,41 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2" data-stagger>
                     
                     <!-- Mission Card -->
-                    <div class="group p-6 rounded-3xl bg-white/95 border border-powder-blue/60 hover:border-emerald shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden" data-tilt>
-                        <!-- Ambient Glow on Hover -->
-                        <div class="absolute -top-12 -right-12 w-28 h-28 bg-ice-cyan/60 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500 pointer-events-none"></div>
+                    <div class="group relative p-6 rounded-3xl bg-gradient-to-br from-[#1a3f85] via-[#132f66] to-[#0c1f44] border border-[#3b82f6]/40 hover:border-[#93c5fd] shadow-[0_12px_35px_rgba(15,40,90,0.22)] hover:shadow-[0_20px_50px_rgba(26,63,133,0.38)] hover:-translate-y-1.5 transition-all duration-300 overflow-hidden text-white" data-tilt>
+                        <!-- Metallic Specular Edge Shine -->
+                        <div class="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#60a5fa]/70 to-transparent pointer-events-none"></div>
+                        <div class="absolute -top-12 -right-12 w-28 h-28 bg-[#3b82f6]/25 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500 pointer-events-none"></div>
 
                         <div class="space-y-3 relative z-10">
-                            <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-ice-cyan to-turquoise/30 border border-turquoise/50 text-emerald flex items-center justify-center font-bold text-sm shadow-xs group-hover:scale-110 group-hover:bg-emerald group-hover:text-white transition-all duration-300">
+                            <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#2563eb] to-[#1d4ed8] border border-[#60a5fa]/50 text-white flex items-center justify-center font-bold text-sm shadow-xs group-hover:scale-110 group-hover:from-saffron group-hover:to-amber-500 transition-all duration-300">
                                 01
                             </div>
-                            <h4 class="font-display font-bold text-lg text-ink group-hover:text-emerald transition-colors">
+                            <h4 class="font-display font-bold text-lg text-white group-hover:text-[#bfdbfe] transition-colors">
                                 {{ $about['mission'][0] }}
                             </h4>
-                            <p class="text-xs sm:text-sm text-slate/85 leading-relaxed">
+                            <p class="text-xs sm:text-sm text-[#dbeafe] leading-relaxed">
                                 {{ $about['mission'][1] }}
                             </p>
                         </div>
-                        <div class="absolute bottom-0 inset-x-6 h-[2px] bg-gradient-to-r from-transparent via-emerald/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </div>
 
                     <!-- Vision Card -->
-                    <div class="group p-6 rounded-3xl bg-white/95 border border-powder-blue/60 hover:border-saffron shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden" data-tilt>
-                        <!-- Ambient Glow on Hover -->
-                        <div class="absolute -top-12 -right-12 w-28 h-28 bg-powder-blue/40 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500 pointer-events-none"></div>
+                    <div class="group relative p-6 rounded-3xl bg-gradient-to-br from-[#1a3f85] via-[#132f66] to-[#0c1f44] border border-[#3b82f6]/40 hover:border-saffron shadow-[0_12px_35px_rgba(15,40,90,0.22)] hover:shadow-[0_20px_50px_rgba(26,63,133,0.38)] hover:-translate-y-1.5 transition-all duration-300 overflow-hidden text-white" data-tilt>
+                        <!-- Metallic Specular Edge Shine (Gold Accent) -->
+                        <div class="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-saffron/70 to-transparent pointer-events-none"></div>
+                        <div class="absolute -top-12 -right-12 w-28 h-28 bg-saffron/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500 pointer-events-none"></div>
 
                         <div class="space-y-3 relative z-10">
-                            <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-ice-cyan to-saffron/20 border border-saffron/40 text-saffron flex items-center justify-center font-bold text-sm shadow-xs group-hover:scale-110 group-hover:bg-saffron group-hover:text-white transition-all duration-300">
+                            <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-saffron to-amber-600 border border-saffron/50 text-white flex items-center justify-center font-bold text-sm shadow-xs group-hover:scale-110 transition-all duration-300">
                                 02
                             </div>
-                            <h4 class="font-display font-bold text-lg text-ink group-hover:text-saffron transition-colors">
+                            <h4 class="font-display font-bold text-lg text-white group-hover:text-amber-200 transition-colors">
                                 {{ $about['vision'][0] }}
                             </h4>
-                            <p class="text-xs sm:text-sm text-slate/85 leading-relaxed">
+                            <p class="text-xs sm:text-sm text-[#dbeafe] leading-relaxed">
                                 {{ $about['vision'][1] }}
                             </p>
                         </div>
-                        <div class="absolute bottom-0 inset-x-6 h-[2px] bg-gradient-to-r from-transparent via-saffron/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </div>
 
                 </div>

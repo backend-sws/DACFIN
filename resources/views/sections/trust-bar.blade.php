@@ -40,31 +40,36 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-6 lg:gap-8">
             @foreach($trustItems as $index => $item)
                 <div 
-                    class="p-4 sm:p-5 rounded-2xl bg-cream/60 hover:bg-white border border-sand/50 hover:border-emerald/40 transition-all duration-300 shadow-sm hover:shadow-md flex flex-col justify-between group will-change-transform"
+                    class="group relative p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-[#1a3f85] via-[#132f66] to-[#0c1f44] border border-[#3b82f6]/40 hover:border-[#93c5fd] shadow-[0_10px_30px_rgba(15,40,90,0.18)] hover:shadow-[0_18px_45px_rgba(26,63,133,0.35)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden text-white will-change-transform"
                     @if($index < 2)
                         data-trust-side="left"
                     @else
                         data-trust-side="right"
                     @endif
                 >
-                    <div class="flex items-center justify-between pb-3 border-b border-sand/30">
-                        <span class="text-[10px] font-mono font-bold tracking-wider text-emerald uppercase">
+                    <!-- Metallic Specular Edge Shine -->
+                    <div class="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#60a5fa]/70 to-transparent pointer-events-none"></div>
+                    <!-- Ambient Flare -->
+                    <div class="absolute -right-10 -top-10 w-28 h-28 bg-[#3b82f6]/20 rounded-full blur-xl pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+
+                    <div class="flex items-center justify-between pb-3 border-b border-white/15 relative z-10">
+                        <span class="text-[10px] font-mono font-bold tracking-wider text-[#93c5fd] uppercase">
                             {{ $item['badge'] }}
                         </span>
-                        <span class="px-2 py-0.5 rounded-full bg-sand/30 text-[10px] font-semibold text-ink">
+                        <span class="px-2 py-0.5 rounded-full bg-white/10 border border-white/15 text-[10px] font-semibold text-white">
                             {{ $item['highlight'] }}
                         </span>
                     </div>
 
-                    <div class="py-3 flex items-start gap-3.5">
-                        <div class="w-10 h-10 rounded-xl bg-forest text-mint flex items-center justify-center shrink-0 border border-emerald/30 group-hover:scale-110 group-hover:bg-saffron group-hover:text-ink transition-all duration-300 shadow-sm">
+                    <div class="py-3 flex items-start gap-3.5 relative z-10">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#2563eb] to-[#1d4ed8] text-white flex items-center justify-center shrink-0 border border-[#60a5fa]/50 shadow-sm group-hover:scale-110 group-hover:from-saffron group-hover:to-amber-500 transition-all duration-300">
                             <x-ui.icon :name="$item['icon']" class="w-5 h-5" />
                         </div>
                         <div class="space-y-1 min-w-0">
-                            <h3 class="font-display font-bold text-sm text-ink group-hover:text-emerald transition-colors">
+                            <h3 class="font-display font-bold text-sm text-white group-hover:text-[#bfdbfe] transition-colors">
                                 {{ $item['title'] }}
                             </h3>
-                            <p class="text-xs text-slate leading-relaxed">
+                            <p class="text-xs text-[#dbeafe] leading-relaxed">
                                 {{ $item['desc'] }}
                             </p>
                         </div>
