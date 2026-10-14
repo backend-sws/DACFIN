@@ -35,7 +35,7 @@
         </div>
 
         {{-- RIGHT --}}
-        <div class="hero__visual">
+        <div class="hero__visual" style="opacity: 0; transform: translate3d(240px, 0, 0); will-change: transform, opacity;">
             <article class="hcard" data-hcard aria-label="Sample portfolio card">
                 <header class="hcard__head">
                     <span class="hcard__brand">

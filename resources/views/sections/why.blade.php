@@ -22,7 +22,7 @@
         </div>
 
         <!-- 5 Principles Bento Grid + CTA Tile (Metallic Blue Cards with Luminous Sheen) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6" data-why-grid>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6" data-why-grid data-scroll-row>
             @foreach($why['items'] as $idx => $item)
                 @php
                     $col = ($idx % 3 === 0) ? 'left' : (($idx % 3 === 1) ? 'center' : 'right');
@@ -31,6 +31,7 @@
                     class="rounded-2xl sm:rounded-3xl p-5 sm:p-7 bg-gradient-to-br from-[#1a3f85] via-[#132f66] to-[#0c1f44] border border-[#3b82f6]/40 hover:border-[#93c5fd] hover:shadow-[0_20px_50px_rgba(26,63,133,0.38)] hover:-translate-y-2 transition-all duration-300 space-y-4 flex flex-col justify-between will-change-transform group relative overflow-hidden shadow-[0_12px_35px_rgba(15,40,90,0.22)]" 
                     data-why-card 
                     data-why-col="{{ $col }}"
+                    data-scroll="{{ $col }}"
                     data-tilt
                 >
                     <!-- Metallic Specular Edge Shine -->

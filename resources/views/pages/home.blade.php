@@ -51,7 +51,4 @@
 
     <!-- 15. Services (3 Feature Cards: 01 Dark, 02 Light, 03 Light) (Wireframe) -->
     @include('sections.bottom-services')
-
-    <!-- 16. Our Promise & Fiduciary Commitment -->
-    @include('sections.promise')
 @endsection

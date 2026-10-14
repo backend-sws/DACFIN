@@ -8,17 +8,17 @@
     $steps = $guide['steps'] ?? [];
 @endphp
 
-<section class="py-10 sm:py-14 lg:py-16 bg-cream overflow-hidden">
+<section class="py-10 sm:py-14 lg:py-16 bg-cream overflow-hidden" data-guide-section>
     <div class="container-x">
         <!-- Wireframe 2-Column Card -->
         <div class="rounded-2xl sm:rounded-3xl bg-white border border-sand/60 p-6 sm:p-8 lg:p-10 shadow-md relative overflow-hidden">
             <!-- Subtle Radial Gradient Background -->
             <div class="absolute -right-20 -top-20 w-72 h-72 bg-mint/20 rounded-full blur-3xl pointer-events-none"></div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center" data-scroll-row data-guide-grid>
                 
                 <!-- Left Column (Compact Eyebrow + Title + Subtitle + Action) -->
-                <div class="lg:col-span-5 space-y-4" data-reveal="right">
+                <div class="lg:col-span-5 space-y-4 will-change-transform" data-guide-left data-scroll="left">
                     <div class="space-y-2">
                         <span class="text-xs uppercase font-bold tracking-widest text-emerald">
                             {{ $guide['eyebrow'] ?? 'How It Works' }}
@@ -47,7 +47,7 @@
                 </div>
 
                 <!-- Right Column (4 Structured Steps from Wireframe) -->
-                <div class="lg:col-span-7 space-y-2.5 sm:space-y-3" data-stagger>
+                <div class="lg:col-span-7 space-y-2.5 sm:space-y-3 will-change-transform" data-guide-right data-scroll="right">
                     @foreach($steps as $item)
                         <div class="group relative p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#1a3f85] via-[#132f66] to-[#0c1f44] border border-[#3b82f6]/40 hover:border-[#93c5fd] shadow-[0_8px_24px_rgba(15,40,90,0.18)] hover:shadow-[0_14px_35px_rgba(26,63,133,0.32)] transition-all duration-300 space-y-1.5 overflow-hidden text-white">
                             <!-- Metallic Specular Edge Shine -->

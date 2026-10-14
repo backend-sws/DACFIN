@@ -65,59 +65,64 @@
         </div>
 
         <!-- 3 Cards Engineered in Metallic Blue with Specular Shine -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8 items-stretch" data-bottom-services-grid>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8 items-stretch" data-bottom-services-grid data-scroll-row>
             @foreach($cards as $idx => $c)
                 @php
                     $colType = $idx === 0 ? 'left' : ($idx === 1 ? 'center' : 'right');
                 @endphp
                 <div 
-                    class="rounded-3xl sm:rounded-[2.5rem] bg-gradient-to-br from-[#1a3f85] via-[#132f66] to-[#0c1f44] border border-[#3b82f6]/40 hover:border-[#93c5fd] p-6 sm:p-8 lg:p-10 shadow-[0_15px_45px_rgba(21,50,102,0.22)] hover:shadow-[0_25px_55px_rgba(26,63,133,0.38)] flex flex-col justify-between space-y-6 sm:space-y-8 relative overflow-hidden group hover:scale-[1.02] transition-all duration-300 text-white will-change-transform"
-                    data-tilt
+                    class="h-full will-change-transform flex flex-col"
                     data-bottom-services-card
                     data-bottom-services-col="{{ $colType }}"
+                    data-scroll="{{ $colType }}"
                 >
-                    <!-- Top Metallic Specular Edge Shine -->
-                    <div class="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#60a5fa]/70 to-transparent pointer-events-none"></div>
-                    <!-- Ambient Metallic Flare -->
-                    <div class="absolute -right-16 -top-16 w-48 h-48 bg-[#3b82f6]/20 rounded-full blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+                    <div 
+                        class="h-full rounded-3xl sm:rounded-[2.5rem] bg-gradient-to-br from-[#1a3f85] via-[#132f66] to-[#0c1f44] border border-[#3b82f6]/40 hover:border-[#93c5fd] p-6 sm:p-8 lg:p-10 shadow-[0_15px_45px_rgba(21,50,102,0.22)] hover:shadow-[0_25px_55px_rgba(26,63,133,0.38)] flex flex-col justify-between space-y-6 sm:space-y-8 relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300 text-white"
+                        data-tilt
+                    >
+                        <!-- Top Metallic Specular Edge Shine -->
+                        <div class="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#60a5fa]/70 to-transparent pointer-events-none"></div>
+                        <!-- Ambient Metallic Flare -->
+                        <div class="absolute -right-16 -top-16 w-48 h-48 bg-[#3b82f6]/20 rounded-full blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
 
-                    <!-- Top Step Badge -->
-                    <div class="flex items-center justify-between relative z-10">
-                        <span class="px-3 py-1 rounded-full bg-white/15 text-white border border-white/20 text-[11px] font-semibold tracking-wider">
-                            {{ $c['tag'] }}
-                        </span>
-                        <span class="font-display font-bold text-3xl text-[#93c5fd] group-hover:text-white transition-colors">
-                            {{ $c['step'] }}
-                        </span>
-                    </div>
+                        <!-- Top Step Badge -->
+                        <div class="flex items-center justify-between relative z-10">
+                            <span class="px-3 py-1 rounded-full bg-white/15 text-white border border-white/20 text-[11px] font-semibold tracking-wider">
+                                {{ $c['tag'] }}
+                            </span>
+                            <span class="font-display font-bold text-3xl text-[#93c5fd] group-hover:text-white transition-colors">
+                                {{ $c['step'] }}
+                            </span>
+                        </div>
 
-                    <!-- Content -->
-                    <div class="space-y-4 relative z-10">
-                        <h3 class="h-display font-bold text-2xl sm:text-3xl text-white group-hover:text-[#bfdbfe] transition-colors leading-tight">
-                            {{ $c['title'] }}
-                        </h3>
-                        <p class="text-[#dbeafe] text-xs sm:text-sm leading-relaxed">
-                            {{ $c['desc'] }}
-                        </p>
+                        <!-- Content -->
+                        <div class="space-y-4 relative z-10">
+                            <h3 class="h-display font-bold text-2xl sm:text-3xl text-white group-hover:text-[#bfdbfe] transition-colors leading-tight">
+                                {{ $c['title'] }}
+                            </h3>
+                            <p class="text-[#dbeafe] text-xs sm:text-sm leading-relaxed">
+                                {{ $c['desc'] }}
+                            </p>
 
-                        <!-- Inclusions List -->
-                        <ul class="space-y-2 pt-2 border-t border-white/15 text-xs text-[#dbeafe]">
-                            @foreach($c['features'] as $f)
-                                <li class="flex items-center gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-[#38bdf8] shrink-0 shadow-[0_0_8px_#38bdf8]"></span>
-                                    <span>{{ $f }}</span>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
+                            <!-- Inclusions List -->
+                            <ul class="space-y-2 pt-2 border-t border-white/15 text-xs text-[#dbeafe]">
+                                @foreach($c['features'] as $f)
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-[#38bdf8] shrink-0 shadow-[0_0_8px_#38bdf8]"></span>
+                                        <span>{{ $f }}</span>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
 
-                    <div class="pt-4 border-t border-white/15 flex items-center justify-between text-xs text-[#93c5fd] relative z-10">
-                        <a href="{{ url($c['url']) }}" class="font-semibold text-[#93c5fd] group-hover:text-white transition-colors">
-                            Explore Framework
-                        </a>
-                        <a href="{{ url($c['url']) }}" class="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center text-white group-hover:bg-white/25 group-hover:translate-x-1.5 transition-all">
-                            &rarr;
-                        </a>
+                        <div class="pt-4 border-t border-white/15 flex items-center justify-between text-xs text-[#93c5fd] relative z-10">
+                            <a href="{{ url($c['url']) }}" class="font-semibold text-[#93c5fd] group-hover:text-white transition-colors">
+                                Explore Framework
+                            </a>
+                            <a href="{{ url($c['url']) }}" class="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center text-white group-hover:bg-white/25 group-hover:translate-x-1.5 transition-all">
+                                &rarr;
+                            </a>
+                        </div>
                     </div>
                 </div>
             @endforeach

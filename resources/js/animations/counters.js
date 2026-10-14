@@ -4,15 +4,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 export function initCounters() {
     gsap.registerPlugin(ScrollTrigger);
 
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const statsStrip = document.querySelector('[data-stats-strip]');
 
     if (statsStrip) {
-        if (prefersReducedMotion) {
-            gsap.set(statsStrip, { opacity: 1, scale: 1, y: 0 });
-            gsap.set(statsStrip.querySelectorAll('[data-stat-item]'), { opacity: 1, scale: 1, y: 0 });
-        } else {
-            const statItems = statsStrip.querySelectorAll('[data-stat-item]');
+        const statItems = statsStrip.querySelectorAll('[data-stat-item]');
             const counters = statsStrip.querySelectorAll('[data-count]');
             const shimmer = statsStrip.querySelector('[data-stats-shimmer]');
 
@@ -109,7 +104,6 @@ export function initCounters() {
                     '-=0.55'
                 );
             });
-        }
     }
 
     // Standalone counters (excluding hero & stats strip)

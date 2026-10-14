@@ -12,7 +12,7 @@ export function initHorizontal() {
         // Only pin and horizontal-scroll on desktop screens (>=1024px)
         const mm = gsap.matchMedia();
 
-        mm.add('(min-width: 1024px) and (prefers-reduced-motion: no-preference)', () => {
+        mm.add('(min-width: 1024px)', () => {
             const scrollDistance = track.scrollWidth - container.clientWidth + 80;
 
             if (scrollDistance > 0) {

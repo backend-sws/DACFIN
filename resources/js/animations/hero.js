@@ -40,11 +40,11 @@ export function initHero() {
   const counter = { v: 0 };
   value.textContent = cur + '0';
 
-  /* intro timeline - elements slide in from the left one-by-one on load/refresh and replay on scroll */
+  /* 1. Intro timeline for LEFT copy (runs on page load) */
   const xDist = desktop ? -80 : -50;
-  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  const introTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-  tl.fromTo('.hero__badge',
+  introTl.fromTo('.hero__badge',
       { x: xDist, autoAlpha: 0 },
       { x: 0, autoAlpha: 1, duration: 0.7, clearProps: 'transform,opacity,visibility' }
     )
@@ -67,45 +67,62 @@ export function initHero() {
       { x: xDist + 15, autoAlpha: 0 },
       { x: 0, autoAlpha: 1, duration: 0.6, stagger: 0.12, clearProps: 'transform,opacity,visibility' },
       '-=0.3'
-    )
-    .fromTo(card,
-      { x: desktop ? 90 : 40, rotateY: base.rotateY - 28, autoAlpha: 0 },
-      { x: 0, rotateY: base.rotateY, autoAlpha: 1, duration: 1.1 },
-      0.3
-    )
-    .fromTo(floats,
-      { x: desktop ? 60 : 30, autoAlpha: 0 },
-      { x: 0, autoAlpha: 1, duration: 0.8, stagger: 0.18 },
-      0.8
-    )
-    .fromTo(q('.hcard__actions li'),
-      { y: 14, autoAlpha: 0 },
-      { y: 0, autoAlpha: 1, duration: 0.5, stagger: 0.08 },
-      1.0
-    )
-    .fromTo(counter,
-      { v: 0 },
-      {
-        v: target,
-        duration: 2.2,
-        ease: 'power2.out',
-        onUpdate: () => { value.textContent = cur + fmt(counter.v, locale); },
-        onComplete: () => { value.textContent = finalText; },
-      },
-      0.8
     );
 
-  /* ScrollTrigger to replay animation when scrolling from bottom back up to the top ("niche se upper aye tab") */
+  /* 2. Scroll-driven timeline for the RIGHT visual card (comes in when scrolling, not before) */
+  const visual = root.querySelector('.hero__visual');
+  const cardXDist = desktop ? 280 : 120;
+
+  if (reduce) {
+    if (visual) gsap.set(visual, { x: 0, autoAlpha: 1 });
+    value.textContent = finalText;
+    return;
+  }
+
+  gsap.set(visual, { x: cardXDist, autoAlpha: 0 });
+
+  const cardScrollTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: root,
+      start: 'top top',
+      end: desktop ? '+=180' : '+=140',
+      scrub: 1,
+      invalidateOnRefresh: true,
+    }
+  });
+
+  cardScrollTl.fromTo(visual,
+    { x: cardXDist, autoAlpha: 0 },
+    { x: 0, autoAlpha: 1, ease: 'none' },
+    0
+  );
+
+  cardScrollTl.fromTo(counter,
+    { v: 0 },
+    {
+      v: target,
+      ease: 'none',
+      onUpdate: () => {
+        if (counter.v >= target - 100) {
+          value.textContent = finalText;
+        } else {
+          value.textContent = cur + fmt(counter.v, locale);
+        }
+      },
+    },
+    0
+  );
+
+  /* Replay intro animation when scrolling from bottom back up to the top */
   ScrollTrigger.create({
     trigger: root,
     start: 'top top',
     end: 'bottom top',
     onLeave: () => {
-      tl.pause(0);
-      value.textContent = cur + '0';
+      introTl.pause(0);
     },
     onEnterBack: () => {
-      tl.restart();
+      introTl.restart();
     },
   });
 

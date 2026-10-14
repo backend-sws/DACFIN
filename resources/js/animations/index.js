@@ -12,27 +12,38 @@ import { initLines } from './lines';
 import { initTransition } from './transition';
 
 gsap.registerPlugin(ScrollTrigger);
+window.gsap = gsap;
+window.ScrollTrigger = ScrollTrigger;
 
 export function initAnimations() {
     initHero();
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) {
-        document.documentElement.classList.add('no-motion');
-        return;
-    }
-
     initTransition();
+    initHorizontal();
     initReveal();
     initCounters();
     initMarquee();
-    initHorizontal();
     initCursor();
     initMagnetic();
     initTilt();
     initLines();
 
+    ScrollTrigger.sort();
+    ScrollTrigger.refresh();
+    setTimeout(() => {
+        ScrollTrigger.sort();
+        ScrollTrigger.refresh();
+    }, 150);
+    setTimeout(() => {
+        ScrollTrigger.sort();
+        ScrollTrigger.refresh();
+    }, 500);
+    setTimeout(() => {
+        ScrollTrigger.sort();
+        ScrollTrigger.refresh();
+    }, 1200);
+
     window.addEventListener('load', () => {
+        ScrollTrigger.sort();
         ScrollTrigger.refresh();
     });
 }

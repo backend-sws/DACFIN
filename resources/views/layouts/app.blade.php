@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     @include('partials.head')
 </head>
@@ -28,5 +28,8 @@
 
     <!-- Footer -->
     @include('partials.footer')
+
+    <!-- Floating Contact Actions (Call & WhatsApp) -->
+    @include('partials.floating-actions')
 </body>
 </html>

@@ -27,10 +27,10 @@
         </div>
 
         <!-- Wireframe 3-Column Asymmetric Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch" data-spotlight-grid>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch" data-spotlight-grid data-scroll-row>
             
             <!-- Left Column: 3 Big Stacked Stats (Slides from Left) -->
-            <div class="lg:col-span-4 flex flex-col justify-between space-y-4 sm:space-y-6 will-change-transform" data-spotlight-left>
+            <div class="lg:col-span-4 flex flex-col justify-between space-y-4 sm:space-y-6 will-change-transform" data-spotlight-left data-scroll="left">
                 @foreach($stats as $st)
                     <div class="group relative p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#1a3f85] via-[#132f66] to-[#0c1f44] border border-[#3b82f6]/40 hover:border-[#93c5fd] shadow-[0_10px_30px_rgba(15,40,90,0.18)] hover:shadow-[0_18px_45px_rgba(26,63,133,0.35)] hover:-translate-y-0.5 transition-all duration-300 space-y-2 overflow-hidden text-white will-change-transform" data-spotlight-stat>
                         <!-- Metallic Specular Edge Shine -->
@@ -51,7 +51,7 @@
             </div>
 
             <!-- Center Column: Patna Headquarters Glass Card (Pops in Center) -->
-            <div class="lg:col-span-4 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#1a3f85] via-[#132f66] to-[#0c1f44] text-white border border-[#3b82f6]/40 p-5 sm:p-7 flex flex-col justify-between shadow-[0_15px_45px_rgba(21,50,102,0.25)] relative overflow-hidden will-change-transform" data-spotlight-center>
+            <div class="lg:col-span-4 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#1a3f85] via-[#132f66] to-[#0c1f44] text-white border border-[#3b82f6]/40 p-5 sm:p-7 flex flex-col justify-between shadow-[0_15px_45px_rgba(21,50,102,0.25)] relative overflow-hidden will-change-transform" data-spotlight-center data-scroll="center">
                 <!-- Metallic Specular Edge Shine -->
                 <div class="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#60a5fa]/70 to-transparent pointer-events-none"></div>
                 <div class="absolute -right-16 -top-16 w-56 h-56 bg-[#3b82f6]/25 rounded-full blur-3xl pointer-events-none"></div>
@@ -100,7 +100,7 @@
             </div>
 
             <!-- Right Column: Editorial Transformation Story (Slides from Right) -->
-            <div class="lg:col-span-4 rounded-2xl sm:rounded-3xl bg-white border border-sand/60 p-5 sm:p-8 flex flex-col justify-between shadow-sm space-y-5 sm:space-y-6 will-change-transform" data-spotlight-right>
+            <div class="lg:col-span-4 rounded-2xl sm:rounded-3xl bg-white border border-sand/60 p-5 sm:p-8 flex flex-col justify-between shadow-sm space-y-5 sm:space-y-6 will-change-transform" data-spotlight-right data-scroll="right">
                 <div class="space-y-4">
                     <span class="text-xs uppercase font-bold tracking-widest text-emerald">Regional Leadership</span>
                     <h3 class="h-display font-bold text-xl sm:text-2xl text-ink leading-snug">

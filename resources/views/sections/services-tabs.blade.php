@@ -2,12 +2,12 @@
     $srvData = config('fincun.home.services');
 @endphp
 
-<section id="services" class="py-12 sm:py-16 lg:py-20 bg-cream text-ink relative overflow-hidden border-t border-sand/60" x-data="{ activeTab: 0 }">
+<section id="services" class="py-12 sm:py-16 lg:py-20 bg-cream text-ink relative overflow-hidden border-t border-sand/60" x-data="{ activeTab: 0 }" data-services-tabs-section>
     <!-- Ambient Subtle Glow -->
     <div class="absolute -top-32 right-1/4 w-96 h-96 rounded-full bg-ice-cyan/40 blur-[120px] pointer-events-none"></div>
 
     <div class="container-x relative z-10 space-y-6 sm:space-y-8">
-        <div class="max-w-3xl" data-reveal="up">
+        <div class="max-w-3xl will-change-transform" data-services-tabs-header>
             <x-ui.section-title 
                 :eyebrow="$srvData['eyebrow']" 
                 :title="$srvData['title']" 
@@ -15,10 +15,10 @@
             />
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start" data-services-tabs-grid data-scroll-row>
             
             <!-- Left: Tab Buttons (4 cols on lg, horizontal swipeable pill bar on mobile) -->
-            <div class="lg:col-span-4 flex flex-row lg:flex-col overflow-x-auto lg:overflow-visible gap-2 lg:gap-2.5 pb-2 lg:pb-0 scrollbar-none" data-stagger-left>
+            <div class="lg:col-span-4 flex flex-row lg:flex-col overflow-x-auto lg:overflow-visible gap-2 lg:gap-2.5 pb-2 lg:pb-0 scrollbar-none will-change-transform" data-services-tabs-left data-scroll="left">
                 @foreach($srvData['tabs'] as $idx => $tab)
                     <button 
                         type="button" 
@@ -63,7 +63,7 @@
             </div>
 
             <!-- Right: Content Panel with Image and Checklist (8 cols) -->
-            <div class="lg:col-span-8" data-reveal="from-right">
+            <div class="lg:col-span-8 will-change-transform" data-services-tabs-right data-scroll="right">
                 @foreach($srvData['items'] as $idx => $item)
                     <div 
                         x-show="activeTab === {{ $idx }}"

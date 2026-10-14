@@ -364,7 +364,7 @@ return [
         'text' => 'At DACFIN, our strength lies in combining human expertise with smart technology. We focus on understanding your goals, simplifying complex financial decisions and delivering solutions that are transparent, reliable and future-ready.',
         'items' => [
             ['Client-Centric Approach',      'We listen first, plan second. Every solution begins with understanding your goals.'],
-            ['Technology + Expertise',       'From wealth growth to risk protection, we cover all aspects of your financial life.'],
+            ['Technology + Expertise',       'Modern digital fintech tools paired with senior advisory acumen for disciplined portfolio execution.'],
             ['Holistic Financial Solutions', 'From wealth growth to risk protection, we cover all aspects of your financial life.'],
             ['Trusted Relationships',        'We measure success not just in numbers, but in long-term trust and client satisfaction.'],
         ],
