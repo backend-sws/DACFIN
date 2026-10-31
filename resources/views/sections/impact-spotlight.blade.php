@@ -89,7 +89,7 @@
                         <p class="text-xs text-white/95 leading-relaxed font-semibold">
                             Dharmendra Kumar
                         </p>
-                        <span class="text-[11px] text-[#dbeafe]/80 font-mono mt-1 block">Founder &amp; Principal Advisor</span>
+                        <span class="text-[11px] text-[#dbeafe]/80 font-mono mt-1 block">Portfolio Manager</span>
                     </div>
                 </div>
 
