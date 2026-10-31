@@ -51,5 +51,19 @@ return [
             'image' => '/images/team/asha.svg',
             'bio' => 'Asha Kumari leads institutional operations, compliance governance, and client service excellence, ensuring transparent and reliable financial stewardship.',
         ],
+        'aaditya-malhotra' => [
+            'name' => 'Aaditya Malhotra',
+            'role' => 'Operations Head',
+            'initials' => 'AM',
+            'image' => '/images/team/aaditya.svg',
+            'bio' => 'Aaditya Malhotra oversees day-to-day operations, workflow optimization, and service delivery, ensuring seamless execution and superior client experience across all financial touchpoints.',
+        ],
+        'jitendra-prasad-singh' => [
+            'name' => 'Jitendra Prasad Singh',
+            'role' => 'Manager Business Development (Emerging Market)',
+            'initials' => 'JS',
+            'image' => '/images/team/jitendra.svg',
+            'bio' => 'Jitendra Prasad Singh drives business development and strategic outreach across emerging markets, expanding DACFIN\'s regional presence and building lasting client relationships.',
+        ],
     ],
 ];

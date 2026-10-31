@@ -407,10 +407,12 @@ return [
     'team' => [
         'eyebrow' => 'Our Team',
         'title' => 'Meet Your Trusted Advisors',
-        'text' => 'Behind DACFIN is dedicated leadership led by Dharmendra Kumar and Asha Kumari, who bring together deep industry experience and a vision to make finance human, approachable and reliable.',
+        'text' => 'Behind DACFIN is dedicated leadership led by Dharmendra Kumar and Asha Kumari, alongside experienced professionals who bring together deep industry expertise to make finance human, approachable and reliable.',
         'members' => [
-            ['Dharmendra Kumar', 'Director & Chief Financial Advisor', '/images/team/dharmendra.svg', 'DK'],
-            ['Asha Kumari',     'Director & Operations Head',          '/images/team/asha.svg',       'AK'],
+            ['Dharmendra Kumar',      'Director & Chief Financial Advisor',              '/images/team/dharmendra.svg', 'DK'],
+            ['Asha Kumari',          'Director & Operations Head',                      '/images/team/asha.svg',       'AK'],
+            ['Aaditya Malhotra',     'Operations Head',                                 '/images/team/aaditya.svg',    'AM'],
+            ['Jitendra Prasad Singh', 'Manager Business Development (Emerging Market)', '/images/team/jitendra.svg',   'JS'],
         ],
     ],
 

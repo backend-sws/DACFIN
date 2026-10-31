@@ -23,7 +23,7 @@
         </p>
 
         <!-- Team Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 max-w-3xl gap-6" data-stagger>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl gap-6" data-stagger>
             @foreach($team['members'] as $member)
                 <div class="group relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#1a3f85] via-[#132f66] to-[#0c1f44] border border-[#3b82f6]/40 hover:border-[#93c5fd] shadow-[0_12px_35px_rgba(15,40,90,0.22)] hover:shadow-[0_20px_50px_rgba(26,63,133,0.38)] hover:-translate-y-1 transition-all duration-300 flex flex-col text-white" data-tilt>
                     <!-- Metallic Specular Edge Shine -->
@@ -43,7 +43,7 @@
                     </div>
 
                     <!-- Meta text -->
-                    <div class="p-5 space-y-1 relative z-10">
+                    <div class="p-5 space-y-1 relative z-10 flex-1 flex flex-col justify-start">
                         <h4 class="font-display font-bold text-base text-white group-hover:text-[#bfdbfe] transition-colors">
                             {{ $member[0] }}
                         </h4>
