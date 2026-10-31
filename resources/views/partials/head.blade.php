@@ -50,7 +50,7 @@
   'description' => config('fincun.site.meta.description'),
   'email' => config('fincun.site.email'),
   'telephone' => config('fincun.site.primary_phone_tel'),
-  'openingHours' => 'Mo-Sa 08:00-20:00',
+  'openingHours' => 'Mo-Sa 09:30-18:30',
   'address' => [
     '@type' => 'PostalAddress',
     'streetAddress' => 'Shop No 14, Vijay Aman Apartment, Main Road, Near Gravity Mall, Kankarbagh',

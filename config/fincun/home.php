@@ -281,7 +281,7 @@ return [
         ['value' => 5, 'pad' => true, 'label' => 'Dedicated advisors on your team'],
         ['value' => 6, 'pad' => true, 'label' => 'Core advisory services offered'],
         ['value' => 8, 'pad' => true, 'label' => 'Client segments we specialise in'],
-        ['text' => 'Mon–Sat', 'label' => '8:00 AM – 8:00 PM, always reachable'],
+        ['text' => 'Mon–Sat', 'label' => '09:30 AM to 06:30 PM, always reachable'],
     ],
 
     'about' => [

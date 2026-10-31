@@ -18,7 +18,7 @@ return [
     'primary_phone_tel' => '+919934675399',
     'whatsapp' => '9934675399',
     'whatsapp_url' => 'https://wa.me/919934675399',
-    'hours' => 'Mon–Sat : 8:00 AM – 8:00 PM',
+    'hours' => 'Mon–Sat : 09:30 AM to 06:30 PM',
     'offices' => [
         [
             'city' => 'Patna',
