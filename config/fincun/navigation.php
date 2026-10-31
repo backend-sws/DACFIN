@@ -93,5 +93,32 @@ return [
             ['National Pension Scheme (NPS) Registration', 'https://cra.kfintech.com/poponline/registration/popsubscriberregistration/'],
             ['National Pension Scheme (NPS) Payments', 'https://cra.kfintech.com/poponline/POPContributeOnline?AuthID=C8783F5763BE413176CAF5F834A7054EB951058E9CD18E8BE4FFB375A6C54408'],
         ],
+        'portals' => [
+            [
+                'title' => 'RTA & Execution Desks',
+                'links' => [
+                    ['CAMS FundsNet', 'https://fundsnet.camsonline.com/ecrms/index.aspx'],
+                    ['KFintech IRIS', 'https://iris.kfintech.com/auth/login'],
+                    ['KFintech DSS', 'https://dss.kfintech.com/dssweb/Dashboard'],
+                    ['NSE NMF II Desk', 'https://www.nseinvest.com/nsemfdesk/login.htm'],
+                ],
+            ],
+            [
+                'title' => 'Insurance Partner Portals',
+                'links' => [
+                    ['ICICI Prudential Life', 'https://buy.icicilife.com/portal/login/cmmn-home.htm?execution=e1s1'],
+                    ['Aditya Birla Capital Life', 'https://lifeinsurancepartners.adityabirlacapital.com/users'],
+                    ['Star Health AtomPro', 'https://atompro.starhealth.in/sso/login'],
+                ],
+            ],
+            [
+                'title' => 'KYC & Wealth Platforms',
+                'links' => [
+                    ['CVL KRA (KYC Verification)', 'https://www.cvlkra.com/'],
+                    ['TickerWealth Desk', 'https://www.tickerwealth.com/#/Login'],
+                    ['OFA Fiinfra Portal', 'https://ofa.fiinfra.in/FIINFRA-Welcome/common/login.htm'],
+                ],
+            ],
+        ],
     ],
 ];

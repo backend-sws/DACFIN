@@ -107,6 +107,48 @@
             </div>
         </div>
 
+        <!-- Partner & Institutional Portals -->
+        @if(!empty(config('fincun.navigation.footer.portals')))
+            <div class="pt-8 border-t border-emerald/15 space-y-5">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <span class="text-xs font-bold text-mint uppercase tracking-wider">
+                        Partner &amp; Institutional Portals
+                    </span>
+                    <span class="text-[11px] text-white/60">
+                        Authorized RTA, Insurance, and Advisory Desks
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+                    @foreach(config('fincun.navigation.footer.portals') as $group)
+                        <div class="space-y-3 p-4 sm:p-5 rounded-2xl bg-forest/30 border border-emerald/15">
+                            <h5 class="font-display font-semibold text-white text-xs uppercase tracking-wider flex items-center justify-between pb-1 border-b border-emerald/10">
+                                <span>{{ $group['title'] }}</span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald"></span>
+                            </h5>
+                            <ul class="space-y-2 text-xs sm:text-sm">
+                                @foreach($group['links'] as $item)
+                                    <li>
+                                        <a 
+                                            href="{{ $item[1] }}" 
+                                            target="_blank" 
+                                            rel="noopener noreferrer" 
+                                            class="text-white/80 hover:text-white flex items-center justify-between group transition-colors py-0.5"
+                                        >
+                                            <span class="group-hover:translate-x-0.5 transition-transform">{{ $item[0] }}</span>
+                                            <svg class="w-3.5 h-3.5 text-emerald/80 group-hover:text-emerald group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        @endif
+
         <!-- Middle Row: Bottom Links (Mutual Funds, Loans Against MF, NPS Registration, NPS Payments) -->
         <div class="pt-8 border-t border-emerald/15">
             <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs text-white/80 font-medium">
