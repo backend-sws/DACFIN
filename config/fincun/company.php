@@ -62,7 +62,7 @@ return [
             'name' => 'Jitendra Prasad Singh',
             'role' => 'Manager Business Development (Emerging Market)',
             'initials' => 'JS',
-            'image' => '/images/team/jitendra.svg',
+            'image' => '/images/team/jitendra.jpg',
             'bio' => 'Jitendra Prasad Singh drives business development and strategic outreach across emerging markets, expanding DACFIN\'s regional presence and building lasting client relationships.',
         ],
     ],

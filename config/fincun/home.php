@@ -412,7 +412,7 @@ return [
             ['Dharmendra Kumar',      'Portfolio Manager',              '/images/team/dharmendra.svg', 'DK'],
             ['Asha Kumari',          'Manager Business Development',                      '/images/team/asha.svg',       'AK'],
             ['Aaditya Malhotra',     'Operations Head',                                 '/images/team/aaditya.jpg',    'AM'],
-            ['Jitendra Prasad Singh', 'Manager Business Development (Emerging Market)', '/images/team/jitendra.svg',   'JS'],
+            ['Jitendra Prasad Singh', 'Manager Business Development (Emerging Market)', '/images/team/jitendra.jpg',   'JS'],
         ],
     ],
 
