@@ -41,14 +41,14 @@ return [
             'name' => 'Dharmendra Kumar',
             'role' => 'Portfolio Manager',
             'initials' => 'DK',
-            'image' => '/images/team/dharmendra.svg',
+            'image' => '/images/team/dharmendra.jpg',
             'bio' => 'Dharmendra Kumar brings extensive experience in personal wealth advisory, goal-based planning, and client-centric asset allocation strategies.',
         ],
         'asha-kumari' => [
             'name' => 'Asha Kumari',
             'role' => 'Manager Business Development',
             'initials' => 'AK',
-            'image' => '/images/team/asha.svg',
+            'image' => '/images/team/asha.jpg',
             'bio' => 'Asha Kumari leads institutional operations, compliance governance, and client service excellence, ensuring transparent and reliable financial stewardship.',
         ],
         'aaditya-malhotra' => [
