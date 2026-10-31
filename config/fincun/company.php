@@ -55,7 +55,7 @@ return [
             'name' => 'Aaditya Malhotra',
             'role' => 'Operations Head',
             'initials' => 'AM',
-            'image' => '/images/team/aaditya.svg',
+            'image' => '/images/team/aaditya.jpg',
             'bio' => 'Aaditya Malhotra oversees day-to-day operations, workflow optimization, and service delivery, ensuring seamless execution and superior client experience across all financial touchpoints.',
         ],
         'jitendra-prasad-singh' => [
