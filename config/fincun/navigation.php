@@ -25,7 +25,7 @@ return [
                 'desc' => 'Sit down with our senior advisors to map out your generational goals and risk-adjusted returns.',
                 'cta' => 'Book Free Consultation',
                 'url' => '/contact-us',
-                'stat' => '₹500Cr+',
+                'stat' => '₹200Cr+',
                 'stat_label' => 'AUM Advised with Zero Bias',
             ],
             'children' => [

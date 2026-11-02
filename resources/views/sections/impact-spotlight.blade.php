@@ -1,7 +1,7 @@
 @php
     $spotlight = config('fincun.home.spotlight') ?? [
         'stats' => [
-            ['val' => '₹500Cr+', 'label' => 'Total AUM advised with disciplined fiduciary oversight.'],
+            ['val' => '₹200Cr+', 'label' => 'Total AUM advised with disciplined fiduciary oversight.'],
             ['val' => '15+ Years', 'label' => 'Proven leadership navigating bull and bear market cycles.'],
             ['val' => '100%', 'label' => 'Unbiased advisory standard with zero product quotas.'],
         ],

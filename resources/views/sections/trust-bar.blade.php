@@ -24,7 +24,7 @@
         [
             'icon' => 'chart',
             'badge' => 'AUM ADVISED',
-            'title' => '₹500Cr+ Portfolio Scope',
+            'title' => '₹200Cr+ Portfolio Scope',
             'desc' => 'Disciplined asset allocation across bull and bear market cycles since 2016.',
             'highlight' => '10+ Yrs Proven',
         ],

@@ -65,7 +65,7 @@ return [
                     'Disciplined goal-linked automated SIP strategies',
                     'Continuous downside protection & Sharpe tracking',
                 ],
-                'metric' => 'From ₹500/mo',
+                'metric' => 'From ₹200/mo',
                 'metric_label' => 'SIP Allocation',
                 'url' => '/services/investment-advise',
                 'image' => '/images/service-section-2.svg',
@@ -80,7 +80,7 @@ return [
                     'Category II & III Alternative Investment Funds',
                     'Consolidated quarterly portfolio review with founders',
                 ],
-                'metric' => '₹500Cr+ AUM',
+                'metric' => '₹200Cr+ AUM',
                 'metric_label' => 'Total Advised Scope',
                 'url' => '/services/wealth-management',
                 'image' => '/images/service-section-3.svg',
@@ -219,7 +219,7 @@ return [
 
     'spotlight' => [
         'stats' => [
-            ['val' => '₹500Cr+', 'label' => 'Total AUM advised with disciplined fiduciary oversight.'],
+            ['val' => '₹200Cr+', 'label' => 'Total AUM advised with disciplined fiduciary oversight.'],
             ['val' => '15+ Years', 'label' => 'Proven leadership navigating bull and bear market cycles.'],
             ['val' => '100%', 'label' => 'Unbiased advisory standard with zero product quotas.'],
         ],

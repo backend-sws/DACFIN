@@ -89,7 +89,7 @@
                     <div class="pt-4 border-t border-powder-blue/40 mt-4 space-y-3 relative">
                         <div class="flex items-baseline justify-between text-xs">
                             <span class="font-display font-extrabold text-saffron text-sm">
-                                {{ $item['spotlight']['stat'] ?? '₹500Cr+' }}
+                                {{ $item['spotlight']['stat'] ?? '₹200Cr+' }}
                             </span>
                             <span class="text-[10px] text-slate/70">
                                 {{ $item['spotlight']['stat_label'] ?? 'AUM Advised' }}
