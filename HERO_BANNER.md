@@ -9,6 +9,7 @@ Only the **hero banner** is covered here. The layout, spacing, colors, card tilt
 ## 1. What the banner contains (match this)
 
 **Left side**
+
 1. Small white pill badge with a green dot (top)
 2. Big 2-line heading, bold, dark navy. Some words are in a lighter grey-blue ("soft" words)
 3. One short paragraph in grey-blue
@@ -16,15 +17,18 @@ Only the **hero banner** is covered here. The layout, spacing, colors, card tilt
 5. Row of 3 small features, each with a line icon and a label
 
 **Right side**
+
 1. A dark-blue **glass card**, tilted in 3D: brand + toggle, "Total Portfolio Value", a big number, 4 round action buttons with labels
 2. **2 smaller floating cards** overlapping the right edge of the big card
 3. Faint vertical text on the far right edge
 
 **Background**
+
 - A wide photo: a man on a villa balcony at bottom-left, a skyline in the middle, a yacht at bottom-right, with a soft misty blue-grey sky. A left-to-right white wash keeps the text readable.
 - If the image is missing, a blue-grey gradient shows instead, so the page never looks broken.
 
 **Animations**
+
 - Load: badge, heading lines (slide up), text, buttons and features come in one by one. The card swings in from the right with a 3D turn, then the floating cards follow.
 - The number counts up from 0.
 - The floating cards bob up and down gently.
@@ -46,6 +50,7 @@ public/images/hero-bg.jpg                      # background photo (see section 7
 ```
 
 Also:
+
 - In `resources/css/app.css` add: `@import './hero.css';`
 - In `resources/js/animations/index.js` import `initHero` and call it (replace any older `initHero`).
 - In `<head>` add this tiny script so hidden start states only apply when JS works: `<script>document.documentElement.classList.add('js')</script>`
@@ -86,8 +91,8 @@ return [
     'card' => [
         'brand'    => 'FINCUN',
         'label'    => 'Total Portfolio Value',
-        'value'    => 12895750,        // used for the count-up
-        'display'  => '₹1,28,95,750',  // shown without JS and at the end of the count-up
+        'value'    => 200000000 ,        // used for the count-up
+        'display'  => '₹20,00,00,000',  // shown without JS and at the end of the count-up
         'currency' => '₹',
         'locale'   => 'en-IN',         // use '$' + 'en-US' + '$12,895,750' for the exact reference look
         'actions'  => [                // [icon, label]  icons: invest, plan, shield, more
@@ -221,226 +226,470 @@ return [
 
 ```css
 .hero {
-  --navy: #14254d;
-  --navy-btn: #1f3b7a;
-  --ink: #1b2a4e;
-  --muted: #3e4c68;
-  --soft: #7684a0;
-  --card-a: #2d4e9f;
-  --card-b: #10234f;
+    --navy: #14254d;
+    --navy-btn: #1f3b7a;
+    --ink: #1b2a4e;
+    --muted: #3e4c68;
+    --soft: #7684a0;
+    --card-a: #2d4e9f;
+    --card-b: #10234f;
 
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  min-height: clamp(640px, 90vh, 840px);
-  font-family: "Manrope", system-ui, sans-serif;
-  color: var(--ink);
-  background: linear-gradient(180deg, #e9eef5 0%, #d2dcea 55%, #b8c6da 100%);
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    min-height: clamp(640px, 90vh, 840px);
+    font-family: "Manrope", system-ui, sans-serif;
+    color: var(--ink);
+    background: linear-gradient(180deg, #e9eef5 0%, #d2dcea 55%, #b8c6da 100%);
 }
 
 /* ---------- background ---------- */
 .hero__bg {
-  position: absolute; inset: 0; z-index: -3;
-  background: var(--hero-bg) center bottom / cover no-repeat;
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    background: var(--hero-bg) center bottom / cover no-repeat;
 }
 .hero__wash {
-  position: absolute; inset: 0; z-index: -2;
-  background:
-    linear-gradient(90deg, rgba(236,241,248,.94) 0%, rgba(236,241,248,.72) 36%, rgba(236,241,248,0) 64%),
-    linear-gradient(180deg, rgba(236,241,248,.6) 0%, rgba(236,241,248,0) 38%);
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(236, 241, 248, 0.94) 0%,
+            rgba(236, 241, 248, 0.72) 36%,
+            rgba(236, 241, 248, 0) 64%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(236, 241, 248, 0.6) 0%,
+            rgba(236, 241, 248, 0) 38%
+        );
 }
 
 /* ---------- layout ---------- */
 .hero__inner {
-  display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  align-items: center;
-  gap: 48px;
-  width: min(1240px, 100% - 48px);
-  margin-inline: auto;
-  padding: 150px 0 90px;          /* top space = top bar + floating header */
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    align-items: center;
+    gap: 48px;
+    width: min(1240px, 100% - 48px);
+    margin-inline: auto;
+    padding: 150px 0 90px; /* top space = top bar + floating header */
 }
 
 /* ---------- left ---------- */
 .hero__badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 7px 14px;
-  font-size: 12px; font-weight: 600; letter-spacing: .01em; color: #2e3a59;
-  background: rgba(255,255,255,.78);
-  border: 1px solid rgba(20,37,77,.08);
-  border-radius: 999px;
-  box-shadow: 0 4px 14px rgba(20,37,77,.06);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: #2e3a59;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(20, 37, 77, 0.08);
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(20, 37, 77, 0.06);
 }
 .hero__dot {
-  width: 8px; height: 8px; border-radius: 50%; background: #22c55e;
-  box-shadow: 0 0 0 0 rgba(34,197,94,.5);
-  animation: hero-pulse 2.2s infinite;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+    animation: hero-pulse 2.2s infinite;
 }
 @keyframes hero-pulse {
-  70%  { box-shadow: 0 0 0 8px rgba(34,197,94,0); }
-  100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+    70% {
+        box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    }
 }
 
 .hero__title {
-  margin: 22px 0 0;
-  font-size: clamp(40px, 5.2vw, 68px);
-  font-weight: 800; line-height: 1.08; letter-spacing: -.025em;
-  color: var(--ink);
+    margin: 22px 0 0;
+    font-size: clamp(40px, 5.2vw, 68px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--ink);
 }
-.hero__title .line { display: block; overflow: hidden; padding-bottom: .08em; }
-.hero__title .line__in { display: block; }
-.hero__title .soft { color: var(--soft); }
+.hero__title .line {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 0.08em;
+}
+.hero__title .line__in {
+    display: block;
+}
+.hero__title .soft {
+    color: var(--soft);
+}
 
 .hero__text {
-  max-width: 440px; margin: 20px 0 0;
-  font-size: 18px; line-height: 1.6; color: var(--muted);
+    max-width: 440px;
+    margin: 20px 0 0;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--muted);
 }
 
-.hero__cta { display: flex; align-items: center; flex-wrap: wrap; gap: 22px; margin-top: 34px; }
-.hero__btn {
-  padding: 16px 30px;
-  font-size: 15px; font-weight: 700; color: #fff; text-decoration: none;
-  background: linear-gradient(180deg, #2a4a96, var(--navy-btn));
-  border-radius: 10px;
-  box-shadow: 0 12px 26px -8px rgba(31,59,122,.55), inset 0 1px 0 rgba(255,255,255,.18);
-  transition: transform .25s ease, box-shadow .25s ease;
+.hero__cta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-top: 34px;
 }
-.hero__btn:hover { transform: translateY(-2px); box-shadow: 0 18px 30px -10px rgba(31,59,122,.6); }
+.hero__btn {
+    padding: 16px 30px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    background: linear-gradient(180deg, #2a4a96, var(--navy-btn));
+    border-radius: 10px;
+    box-shadow:
+        0 12px 26px -8px rgba(31, 59, 122, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+.hero__btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 30px -10px rgba(31, 59, 122, 0.6);
+}
 .hero__link {
-  display: inline-flex; align-items: center; gap: 12px;
-  font-size: 15px; font-weight: 600; color: var(--ink); text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
 }
 .hero__circle {
-  display: grid; place-items: center;
-  width: 40px; height: 40px; border-radius: 50%;
-  background: #fff; color: var(--navy-btn);
-  box-shadow: 0 6px 16px rgba(20,37,77,.14);
-  transition: transform .25s ease;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--navy-btn);
+    box-shadow: 0 6px 16px rgba(20, 37, 77, 0.14);
+    transition: transform 0.25s ease;
 }
-.hero__circle svg { width: 17px; height: 17px; }
-.hero__link:hover .hero__circle { transform: translateX(4px); }
+.hero__circle svg {
+    width: 17px;
+    height: 17px;
+}
+.hero__link:hover .hero__circle {
+    transform: translateX(4px);
+}
 
-.hero__features { display: flex; flex-wrap: wrap; gap: 28px; margin: 46px 0 0; padding: 0; list-style: none; }
-.hero__features li { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; color: #4a5873; }
-.hero__ficon {
-  display: grid; place-items: center;
-  width: 36px; height: 36px; border-radius: 10px;
-  color: var(--navy-btn);
-  background: rgba(255,255,255,.7);
-  border: 1px solid rgba(20,37,77,.08);
+.hero__features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    margin: 46px 0 0;
+    padding: 0;
+    list-style: none;
 }
-.hero__ficon svg { width: 19px; height: 19px; }
+.hero__features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #4a5873;
+}
+.hero__ficon {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    color: var(--navy-btn);
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(20, 37, 77, 0.08);
+}
+.hero__ficon svg {
+    width: 19px;
+    height: 19px;
+}
 
 /* ---------- right: card ---------- */
-.hero__visual { position: relative; padding-right: 70px; }
+.hero__visual {
+    position: relative;
+    padding-right: 70px;
+}
 
 .hcard {
-  position: relative; z-index: 1;
-  width: min(430px, 100%); margin-left: auto;
-  padding: 22px 24px 24px;
-  color: #fff;
-  background: linear-gradient(145deg, var(--card-a), var(--card-b));
-  border: 1px solid rgba(255,255,255,.2);
-  border-radius: 22px;
-  box-shadow: 0 44px 80px -24px rgba(8,20,60,.6), inset 0 1px 0 rgba(255,255,255,.28);
-  backdrop-filter: blur(14px);
-  transform: perspective(1400px) rotateY(-10deg) rotateX(4deg) rotateZ(-1deg); /* JS re-applies the same */
-  will-change: transform;
+    position: relative;
+    z-index: 1;
+    width: min(430px, 100%);
+    margin-left: auto;
+    padding: 22px 24px 24px;
+    color: #fff;
+    background: linear-gradient(145deg, var(--card-a), var(--card-b));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 22px;
+    box-shadow:
+        0 44px 80px -24px rgba(8, 20, 60, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(14px);
+    transform: perspective(1400px) rotateY(-10deg) rotateX(4deg) rotateZ(-1deg); /* JS re-applies the same */
+    will-change: transform;
 }
-.hcard__head { display: flex; align-items: center; justify-content: space-between; }
-.hcard__brand { display: inline-flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; letter-spacing: .02em; }
+.hcard__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.hcard__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
 .hcard__mark {
-  display: grid; place-items: center;
-  width: 28px; height: 28px; border-radius: 8px;
-  background: rgba(255,255,255,.16);
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.16);
 }
-.hcard__mark svg { width: 15px; height: 15px; }
+.hcard__mark svg {
+    width: 15px;
+    height: 15px;
+}
 .hcard__toggle {
-  display: flex; align-items: center;
-  width: 46px; height: 26px; padding: 3px;
-  background: rgba(255,255,255,.26); border-radius: 999px;
+    display: flex;
+    align-items: center;
+    width: 46px;
+    height: 26px;
+    padding: 3px;
+    background: rgba(255, 255, 255, 0.26);
+    border-radius: 999px;
 }
-.hcard__toggle i { width: 20px; height: 20px; margin-left: auto; background: #fff; border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,.25); }
+.hcard__toggle i {
+    width: 20px;
+    height: 20px;
+    margin-left: auto;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
 
-.hcard__label { margin: 26px 0 4px; font-size: 12.5px; font-weight: 500; opacity: .75; }
-.hcard__value { margin: 0; font-size: clamp(30px, 3.2vw, 40px); font-weight: 800; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.hcard__label {
+    margin: 26px 0 4px;
+    font-size: 12.5px;
+    font-weight: 500;
+    opacity: 0.75;
+}
+.hcard__value {
+    margin: 0;
+    font-size: clamp(30px, 3.2vw, 40px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+}
 
-.hcard__actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 26px 0 0; padding: 0; list-style: none; }
-.hcard__actions li { display: grid; justify-items: center; gap: 8px; }
+.hcard__actions {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 26px 0 0;
+    padding: 0;
+    list-style: none;
+}
+.hcard__actions li {
+    display: grid;
+    justify-items: center;
+    gap: 8px;
+}
 .hcard__btn {
-  display: grid; place-items: center;
-  width: 52px; height: 52px; border-radius: 16px;
-  color: var(--navy);
-  background: rgba(255,255,255,.9);
-  box-shadow: 0 8px 18px rgba(5,15,50,.3);
-  transition: transform .25s ease;
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    color: var(--navy);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 18px rgba(5, 15, 50, 0.3);
+    transition: transform 0.25s ease;
 }
-.hcard__btn svg { width: 22px; height: 22px; }
-.hcard__actions li:hover .hcard__btn { transform: translateY(-3px); }
-.hcard__actions small { font-size: 12px; font-weight: 600; opacity: .85; }
+.hcard__btn svg {
+    width: 22px;
+    height: 22px;
+}
+.hcard__actions li:hover .hcard__btn {
+    transform: translateY(-3px);
+}
+.hcard__actions small {
+    font-size: 12px;
+    font-weight: 600;
+    opacity: 0.85;
+}
 
 /* ---------- right: floating cards ---------- */
 .hfloat {
-  position: absolute; z-index: 2;
-  display: flex; align-items: center; gap: 12px;
-  width: 232px; padding: 13px 16px;
-  color: #fff;
-  background: linear-gradient(145deg, #2f50a2, #15306d);
-  border: 1px solid rgba(255,255,255,.2);
-  border-radius: 16px;
-  box-shadow: 0 24px 44px -14px rgba(8,20,60,.55), inset 0 1px 0 rgba(255,255,255,.24);
-  backdrop-filter: blur(12px);
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 232px;
+    padding: 13px 16px;
+    color: #fff;
+    background: linear-gradient(145deg, #2f50a2, #15306d);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow:
+        0 24px 44px -14px rgba(8, 20, 60, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.24);
+    backdrop-filter: blur(12px);
 }
-.hfloat--1 { top: 38px;  right: 0; }
-.hfloat--2 { top: 128px; right: -14px; }
+.hfloat--1 {
+    top: 38px;
+    right: 0;
+}
+.hfloat--2 {
+    top: 128px;
+    right: -14px;
+}
 .hfloat__av {
-  display: grid; place-items: center; flex: none;
-  width: 34px; height: 34px; border-radius: 50%;
-  font-size: 15px; font-weight: 800;
-  background: rgba(255,255,255,.18);
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    font-size: 15px;
+    font-weight: 800;
+    background: rgba(255, 255, 255, 0.18);
 }
-.hfloat__body { display: grid; gap: 3px; min-width: 0; flex: 1; }
-.hfloat__body strong { font-size: 13px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.hfloat__body span { display: flex; justify-content: space-between; gap: 8px; font-size: 11.5px; }
-.hfloat__body b { font-weight: 700; color: #8ef0b6; }
-.hfloat__body em { font-style: normal; opacity: .7; }
+.hfloat__body {
+    display: grid;
+    gap: 3px;
+    min-width: 0;
+    flex: 1;
+}
+.hfloat__body strong {
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.hfloat__body span {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 11.5px;
+}
+.hfloat__body b {
+    font-weight: 700;
+    color: #8ef0b6;
+}
+.hfloat__body em {
+    font-style: normal;
+    opacity: 0.7;
+}
 
-.hero__note { margin: 18px 70px 0 auto; max-width: 430px; font-size: 11px; color: rgba(20,37,77,.55); text-align: right; }
+.hero__note {
+    margin: 18px 70px 0 auto;
+    max-width: 430px;
+    font-size: 11px;
+    color: rgba(20, 37, 77, 0.55);
+    text-align: right;
+}
 
 .hero__vertical {
-  position: absolute; right: 14px; bottom: 96px;
-  writing-mode: vertical-rl;
-  font-size: 10px; font-weight: 700; letter-spacing: .32em; text-transform: uppercase;
-  color: rgba(20,37,77,.4);
+    position: absolute;
+    right: 14px;
+    bottom: 96px;
+    writing-mode: vertical-rl;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(20, 37, 77, 0.4);
 }
 
 /* hidden start states only when JS runs */
 .js .hero:not(.is-ready) .hero__copy,
-.js .hero:not(.is-ready) .hero__visual { visibility: hidden; }
+.js .hero:not(.is-ready) .hero__visual {
+    visibility: hidden;
+}
 
 /* ---------- responsive ---------- */
 @media (max-width: 1023px) {
-  .hero__inner { grid-template-columns: 1fr; gap: 36px; padding: 130px 0 64px; }
-  .hero__wash {
-    background: linear-gradient(180deg, rgba(236,241,248,.95) 0%, rgba(236,241,248,.8) 55%, rgba(236,241,248,.35) 100%);
-  }
-  .hero__visual { padding-right: 0; }
-  .hcard { margin-inline: auto; }
-  .hfloat { position: relative; inset: auto; width: min(430px, 100%); margin: 12px auto 0; }
-  .hero__note { margin-inline: auto; text-align: center; }
+    .hero__inner {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        padding: 130px 0 64px;
+    }
+    .hero__wash {
+        background: linear-gradient(
+            180deg,
+            rgba(236, 241, 248, 0.95) 0%,
+            rgba(236, 241, 248, 0.8) 55%,
+            rgba(236, 241, 248, 0.35) 100%
+        );
+    }
+    .hero__visual {
+        padding-right: 0;
+    }
+    .hcard {
+        margin-inline: auto;
+    }
+    .hfloat {
+        position: relative;
+        inset: auto;
+        width: min(430px, 100%);
+        margin: 12px auto 0;
+    }
+    .hero__note {
+        margin-inline: auto;
+        text-align: center;
+    }
 }
 @media (max-width: 640px) {
-  .hero__title { font-size: 38px; }
-  .hero__text  { font-size: 16px; }
-  .hero__features { gap: 18px; }
-  .hero__vertical { display: none; }
+    .hero__title {
+        font-size: 38px;
+    }
+    .hero__text {
+        font-size: 16px;
+    }
+    .hero__features {
+        gap: 18px;
+    }
+    .hero__vertical {
+        display: none;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero__dot { animation: none; }
-  .hero__btn, .hero__circle, .hcard__btn { transition: none; }
+    .hero__dot {
+        animation: none;
+    }
+    .hero__btn,
+    .hero__circle,
+    .hcard__btn {
+        transition: none;
+    }
 }
 ```
 
@@ -449,85 +698,148 @@ return [
 ## 7. `resources/js/animations/hero.js`
 
 ```js
-import gsap from 'gsap';
+import gsap from "gsap";
 
 const fmt = (n, locale) =>
-  new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(Math.round(n));
+    new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(
+        Math.round(n),
+    );
 
 export function initHero() {
-  const root = document.querySelector('[data-hero]');
-  if (!root) return;
+    const root = document.querySelector("[data-hero]");
+    if (!root) return;
 
-  const q = (s) => root.querySelectorAll(s);
-  const card = root.querySelector('[data-hcard]');
-  const floats = [...q('[data-float]')];
-  const value = root.querySelector('[data-count]');
-  const knob = root.querySelector('.hcard__toggle i');
+    const q = (s) => root.querySelectorAll(s);
+    const card = root.querySelector("[data-hcard]");
+    const floats = [...q("[data-float]")];
+    const value = root.querySelector("[data-count]");
+    const knob = root.querySelector(".hcard__toggle i");
 
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
-  const desktop = matchMedia('(min-width: 1024px)').matches;
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const fine = matchMedia("(hover: hover) and (pointer: fine)").matches;
+    const desktop = matchMedia("(min-width: 1024px)").matches;
 
-  root.classList.add('is-ready');
-  if (reduce) return;                       // final state stays visible, no motion
+    root.classList.add("is-ready");
+    if (reduce) return; // final state stays visible, no motion
 
-  /* 3D tilt of the main card (same values as the CSS fallback) */
-  const base = { rotateY: desktop ? -10 : -4, rotateX: desktop ? 4 : 2, rotateZ: desktop ? -1 : 0 };
-  gsap.set(card, { ...base, transformPerspective: 1400 });
+    /* 3D tilt of the main card (same values as the CSS fallback) */
+    const base = {
+        rotateY: desktop ? -10 : -4,
+        rotateX: desktop ? 4 : 2,
+        rotateZ: desktop ? -1 : 0,
+    };
+    gsap.set(card, { ...base, transformPerspective: 1400 });
 
-  /* count-up */
-  const target = Number(value.dataset.count);
-  const cur = value.dataset.currency || '';
-  const locale = value.dataset.locale || 'en-US';
-  const finalText = value.textContent;
-  const counter = { v: 0 };
-  value.textContent = cur + '0';
+    /* count-up */
+    const target = Number(value.dataset.count);
+    const cur = value.dataset.currency || "";
+    const locale = value.dataset.locale || "en-US";
+    const finalText = value.textContent;
+    const counter = { v: 0 };
+    value.textContent = cur + "0";
 
-  /* intro timeline */
-  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-  tl.from('.hero__badge', { y: 16, autoAlpha: 0, duration: 0.6 })
-    .from(q('.line__in'), { yPercent: 110, duration: 0.9, stagger: 0.12 }, '-=0.3')
-    .from('.hero__text', { y: 20, autoAlpha: 0, duration: 0.7 }, '-=0.5')
-    .from(q('.hero__cta > *'), { y: 20, autoAlpha: 0, duration: 0.6, stagger: 0.1 }, '-=0.4')
-    .from(q('.hero__features li'), { y: 16, autoAlpha: 0, duration: 0.5, stagger: 0.08 }, '-=0.3')
-    .from(card, { x: 90, rotateY: base.rotateY - 28, autoAlpha: 0, duration: 1.1 }, 0.3)
-    .from(floats, { x: 60, autoAlpha: 0, duration: 0.8, stagger: 0.18 }, 0.9)
-    .from(q('.hcard__actions li'), { y: 14, autoAlpha: 0, duration: 0.5, stagger: 0.08 }, 1.0)
-    .to(counter, {
-      v: target, duration: 2.2, ease: 'power2.out',
-      onUpdate: () => { value.textContent = cur + fmt(counter.v, locale); },
-      onComplete: () => { value.textContent = finalText; },
-    }, 0.8);
+    /* intro timeline */
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    tl.from(".hero__badge", { y: 16, autoAlpha: 0, duration: 0.6 })
+        .from(
+            q(".line__in"),
+            { yPercent: 110, duration: 0.9, stagger: 0.12 },
+            "-=0.3",
+        )
+        .from(".hero__text", { y: 20, autoAlpha: 0, duration: 0.7 }, "-=0.5")
+        .from(
+            q(".hero__cta > *"),
+            { y: 20, autoAlpha: 0, duration: 0.6, stagger: 0.1 },
+            "-=0.4",
+        )
+        .from(
+            q(".hero__features li"),
+            { y: 16, autoAlpha: 0, duration: 0.5, stagger: 0.08 },
+            "-=0.3",
+        )
+        .from(
+            card,
+            { x: 90, rotateY: base.rotateY - 28, autoAlpha: 0, duration: 1.1 },
+            0.3,
+        )
+        .from(
+            floats,
+            { x: 60, autoAlpha: 0, duration: 0.8, stagger: 0.18 },
+            0.9,
+        )
+        .from(
+            q(".hcard__actions li"),
+            { y: 14, autoAlpha: 0, duration: 0.5, stagger: 0.08 },
+            1.0,
+        )
+        .to(
+            counter,
+            {
+                v: target,
+                duration: 2.2,
+                ease: "power2.out",
+                onUpdate: () => {
+                    value.textContent = cur + fmt(counter.v, locale);
+                },
+                onComplete: () => {
+                    value.textContent = finalText;
+                },
+            },
+            0.8,
+        );
 
-  /* floating cards bob (desktop only, they are stacked on mobile) */
-  if (desktop) {
-    gsap.to(floats, {
-      y: '+=10', duration: 2.6, ease: 'sine.inOut',
-      repeat: -1, yoyo: true, delay: 1.8, stagger: { each: 0.5 },
+    /* floating cards bob (desktop only, they are stacked on mobile) */
+    if (desktop) {
+        gsap.to(floats, {
+            y: "+=10",
+            duration: 2.6,
+            ease: "sine.inOut",
+            repeat: -1,
+            yoyo: true,
+            delay: 1.8,
+            stagger: { each: 0.5 },
+        });
+    }
+
+    /* toggle switches by itself */
+    gsap.to(knob, {
+        x: -20,
+        duration: 0.4,
+        ease: "power2.inOut",
+        repeat: -1,
+        yoyo: true,
+        repeatDelay: 2.6,
+        delay: 2.4,
     });
-  }
 
-  /* toggle switches by itself */
-  gsap.to(knob, { x: -20, duration: 0.4, ease: 'power2.inOut', repeat: -1, yoyo: true, repeatDelay: 2.6, delay: 2.4 });
+    /* mouse parallax (desktop + mouse only) */
+    if (fine && desktop) {
+        const ry = gsap.quickTo(card, "rotateY", {
+            duration: 0.8,
+            ease: "power3.out",
+        });
+        const rx = gsap.quickTo(card, "rotateX", {
+            duration: 0.8,
+            ease: "power3.out",
+        });
+        const fx = floats.map((f) =>
+            gsap.quickTo(f, "x", { duration: 1, ease: "power3.out" }),
+        );
 
-  /* mouse parallax (desktop + mouse only) */
-  if (fine && desktop) {
-    const ry = gsap.quickTo(card, 'rotateY', { duration: 0.8, ease: 'power3.out' });
-    const rx = gsap.quickTo(card, 'rotateX', { duration: 0.8, ease: 'power3.out' });
-    const fx = floats.map((f) => gsap.quickTo(f, 'x', { duration: 1, ease: 'power3.out' }));
-
-    root.addEventListener('pointermove', (e) => {
-      const r = root.getBoundingClientRect();
-      const nx = (e.clientX - r.left) / r.width - 0.5;
-      const ny = (e.clientY - r.top) / r.height - 0.5;
-      ry(base.rotateY + nx * 8);
-      rx(base.rotateX - ny * 8);
-      fx.forEach((f, i) => f(-nx * (18 + i * 10)));
-    });
-    root.addEventListener('pointerleave', () => {
-      ry(base.rotateY); rx(base.rotateX); fx.forEach((f) => f(0));
-    });
-  }
+        root.addEventListener("pointermove", (e) => {
+            const r = root.getBoundingClientRect();
+            const nx = (e.clientX - r.left) / r.width - 0.5;
+            const ny = (e.clientY - r.top) / r.height - 0.5;
+            ry(base.rotateY + nx * 8);
+            rx(base.rotateX - ny * 8);
+            fx.forEach((f, i) => f(-nx * (18 + i * 10)));
+        });
+        root.addEventListener("pointerleave", () => {
+            ry(base.rotateY);
+            rx(base.rotateX);
+            fx.forEach((f) => f(0));
+        });
+    }
 }
 ```
 

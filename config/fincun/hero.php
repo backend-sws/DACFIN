@@ -28,8 +28,8 @@ return [
     'card' => [
         'brand' => 'DACFIN',
         'label' => 'Total Portfolio Value',
-        'value' => 12895750,        // used for the count-up
-        'display' => '₹1,28,95,750',  // shown without JS and at the end of the count-up
+        'value' => 20000000,        // used for the count-up
+        'display' => '₹2,00,00,000',  // shown without JS and at the end of the count-up
         'currency' => '₹',
         'locale' => 'en-IN',         // use '$' + 'en-US' + '$12,895,750' for the exact reference look
         'actions' => [                // [icon, label]  icons: invest, plan, shield, more
