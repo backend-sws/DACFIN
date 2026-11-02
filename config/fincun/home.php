@@ -72,7 +72,7 @@ return [
             ],
             [
                 'category' => 'Wealth Management',
-                'title' => 'Discretionary PMS & AIF Advisory',
+                'title' => 'Discretionary AIS, PMS & SIF',
                 'tag' => 'HNI Stewardship',
                 'desc' => 'Specialized private wealth management for high-net-worth families, direct equity PMS strategies, and SEBI-registered Alternative Investment Funds.',
                 'highlights' => [
@@ -172,7 +172,7 @@ return [
                 'text' => 'Experienced leadership with round the clock advisory from Dharmendra Kumar and team. Within a few days, I found my family portfolio streamlined and aligned with our 10-year enterprise vision. Truly fiduciary care.',
                 'avatar' => '/images/team/dharmendra.svg',
                 'case_title' => 'Case Study: Enterprise SIP',
-                'case_metric' => '+18.4% Alpha',
+                'case_metric' => '+15% Alpha',
                 'case_sub' => '10-Year Compounded Wealth',
                 'case_tag' => 'Patna Hub',
                 'card_badge' => 'Verified Review',

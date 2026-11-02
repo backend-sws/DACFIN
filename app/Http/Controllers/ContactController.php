@@ -30,13 +30,36 @@ class ContactController extends Controller
             report($e);
         }
 
+        $whatsappText = "Hello DACFIN,\n\n"
+            . "I would like to inquire regarding financial services:\n"
+            . "*Name:* " . $request->input('name') . "\n"
+            . "*Phone:* " . $request->input('phone') . "\n"
+            . "*Email:* " . $request->input('email') . "\n";
+
+        if ($request->filled('interest')) {
+            $whatsappText .= "*Interested In:* " . $request->input('interest') . "\n";
+        }
+
+        if ($request->filled('message')) {
+            $whatsappText .= "*Message:* " . $request->input('message') . "\n";
+        }
+
+        $rawPhone = config('fincun.site.whatsapp', '9934675399');
+        $cleanPhone = preg_replace('/[^0-9]/', '', (string) $rawPhone);
+        if (strlen($cleanPhone) === 10) {
+            $cleanPhone = '91' . $cleanPhone;
+        }
+
+        $whatsappUrl = 'https://wa.me/' . $cleanPhone . '?text=' . rawurlencode($whatsappText);
+
         if ($request->wantsJson()) {
             return response()->json([
                 'ok' => true,
-                'message' => 'Thank you for reaching out! Our advisory team will contact you within one business day.',
+                'message' => 'Thank you for reaching out! Redirecting to WhatsApp...',
+                'whatsapp_url' => $whatsappUrl,
             ]);
         }
 
-        return back()->with('sent', true);
+        return redirect()->away($whatsappUrl);
     }
 }

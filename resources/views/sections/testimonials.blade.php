@@ -76,7 +76,7 @@
                             <span class="w-2 h-2 rounded-full bg-[#60a5fa] shrink-0"></span>
                         </div>
                         <div class="w-full py-4 rounded-2xl bg-white/10 flex flex-col items-center justify-center text-white font-bold p-2 text-center border border-white/15 shadow-inner relative z-10">
-                            <span class="text-xl sm:text-2xl text-white font-display font-extrabold transition-all" x-text="items[activeIdx]?.case_metric || '+18.4% Alpha'"></span>
+                            <span class="text-xl sm:text-2xl text-white font-display font-extrabold transition-all" x-text="items[activeIdx]?.case_metric || '+15% Alpha'"></span>
                             <span class="text-[11px] text-[#dbeafe] font-medium transition-all" x-text="items[activeIdx]?.case_sub || '10-Year Compounded Wealth'"></span>
                         </div>
                         <div class="flex items-center justify-between text-xs text-[#dbeafe] font-semibold pt-2 border-t border-white/15 relative z-10">
