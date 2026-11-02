@@ -72,7 +72,7 @@ return [
             ],
             [
                 'category' => 'Wealth Management',
-                'title' => 'Discretionary AIS, PMS & SIF',
+                'title' => 'Discretionary AIF, PMS & SIF',
                 'tag' => 'HNI Stewardship',
                 'desc' => 'Specialized private wealth management for high-net-worth families, direct equity PMS strategies, and SEBI-registered Alternative Investment Funds.',
                 'highlights' => [
