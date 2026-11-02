@@ -312,7 +312,7 @@ return [
             'stamp_text' => 'CLARITY • TRUST • GROWTH • FIDUCIARY •',
             'stamp_center' => 'DAC',
             'card_top_tag' => 'SMART ADVISORY',
-            'card_top_val' => '+18.4% Return',
+            'card_top_val' => '+15% Return',
             'card_top_sub' => 'Alpha Benchmark',
             'card_bot_tag' => '100% UNBIASED',
             'card_bot_title' => 'Goal-Aligned Wealth',
