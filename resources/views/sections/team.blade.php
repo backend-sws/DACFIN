@@ -23,9 +23,9 @@
         </p>
 
         <!-- Team Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl gap-6" data-stagger>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl gap-6 items-start" data-stagger>
             @foreach($team['members'] as $member)
-                <div class="group relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#1a3f85] via-[#132f66] to-[#0c1f44] border border-[#3b82f6]/40 hover:border-[#93c5fd] shadow-[0_12px_35px_rgba(15,40,90,0.22)] hover:shadow-[0_20px_50px_rgba(26,63,133,0.38)] hover:-translate-y-1 transition-all duration-300 flex flex-col text-white" data-tilt>
+                <div class="group relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#1a3f85] via-[#132f66] to-[#0c1f44] border border-[#3b82f6]/40 hover:border-[#93c5fd] shadow-[0_12px_35px_rgba(15,40,90,0.22)] hover:shadow-[0_20px_50px_rgba(26,63,133,0.38)] hover:-translate-y-1 transition-all duration-300 flex flex-col text-white h-fit" data-tilt>
                     <!-- Metallic Specular Edge Shine -->
                     <div class="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#60a5fa]/70 to-transparent pointer-events-none z-10"></div>
                     <div class="absolute -right-12 -top-12 w-32 h-32 bg-[#3b82f6]/20 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
