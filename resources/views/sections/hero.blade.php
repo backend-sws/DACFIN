@@ -60,15 +60,17 @@
                 </ul>
             </article>
 
-            @foreach ($h['floats'] as $f)
-                <aside class="hfloat hfloat--{{ $loop->iteration }}" data-float aria-hidden="true">
-                    <span class="hfloat__av">{{ $f['avatar'] }}</span>
-                    <div class="hfloat__body">
-                        <strong>{{ $f['title'] }}</strong>
-                        <span><b>{{ $f['amount'] }}</b><em>{{ $f['meta'] }}</em></span>
-                    </div>
-                </aside>
-            @endforeach
+            @if (!empty($h['floats']))
+                @foreach ($h['floats'] as $f)
+                    <aside class="hfloat hfloat--{{ $loop->iteration }}" data-float aria-hidden="true">
+                        <span class="hfloat__av">{{ $f['avatar'] }}</span>
+                        <div class="hfloat__body">
+                            <strong>{{ $f['title'] }}</strong>
+                            <span><b>{{ $f['amount'] }}</b><em>{{ $f['meta'] }}</em></span>
+                        </div>
+                    </aside>
+                @endforeach
+            @endif
 
             <p class="hero__note">{{ $h['card']['illustrative'] }}</p>
         </div>

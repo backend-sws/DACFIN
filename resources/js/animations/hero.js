@@ -72,13 +72,17 @@ export function initHero() {
       { x: desktop ? 90 : 40, rotateY: base.rotateY - 28, autoAlpha: 0 },
       { x: 0, rotateY: base.rotateY, autoAlpha: 1, duration: 1.1 },
       0.3
-    )
-    .fromTo(floats,
+    );
+
+  if (floats.length > 0) {
+    tl.fromTo(floats,
       { x: desktop ? 60 : 30, autoAlpha: 0 },
       { x: 0, autoAlpha: 1, duration: 0.8, stagger: 0.18 },
       0.8
-    )
-    .fromTo(q('.hcard__actions li'),
+    );
+  }
+
+  tl.fromTo(q('.hcard__actions li'),
       { y: 14, autoAlpha: 0 },
       { y: 0, autoAlpha: 1, duration: 0.5, stagger: 0.08 },
       1.0
@@ -110,7 +114,7 @@ export function initHero() {
   });
 
   /* floating cards bob (desktop only, they are stacked on mobile) */
-  if (desktop) {
+  if (desktop && floats.length > 0) {
     gsap.to(floats, {
       y: '+=10', duration: 2.6, ease: 'sine.inOut',
       repeat: -1, yoyo: true, delay: 1.8, stagger: { each: 0.5 },
@@ -124,7 +128,9 @@ export function initHero() {
   if (fine && desktop) {
     const ry = gsap.quickTo(card, 'rotateY', { duration: 0.8, ease: 'power3.out' });
     const rx = gsap.quickTo(card, 'rotateX', { duration: 0.8, ease: 'power3.out' });
-    const fx = floats.map((f) => gsap.quickTo(f, 'x', { duration: 1, ease: 'power3.out' }));
+    const fx = floats.length > 0
+      ? floats.map((f) => gsap.quickTo(f, 'x', { duration: 1, ease: 'power3.out' }))
+      : [];
 
     root.addEventListener('pointermove', (e) => {
       const r = root.getBoundingClientRect();
@@ -132,10 +138,10 @@ export function initHero() {
       const ny = (e.clientY - r.top) / r.height - 0.5;
       ry(base.rotateY + nx * 8);
       rx(base.rotateX - ny * 8);
-      fx.forEach((f, i) => f(-nx * (18 + i * 10)));
+      if (fx.length > 0) fx.forEach((f, i) => f(-nx * (18 + i * 10)));
     });
     root.addEventListener('pointerleave', () => {
-      ry(base.rotateY); rx(base.rotateX); fx.forEach((f) => f(0));
+      ry(base.rotateY); rx(base.rotateX); if (fx.length > 0) fx.forEach((f) => f(0));
     });
   }
 }
