@@ -155,7 +155,7 @@
                             <button 
                                 type="submit" 
                                 :disabled="loading"
-                                class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-white text-ink font-semibold text-sm border-2 border-sand hover:border-emerald hover:bg-cream/40 shadow-sm hover:shadow-md transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                                class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-white text-ink font-semibold text-sm border-2 border-ink hover:bg-sand/30 shadow-sm hover:shadow-md transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                                 data-magnetic
                             >
                                 <span x-show="!loading" class="inline-flex items-center gap-2.5">
