@@ -41,10 +41,10 @@ return [
         'illustrative' => 'Illustrative values only, not actual returns.',
     ],
 
-    // 'floats' => [
-    //     ['avatar' => '↻', 'title' => 'Dividend Reinvestment', 'amount' => '+₹1,200',  'meta' => 'Today'],
-    //     ['avatar' => 'I', 'title' => 'Index Fund',            'amount' => '+₹55,000', 'meta' => 'Wed 18 Jan'],
-    // ],
+    'floats' => [
+        ['avatar' => '↻', 'title' => 'Dividend Reinvestment', 'amount' => '+₹1,200',  'meta' => 'Today'],
+        ['avatar' => 'I', 'title' => 'Index Fund',            'amount' => '+₹55,000', 'meta' => 'Wed 18 Jan'],
+    ],
 
     'vertical_text' => 'Financial clarity · Every step',
 ];
