@@ -43,13 +43,20 @@
                     </div>
 
                     <!-- Meta text -->
-                    <div class="p-5 space-y-1 relative z-10 flex-1 flex flex-col justify-start">
-                        <h4 class="font-display font-bold text-base text-white group-hover:text-[#bfdbfe] transition-colors">
-                            {{ $member[0] }}
-                        </h4>
-                        <p class="text-xs text-[#dbeafe] font-medium leading-snug">
-                            {{ $member[1] }}
-                        </p>
+                    <div class="p-5 space-y-2 relative z-10 flex-1 flex flex-col justify-start">
+                        <div class="space-y-1">
+                            <h4 class="font-display font-bold text-base text-white group-hover:text-[#bfdbfe] transition-colors">
+                                {{ $member[0] }}
+                            </h4>
+                            <p class="text-xs text-[#dbeafe] font-medium leading-snug">
+                                {{ $member[1] }}
+                            </p>
+                        </div>
+                        @if(!empty($member[4]))
+                            <p class="text-[11px] sm:text-xs text-[#dbeafe]/85 leading-relaxed pt-2 border-t border-white/10">
+                                {{ $member[4] }}
+                            </p>
+                        @endif
                     </div>
                 </div>
             @endforeach

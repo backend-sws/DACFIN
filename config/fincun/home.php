@@ -409,7 +409,13 @@ return [
         'title' => 'Meet Your Trusted Advisors',
         'text' => 'Behind DACFIN is dedicated leadership led by Dharmendra Kumar and Asha Kumari, alongside experienced professionals who bring together deep industry expertise to make finance human, approachable and reliable.',
         'members' => [
-            ['Dharmendra Kumar',      'Portfolio Manager',              '/images/team/dharmendra.jpg', 'DK'],
+            [
+                'Dharmendra Kumar',
+                'Portfolio Manager',
+                '/images/team/dharmendra.jpg',
+                'DK',
+                'A seasoned financial professional with nearly 20 years of experience in the financial services industry, specializing in portfolio management, investment advisory and wealth creation. Committed to providing strategic investment solutions through a disciplined, transparent and client-centric approach, with a focus on long-term financial growth.',
+            ],
             ['Asha Kumari',          'Manager Business Development',                      '/images/team/asha.jpg',       'AK'],
             ['Aaditya Malhotra',     'Operations Head',                                 '/images/team/aaditya.jpg',    'AM'],
             ['Jitendra Prasad Singh', 'Manager Business Development (Emerging Market)', '/images/team/jitendra.jpg',   'JS'],

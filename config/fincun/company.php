@@ -42,7 +42,7 @@ return [
             'role' => 'Portfolio Manager',
             'initials' => 'DK',
             'image' => '/images/team/dharmendra.jpg',
-            'bio' => 'Dharmendra Kumar brings extensive experience in personal wealth advisory, goal-based planning, and client-centric asset allocation strategies.',
+            'bio' => 'A seasoned financial professional with nearly 20 years of experience in the financial services industry, specializing in portfolio management, investment advisory and wealth creation. Committed to providing strategic investment solutions through a disciplined, transparent and client-centric approach, with a focus on long-term financial growth.',
         ],
         'asha-kumari' => [
             'name' => 'Asha Kumari',
