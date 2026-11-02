@@ -49,7 +49,7 @@ return [
             'role' => 'Manager Business Development',
             'initials' => 'AK',
             'image' => '/images/team/asha.jpg',
-            'bio' => 'Asha Kumari leads institutional operations, compliance governance, and client service excellence, ensuring transparent and reliable financial stewardship.',
+            'bio' => 'Specialized in business development, client acquisition, relationship management, and distribution of financial products, including Mutual Funds, Equity, and Fixed Income Bonds. Committed to providing professional guidance, strengthening business partnerships, and creating long-term value through trust, transparency, and customer satisfaction.',
         ],
         'aaditya-malhotra' => [
             'name' => 'Aaditya Malhotra',
