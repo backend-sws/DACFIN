@@ -423,8 +423,20 @@ return [
                 'AK',
                 'Specialized in business development, client acquisition, relationship management, and distribution of financial products, including Mutual Funds, Equity, and Fixed Income Bonds. Committed to providing professional guidance, strengthening business partnerships, and creating long-term value through trust, transparency, and customer satisfaction.',
             ],
-            ['Aaditya Malhotra',     'Operations Head',                                 '/images/team/aaditya.jpg',    'AM'],
-            ['Jitendra Prasad Singh', 'Manager Business Development (Emerging Market)', '/images/team/jitendra.jpg',   'JS'],
+            [
+                'Aaditya Malhotra',
+                'Operations Head',
+                '/images/team/aaditya.jpg',
+                'AM',
+                'Aaditya Malhotra oversees day-to-day operations, workflow optimization, and service delivery, ensuring seamless execution and superior client experience across all financial touchpoints.',
+            ],
+            [
+                'Jitendra Prasad Singh',
+                'Manager Business Development (Emerging Market)',
+                '/images/team/jitendra.jpg',
+                'JS',
+                'Jitendra Prasad Singh drives business development and strategic outreach across emerging markets, expanding DACFIN\'s regional presence and building lasting client relationships.',
+            ],
         ],
     ],
 
