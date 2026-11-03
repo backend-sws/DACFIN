@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 380" fill="none">
+  <defs>
+    <linearGradient id="grad_NM" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A192F" />
+      <stop offset="60%" stop-color="#0E1E38" />
+      <stop offset="100%" stop-color="#1B3676" />
+    </linearGradient>
+  </defs>
+  <rect width="320" height="380" rx="24" fill="url(#grad_NM)"/>
+  <circle cx="160" cy="150" r="70" fill="#1B3676" fill-opacity="0.3" stroke="#38BDF8" stroke-width="2.5"/>
+  <text x="160" y="168" font-family="'Fraunces', serif" font-size="52" font-weight="700" fill="#FFFFFF" text-anchor="middle">NM</text>
+  <rect x="25" y="270" width="270" height="70" rx="16" fill="#0B192C" fill-opacity="0.85" stroke="#38BDF8" stroke-opacity="0.35"/>
+  <text x="160" y="299" font-family="'Fraunces', serif" font-size="16" font-weight="600" fill="#FFFFFF" text-anchor="middle">Dr. Navnit Mukul</text>
+  <text x="160" y="321" font-family="'Manrope', sans-serif" font-size="10.5" font-weight="700" fill="#38BDF8" text-anchor="middle" letter-spacing="1">CONSULTANT PHYSICIAN</text>
+</svg>

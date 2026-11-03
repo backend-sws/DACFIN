@@ -18,6 +18,12 @@
         paused: false,
         timer: null,
         init() {
+            this.$watch('activeIdx', (idx) => {
+                const el = this.$refs.pillsContainer?.children[idx];
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+            });
             this.timer = setInterval(() => {
                 if (!this.paused && this.total > 1) {
                     this.next();
@@ -52,7 +58,7 @@
                 <span>Speak</span>
             </h2>
             <p class="text-slate text-sm sm:text-base leading-relaxed">
-                Real stories of financial clarity from enterprise owners, medical consultants, and executives across Patna and Ranchi.
+                Real stories of disciplined financial planning and wealth compounding from trusted doctors, specialists, and healthcare leaders across Patna.
             </p>
         </div>
 
@@ -145,7 +151,7 @@
                 <!-- Top Bar: Pills Selector + Arrows Navigation -->
                 <div class="flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap">
                     <!-- Client Selector Pills (Native scrollbar 100% hidden) -->
-                    <div class="flex items-center gap-2 overflow-x-auto py-1.5 scrollbar-none flex-nowrap shrink-0 max-w-[calc(100%-80px)]">
+                    <div x-ref="pillsContainer" class="flex items-center gap-2 overflow-x-auto py-1.5 scrollbar-none flex-nowrap shrink-0 max-w-[calc(100%-80px)] scroll-smooth">
                         @foreach($items as $idx => $t)
                             <button 
                                 type="button" 
